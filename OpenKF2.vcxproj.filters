@@ -1,0 +1,3179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\kf_scr">
+      <UniqueIdentifier>{1175840e-6d81-46fe-86d4-41c8dfbd2b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\psy">
+      <UniqueIdentifier>{ba33ce48-a8d1-4219-b101-fe2ac4d54b3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\psy\audio">
+      <UniqueIdentifier>{c3f7f1e3-5052-49d0-85fc-6cfa86fc30a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\psy\gpu">
+      <UniqueIdentifier>{326ddb50-f24e-4bb5-b242-bc371b3f3140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\psy\gte">
+      <UniqueIdentifier>{011100f0-9717-40cf-81ac-d81a720acfb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\psy\pad">
+      <UniqueIdentifier>{974810c0-d2f5-4a8b-a8fc-d745d795cc97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\psy\psx">
+      <UniqueIdentifier>{210c57f5-8ee1-4918-9816-4f3e06c29a15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\psy\render">
+      <UniqueIdentifier>{e549a3e0-2cde-4c36-add7-491e9c74bf94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\psy\util">
+      <UniqueIdentifier>{da9c2807-cc29-46c1-845f-90f55133b21a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\psy">
+      <UniqueIdentifier>{ed5e4aa1-ba1c-4c06-807c-67cf5f7a982c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\psy\psx">
+      <UniqueIdentifier>{26053df7-7376-4eea-b41e-b5542abe2b67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\psy\PsyX">
+      <UniqueIdentifier>{5b796525-24f7-4b90-9340-90946ea49d0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\psy\PsyX\common">
+      <UniqueIdentifier>{eb405fbb-d562-451a-9781-0404dedd9065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\psy\PsyX\util">
+      <UniqueIdentifier>{522cf65f-9417-4298-9cf2-a0304ce7823f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="kf_cd.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="recomp.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\___MainGameLoop.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_bu_init.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_card_info.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_card_write.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_ControllerInput.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_loadTIM.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_new_card.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_patch_gte.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_spu_gcSPU.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_spu_setReverbAttr.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\_SsVmDamperOff.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AddPrims.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AI_GetRandomizedWeight.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AllocateMemor_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AllocateMemor_01.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AllocateMemory.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AllocateParticleSlot.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AnalizingTMD.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ApplyDamage.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ApplyMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ApplyMatrixLV.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ApplyRotMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ApplyStatusEffect.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ClearImageWithCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ApplyViewTransforms.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\atoi.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AverageSZ3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AverageSZ3_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AverageSZ4_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AverageZ3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AverageZ4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\BcdToDec.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\bcopy_recomp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\BeginDraw2D.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\BuildRenderCommand.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\BuildUnifiedActionMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\BuyItemMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\bzero_recomp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CalculateDamagePart.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CalculateDistance.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CalculateNextCdChunk.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CalculatePlayerStats.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CalculateSectorCount.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CalculateSellPrices.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CalculateTrajectory.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CatPrim.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CD_cw_8004DBE0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CDAudio_SetVolume.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CDAudio_Stop.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdCheckISO9660.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdCheckStatus.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdControl.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdFlush.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdIntstr.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdLastCom.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdMode.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdReadSector.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdReadWithRetry.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdReadyCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdSearchFile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdSetDebug.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdStatus.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdSyncCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CdWaitForCompletion.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ChangeClearPAD.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ChangeClearRCnt.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CheckCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CheckHasWeaponMagic.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CleaningUpTempResources.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ClearOTag.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\close.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CloseEvent.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CollectAvailableSpells.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CollectBuyData.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CollectEquippableItems.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CollectEquippedItemsData.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CollisionWithTilemap.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ColorCol.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ColorDpq.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CompMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ConvertCdAddress.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ConvertVertexCoordinates.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CDReadSectorsInternal.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CopyToFinalBuffer.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CreateAudioCDTask.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CreateCDTask.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DecToBcd.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DeliverEvent.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DisableEvent.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DMACallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DpqColor.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DpqColor3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DpqColorLight.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Draw3dPreview.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DrawDebugNumbers.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DrawDefAtkStats.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DrawHUDNumberString.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DrawPlayerStat.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DrawTexture.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DrawTextureNPatch.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DropMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DsPosToInt.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DumpClut.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DumpDispEnv.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\DumpTPage.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\EnableEvent.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\EndDraw2D.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Engine_PackPrimitive.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\EnterCriticalSection.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entities_UpdateAll.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_Alert.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_ApplySequence.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_ChangeState.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_CheckWorldCollision.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_EnterCombatState.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_LoadStats.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_SelectAction.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_SetContext.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_UpdateAIByDistance.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_UpdateDetection.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Entity_UpdatePhysics.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\EntityClass_GetActionSequence.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\EquipmentMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\erase.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\exit.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ExitCriticalSection.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadTFile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FadeScreenIn.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FinalizePlayerInit.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FindFreeAudioChannel.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FindFreeOrOldestProjectileSlot.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FindInteractableInCone.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\firstfile2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FixedCos.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FixedPointLerp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FixedSin.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Flush3dRender.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FlushCache.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FMOAllocateBuffer.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\format.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FormatHUDNumber.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FreeSPUVoice.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GatherCameraContext.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GetDistanceIfInRange.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GetIntrMask.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GetInventoryItems.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GetPrimitiveBuffer.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GetTPage.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_CheckTimeout_800655DC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_Cmd_FinalizeAndAdvance.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_Cmd_MergeParams.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_Cmd_SetBaseParams.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_Cmd_SetBlendFlag.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_Cmd_SetupFlatGrayQuad.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_cw.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_SafeExecute.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GPU_SafeExecuteWrap.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\StoreImageWithCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\GsGetWorkBase.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Heap_Init.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\HideInGameUI.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\HookEntryInt.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InGameMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitBiosEvents.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitCARD2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitDmaChannel.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitEntitySystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitEventSystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitGraphicsSystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitListWidget.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitMenuTextCoords.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitNoSaveFoundLabels.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitParticleSystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitPlayerInventory.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitPlayerStats.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitProjectileSystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitSoundSystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InitTileMap.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Interact_8004A5E4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InteractWithObj.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InterpolateAnimationFrame.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InterruptCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Intpl.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InventoryAddItem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InventoryRemoveItem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\InvSquareRoot.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\IsConsumable.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\IsEndPrim.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\IsFacingFountainTile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\JustReturn2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\KF_ClearImage.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\KF_DrawOTag.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\KF_LoadImage.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\KF_SetDefDispEnv.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\KF_SetDefDrawEnv.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LbaToMsf.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LerpBrightnes.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LerpRotationMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LightColor.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ListNavigating.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Load.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadAverage0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadAverage12.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadAverageByte.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadAverageCol.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadAverageShort0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadAverageShort12.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\loadDatabaseCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadFileByIndex.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadGameData.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadImage.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadMemCardErrorLabels.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadPopupsTexturOrTalk.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadSave.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\loadScriptCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LoadTalkFiles.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\loadTilemapCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\loadTilesetCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Local2World.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LocalLight.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LOCKSMITH_BuyMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\LOCKSMITH_CopyKey.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Locksmith_Menu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Lzc.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Map_ApplyBlueprint.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Map_CalculatePhysics.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MAP_CollisionWithTile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Map_CopyTileBlock.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Map_GetCellData.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Map_InitializeObjects.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Map_Load.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Map_MarkOccupiedTiles.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Map_ScriptUpdate.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Math_AnglesToDirVector.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Math_Atan2_Fixed.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Math_CORDIC_Atan.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Math_IsAngleInRange.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Math_IsTargetInVerticalRange.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Math_VectorToAngles.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MatrixNormal.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MatrixNormal_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MatrixNormal_1_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MatrixNormal_2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MatrixNormal_2_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MeleeAttack_800281CC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Mem_FreeBlock.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MemCard_CheckSlot.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MemCard_InitSystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MemCard_ScanForSaves.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\memcpy_recomp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MemcpyDword.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\memset_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\memset_1.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\memset_recomp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Menu_SelectLanguage.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MenuInputProcess.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MessageQueuePush.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MO_Something01Set.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MO_Something02Set.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MOLoadedCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MsfToLba.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Music_PlaySEQ.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Music_PlayTrack.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Music_Stop.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Music_UpdateState.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NextCdTask.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\nextfile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NextPrim.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NormalClipS.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NormalColor.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NormalColor3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NormalColorCol.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NormalColorCol3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NormalColorDpq.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\NormalColorDpq3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\nullsub_1.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\nullsub_2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\nullsub_3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\nullsub_4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\nullsub_5.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\OnAudioStreamComplete.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\OnCDReadComplete.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\open.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\OpenEvent.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\OpenTIM.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\OpenTMD_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\OptionsMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\OuterProduct0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\OuterProduct12.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PackColorPSX.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PackMaterialFlags.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PackVertex10.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PackVertex10B.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PackVertex11.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PAD_dr.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PAD_init2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadChkVsync.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadChkVsync_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadInfoAct_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadInfoComb_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadInit.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadRead.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadSetAct_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AsyncDataLoad.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadStartCom_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PadStopCom_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ParseTIMHeader.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlayAudioStream.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlayEntitySound.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Player_CheckHeadroom.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Player_LevelUp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Player_MagicPowerUp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Player_ResetMovement.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Player_Spawn.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Player_StrengthPowerUP.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlayerDoInteract.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlayerSetDefault.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlayPositionalSound3D.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlayPositionalSound3D_Wrap.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlaySfx.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlaySoundEffect.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PlayTrack.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PrecomputeCardinalOrientations.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PrepareReadTask.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PrepareRenderPrimitives.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\printf.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ProcessAssetLoadQueue.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ProcessCDAudioLoad.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ProcessListNavigation.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ProcessMeleeAttack.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ProcessPlayerInput.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ProcessTIMContainer.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\PutDrawEnv_800637A4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\QueueCDReadTask.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\rand_recomp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\read.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ReadColorMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ReadFromFile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ReadPadWithFlag.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ReadTIM.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ReadTMD.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ReadTMD_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RegisterAndTransformModel.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RegisterPrimitiveTypes.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RenderFadeOverlay.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RenderItemList.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RenderMenuFrame.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RenderOptionsList.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RenderStaticMenuBox.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ResetCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ResetEntryInt.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ResetGPU.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ResetGraph.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ResetGraph_Internal.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ResetPlayerBuffers.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ResolveCurrentMetaTile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Resource_UnlinkAndFree.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RestartCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ReturnFromException.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RotateMatrixCardinal.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RotMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RotMatrixC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RotMatrixY_C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RotMatrixY_C_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\RotMatrixZ_C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SaveDataMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ScaleMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ScaleMatrixL.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SectorToMSF.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SellItemMenu_8001F46C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SEQ_InitData.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SEQ_Open.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SEQ_Play.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetBackColor.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetColorMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetDQB.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetDrawMove.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetDrawTPage.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetFadeColor.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetFarColor.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetFogNear.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetGeomOffset.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetGeomScreen.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetIntrMask.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetLightMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetLineF2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetLineF3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetLineF4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetLineG2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetLineG3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetLineG4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetMasterVolume.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetMulMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetPolyF3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetPolyF4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetPolyFT3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetPolyG3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetPolyG4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetPolyGT3.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetPolyGT4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetProjectileModel.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetRotMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetShadeTex.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetSprt.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetSprt8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetSprt16.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetStateCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetTile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetTile1.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetTile8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetTile16.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetTransMatrix.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\CD_readm.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetupEntityAnimation.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetupGTE.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetupMenuUIBuffers.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetVertex0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetVertex1.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetVertex2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetVertexTri.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetVib.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SetVideoMode.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SeVibOn.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ShowEquipmentMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ShowLoadOrNewGameMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ShowUseMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sin_1.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpawnMagicProjectile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpawnParticleEntity.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpawnProjectile.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SPU_PlayVoice.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpuClearReverbWorkArea.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpuFree.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpuInitMalloc.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpuMalloc.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpuSetCommonAttr.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpuVoice_Clear.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpuVoice_StopAll.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SpuVoice_Trigger.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Square0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Square12.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SquareRoot0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsSetAutoKeyOffMode.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtGetDetVVol.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtGetDetVVol_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtGetDetVVol_1.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtGetVVol.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtSetDetVVol_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtSetVVol.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtSetVVol_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtVibrateOff.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtVibrateOff_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtVibrateOn.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsUtVibrateOn_0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsVabFakeHead.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsVabOpenHead.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsVabOpenHeadSticky.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsVabOpenHeadWithMode.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SsVabTransCompleted.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\start.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\StartAudioStream.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\StartCARD2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\StopCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\StopCARD2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\StopPAD.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\StopPAD2.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\StoreImage_8006494C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\strcat_recomp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\strcmp_recomp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\strcpy_recomp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\strncmp.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001A3C8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001A3F8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001A35C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001AEF4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001B480.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001C3A0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001C068.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001D214.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001D770.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001DAF0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001DCD0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001E2B8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001E480.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001E648.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001E810.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001E938.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001EA60.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001EDE0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001EF38.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001F9B8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001F77C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002A3DC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002A338.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002A398.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002A964.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002AC04.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002AF20.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002B974.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002BC74.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002BCDC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002BCF8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002BED0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002BF24.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002BF60.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002BFF4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002C0F8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002C1E0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002C06C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002C24C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002C29C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002C124.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002E4F4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002E394.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002EAFC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002EB24.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002ECC0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002ED24.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002EDE4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002EF78.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002F1C8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002FA5C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002FBC0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002FD90.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002FE74.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002FF0C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002FFA4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002FFD4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002FFF8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003B9A8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003B748.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003B984.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003BB98.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003C27C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003C220.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003C250.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003CD9C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003D5EC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003D8B4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003D8E4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003D090.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003D200.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003D824.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003D858.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003DDB0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003DF98.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003E7D0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003E8E8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003E038.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003E75C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003E414.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003E540.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003E608.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003EA30.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003EAC0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003EBC0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003ECE8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003EEB0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003F0F4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003FAE8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003FB58.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004AD48.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004AD98.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004AE08.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004AE54.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004AEC4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004B31C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004B694.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004BC5C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004C264.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004C358.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004C500.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004CEBC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004CEE0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004D148.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004D910.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004E0D0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004E1E0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004E2C8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004E3BC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004E42C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004E048.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004E73C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004EE68.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004EFD4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004F0C4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004F1A4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004F3A0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004F3C8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004F3F0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004F310.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004F418.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004F794.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004FAAC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004FB58.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004FE80.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004FEB4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005A00C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005A2A4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005A388.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005A400.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005A964.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005AAB0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005AB78.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005ACA4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005ADF0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005AE68.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005AEE0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005B7E8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005B73C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005B468.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005BB50.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005BC0C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005BC68.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005BCF4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005BF30.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005C0F8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005C7F8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005C10C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005C32C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005C58C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005C214.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005C634.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005CA30.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005CB30.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005CD18.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005CFA8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005D23C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005D29C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005D34C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005D174.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005D538.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005D854.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005DBA8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005DC50.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005DCEC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005DDF8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005E1AC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005E2CC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005E5E8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005E43C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005E234.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005EE1C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005F2C8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005F348.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005F578.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80013A5C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80014C84.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80014D48.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80014DB0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80014ED4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80014FAC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015B74.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015CC8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015D30.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015DD0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80016CBC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80017B7C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80017BA4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80017C98.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80017CC8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80017DB4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80017F2C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80019F94.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80023C94.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80025C3C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80025D40.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80025D64.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80025DE0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80025EDC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80026E38.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80026EE0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80026F34.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80027D54.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80027E20.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80027E80.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80027EA8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80027ED0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80028E8C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80029F08.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80031CD0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80032A1C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80033A1C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80033DB4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80033E44.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80033ED4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80033FBC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034A2C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034AD4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034B44.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034C04.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034C68.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034D08.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034DFC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034F14.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80035ADC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80035D64.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80035D74.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80036A8C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80036DD8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80037F78.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80038AF0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80042AEC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80042BD4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80042CC8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80044B20.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80044C74.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80044DF8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80044EC0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80048AB4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80048B10.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80049DE4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80049EFC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80050A2C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80050B64.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80050C7C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80051B4C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80051C3C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80051C84.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80051D64.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80051E08.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80051E8C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80051EB0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80053EC0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80053F00.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80053F50.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80054A10.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80054EFC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80054FD8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80055A58.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80055D90.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80055F60.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80056C3C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80056D94.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80056FE4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80057C6C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80057DEC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80057F04.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80057FA0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80058A90.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80059EFC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80060C54.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80061B0C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80061CEC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80061DC8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80061FB0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062B20.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062C20.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062FB8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062FC8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80064BE8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80064C2C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80064C14.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80064CC8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800140B4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800143E0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800145F8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800153EC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800154CC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800157D4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800157E4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800166F8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800177B0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800177D0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800179BC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800213E8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800234CC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800255B0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800255E0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800260BC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800262C0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800305F4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800307E8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800320BC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800322FC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800336D4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800338A0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800365CC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800367D0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800370CC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800370FC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800371F4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800372AC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800395EC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800422B8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800424C8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800425A0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800427C8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800427EC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800428D0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800446E0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800489FC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800509EC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800511C4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800518A4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800520B8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800520C8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800523B8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800524D0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800524F0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800525C0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800526BC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800526FC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800541F4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800552C0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800568CC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800570D0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800579E4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800611CC.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800621B4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800622B8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800624E4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800625E4.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800628B0.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800629F8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\MoveImageWithCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800636A8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800643D8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_800670D8.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001565C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001605C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8001772C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002536C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8002810C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003073C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003171C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003654C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003706C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003804C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8003955C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004435C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004489C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004878C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004892C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8004908C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005082C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005201C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005208C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005267C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005314C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005476C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005599C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8005984C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8006223C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8006243C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8006353C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_8006431C.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80014448.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80014594.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015304.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015378.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015460.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015614.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015694.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015990.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80016168.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80016580.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80017920.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80018960.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80019128.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80019198.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80025064.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80025700.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80026314.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80027280.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80027700.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80030008.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80030044.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80030474.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80030894.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80030924.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80031034.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034100.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034304.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80034824.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80036428.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80036690.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80036754.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80037264.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80038004.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80038120.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80038214.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80039068.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80039190.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80039348.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80039448.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80042244.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80042938.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80044184.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80044520.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80044784.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80044814.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80048768.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80048874.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80050860.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80051508.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80052050.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80052154.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80052244.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80052358.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80052398.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80052510.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80053364.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80054214.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80055088.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80055790.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80055950.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80056334.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80056504.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80057484.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80058120.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80059720.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80059798.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80059920.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062104.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062268.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062510.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062568.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80062610.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80065010.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80065460.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\sub_80065748.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SubmitDisplayListToGPU.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\SyncVSyncStatus.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\TermPrim.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\TestEvent.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\TGetFileSize.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\TLoadFileASync1.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\TriggerGpuDma.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\TriggerLightFlash.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\TryCastMagic.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UI_DrawCursor.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ui_DrawFrame.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\ui_DrawText.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\Update3dPreview.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateCamera.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateEnemyAI.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateEnvironmentTint.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateObjects.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateObjectVerticalMovement.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateParticleEffect.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateParticleSystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdatePlayerMapContext.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdatePlayerSystem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateStatusEffects.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UpdateTileLighting.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UseConsumableItem.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UseItems_80049108.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\UseMagicMenu.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\v_wait.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VectorNormal.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VectorNormalS.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VectorNormalSS.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VerifyChecksum.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VRAM_FindFreeSlot.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VRAM_ReserveTextureSpace.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VSync.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VSyncCallback.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\VSyncCallbacks.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\WaitEvent.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\WaitForButtonRelease.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\AsyncStructForcedLoadSync.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\KF_DrawSync.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\WaitForInputStable.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\FAsyncLoadSomething_0005.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="kf\scr\write.c">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\PsyX_main.cpp">
+      <Filter>Исходные файлы\psy</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\audio\PsyX_SPUAL.cpp">
+      <Filter>Исходные файлы\psy\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\gpu\PsyX_GPU.cpp">
+      <Filter>Исходные файлы\psy\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\gte\half_float.cpp">
+      <Filter>Исходные файлы\psy\gte</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\gte\PsyX_GTE.cpp">
+      <Filter>Исходные файлы\psy\gte</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\pad\PsyX_pad.cpp">
+      <Filter>Исходные файлы\psy\pad</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\ABS.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\INLINE_C.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBAPI.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBCD.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBETC.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBGPU.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBGTE.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBMCRD.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBPAD.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBSN.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBSPU.C">
+      <Filter>Исходные файлы\psy\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\render\glad.c">
+      <Filter>Исходные файлы\psy\render</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\render\PsyX_render.cpp">
+      <Filter>Исходные файлы\psy\render</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\util\crash_handler.cpp">
+      <Filter>Исходные файлы\psy\util</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\util\timer.c">
+      <Filter>Исходные файлы\psy\util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kf_cd.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="kf\_context.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="kf\scr\disable_warnings.h">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClInclude>
+    <ClInclude Include="kf\scr\funcs.h">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\iso9660.h">
+      <Filter>Исходные файлы\psy</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\platform.h">
+      <Filter>Исходные файлы\psy</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\PsyX_main.h">
+      <Filter>Исходные файлы\psy</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\audio\PsyX_SPUAL.h">
+      <Filter>Исходные файлы\psy\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gpu\font.h">
+      <Filter>Исходные файлы\psy\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gpu\PsyX_GPU.h">
+      <Filter>Исходные файлы\psy\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gte\PsyX_GTE.h">
+      <Filter>Исходные файлы\psy\gte</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gte\ratan_tbl.h">
+      <Filter>Исходные файлы\psy\gte</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gte\rcossin_tbl.h">
+      <Filter>Исходные файлы\psy\gte</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gte\sqrt_tbl.h">
+      <Filter>Исходные файлы\psy\gte</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\pad\PsyX_pad.h">
+      <Filter>Исходные файлы\psy\pad</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\util\crash_handler.h">
+      <Filter>Исходные файлы\psy\util</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\abs.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\asm.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\gtemac.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\gtereg.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\inline_c.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\kernel.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libapi.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libcd.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libetc.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libgpu.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libgte.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libmath.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libmcrd.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libpad.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libpress.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libsn.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libspu.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\r3000.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\rand.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\strings.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\types.h">
+      <Filter>Файлы заголовков\psy\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_config.h">
+      <Filter>Файлы заголовков\psy\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_globals.h">
+      <Filter>Файлы заголовков\psy\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_public.h">
+      <Filter>Файлы заголовков\psy\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_render.h">
+      <Filter>Файлы заголовков\psy\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_version.h">
+      <Filter>Файлы заголовков\psy\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\common\glad.h">
+      <Filter>Файлы заголовков\psy\PsyX\common</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\common\half_float.h">
+      <Filter>Файлы заголовков\psy\PsyX\common</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\common\pgxp_defs.h">
+      <Filter>Файлы заголовков\psy\PsyX\common</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\util\timer.h">
+      <Filter>Файлы заголовков\psy\PsyX\util</Filter>
+    </ClInclude>
+    <ClInclude Include="kf\recomp.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kf\scr\recomp_overlays.inl">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </None>
+  </ItemGroup>
+</Project>

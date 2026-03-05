@@ -1,0 +1,50 @@
+#include "recomp.h"
+#include "disable_warnings.h"
+#include "psx/libetc.h"
+
+
+void KF_PadRead(uint8_t* rdram, recomp_context* ctx) 
+{
+
+    int id = (int)ctx->r4; // Номер порта джойстика (0 или 1)
+
+    unsigned int buttons = PadRead(id);
+
+    ctx->r2 = (uint32_t)buttons;
+}
+
+//void KF_PadRead(uint8_t* rdram, recomp_context* ctx) {
+//    uint64_t hi = 0, lo = 0, result = 0;
+//    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
+//    int c1cs = 0; 
+//    // addiu       $sp, $sp, -0x18
+//    ctx->r29 = ADD32(ctx->r29, -0X18);
+//    // sw          $ra, 0x10($sp)
+//    MEM_W(0X10, ctx->r29) = ctx->r31;
+//    // jal         0x80062830
+//    // nop
+//
+//    PAD_dr(rdram, ctx);
+//    goto after_0;
+//    // nop
+//
+//    after_0:
+//    // lui         $v0, 0x8008
+//    ctx->r2 = S32(0X8008 << 16);
+//    // lw          $v0, -0x6FF8($v0)
+//    ctx->r2 = MEM_W(-0X6FF8, ctx->r2);
+//    // nop
+//
+//    // nor         $v0, $zero, $v0
+//    ctx->r2 = ~(0 | ctx->r2);
+//    // lw          $ra, 0x10($sp)
+//    ctx->r31 = MEM_W(0X10, ctx->r29);
+//    // addiu       $sp, $sp, 0x18
+//    ctx->r29 = ADD32(ctx->r29, 0X18);
+//    // jr          $ra
+//    // nop
+//
+//    return;
+//    // nop
+//
+//;}

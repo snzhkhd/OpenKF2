@@ -1,0 +1,495 @@
+#include "recomp.h"
+#include <stdio.h>
+#include <algorithm>
+#include <map>
+#include <thread>
+#include <chrono>
+#include <queue>
+#include <filesystem>
+//#include "psx/libcd.h" 
+#include "psx/libetc.h"
+#include "psx/libapi.h"
+
+namespace fs = std::filesystem;
+
+#include "scr/recomp_overlays.inl"
+
+bool g_vsync_pending = false;
+uint32_t g_CdReadCbAddr = 0;
+uint32_t g_CdReadyCbAddr = 0;
+uint32_t g_CdSyncCbAddr = 0;
+
+
+extern std::map<uint32_t, recomp_func_t> function_table;
+extern recomp_context * g_ctx = nullptr;
+volatile  uint32_t global_vsync_count = 0;
+std::map<uint32_t, recomp_func_t> function_table;
+
+
+
+void init_function_table() 
+{
+    size_t count = sizeof(section_1_text_funcs) / sizeof(FuncEntry);
+
+    for (size_t i = 0; i < count; i++) {
+        // Базовый адрес секции кода в PS1 - 0x80010000
+        uint32_t ram = 0x80010000 + section_1_text_funcs[i].offset;
+
+        // Маскируем адрес, чтобы игнорировать KSEG (0x80/0xA0/0x00)
+        uint32_t phys_addr = ram & 0x1FFFFFFF;
+
+        function_table[phys_addr] = section_1_text_funcs[i].func;
+    }
+
+    printf("[CORE] Function table initialized: %zu functions mapped.\n", count);
+}
+void _recompbcopy(uint8_t* rdram, recomp_context* ctx)
+{
+    uint32_t function_id = ctx->r9;
+    printf("[CORE] Call _recompbcopy 0x%02X (a0: 0x%08X)\n", function_id, ctx->r4);
+}
+
+
+
+void gpu_process_dma_list(void)
+{
+}
+
+void process_otc_dma(void)
+{
+}
+
+void* resolve_ptr(uint32_t addr)
+{
+    return nullptr;
+}
+
+void CdBridge(unsigned char status, unsigned char* result) {
+    uint32_t target_ps1_addr = 0;
+
+    if (g_CdSyncCbAddr != 0) target_ps1_addr = g_CdSyncCbAddr;
+    else if (g_CdReadyCbAddr != 0) target_ps1_addr = g_CdReadyCbAddr;
+
+    if (target_ps1_addr != 0 && g_ctx != nullptr) {
+        recomp_func_t func = lookup_recomp_func(target_ps1_addr);
+        if (func) {
+            // СОХРАНЯЕМ РЕГИСТРЫ, КОТОРЫЕ ИСПОЛЬЗОВАЛА ИГРА ДО ПРЕРЫВАНИЯ
+            uint32_t saved_r4 = g_ctx->r4;
+            uint32_t saved_r5 = g_ctx->r5;
+            uint32_t saved_r2 = g_ctx->r2;
+            uint32_t saved_r31 = g_ctx->r31; // Адрес возврата (ra)
+
+            // Передаем аргументы для коллбэка
+            g_ctx->r4 = (uint32_t)status;
+            g_ctx->r5 = (uint32_t)((uint8_t*)result - rdram);
+
+            // ВЫЗЫВАЕМ ИГРОВОЙ КОЛЛБЭК
+            func(rdram, g_ctx);
+
+            // ВОССТАНАВЛИВАЕМ РЕГИСТРЫ, ЧТОБЫ ИГРА ПРОДОЛЖИЛА РАБОТУ БЕЗ ГЛЮКОВ
+            g_ctx->r4 = saved_r4;
+            g_ctx->r5 = saved_r5;
+            g_ctx->r2 = saved_r2;
+            g_ctx->r31 = saved_r31;
+        }
+    }
+}
+
+recomp_func_t lookup_recomp_func(uint32_t fvram)
+{
+    // Отбрасываем сегментные биты перед поиском
+    uint32_t phys_addr = fvram & 0x1FFFFFFF;
+
+    if (phys_addr == 0xA0) return ps1_bios_dispatcher_A;
+    if (phys_addr == 0xB0) return ps1_bios_dispatcher_B;
+    if (phys_addr == 0xC0) return ps1_bios_dispatcher_C;
+
+    // Ищем функцию по физическому адресу
+    auto it = function_table.find(phys_addr);
+    if (it != function_table.end()) return it->second;
+
+    if (phys_addr < 0x00010000 || phys_addr > 0x001FFFFF) {
+        return dummy_safe_func;
+    }
+
+    printf("[FATAL] JUMP TO NULL OR UNKNOWN: 0x%08X (Phys: 0x%08X)\n", fvram, phys_addr);
+    return dummy_safe_func;
+}
+
+static bool is_printable_string(const char* s, int max_len = 64) {
+    if (!s || *s == '\0') return false;
+    for (int i = 0; i < max_len; i++) {
+        unsigned char c = (unsigned char)s[i];
+        if (c == '\0') return i > 0; // Нашли конец строки, и она не пустая
+        if (c < 32 || c > 126) return false; // Встретили непечатный символ (бинарные данные)
+    }
+    return false; // Строка слишком длинная или не имеет конца
+}
+void ps1_bios_dispatcher_A(uint8_t* rdram, recomp_context* ctx)
+{
+    uint32_t func_id = ctx->r9; // $t1
+
+    //(Memory & Strings)
+    switch (func_id) {
+        case 0x15: // strlen (char *src)
+            //printf("strlen\n");
+            ctx->r2 = strlen((const char*)GET_PTR(ctx->r4));
+            return;
+        case 0x16: // strcpy (char *dst, const char *src)
+            //printf("strcpy\n");
+            strcpy((char*)GET_PTR(ctx->r4), (const char*)GET_PTR(ctx->r5));
+            ctx->r2 = ctx->r4;
+            return;
+        case 0x1A: // strcat (char *dst, const char *src)
+            //printf("strcat\n");
+            strcat((char*)GET_PTR(ctx->r4), (const char*)GET_PTR(ctx->r5));
+            ctx->r2 = ctx->r4;
+            return;
+        case 0x2A: // memcpy (void *dst, void *src, int len)
+           // printf("memcpy\n");
+            memcpy(GET_PTR(ctx->r4), GET_PTR(ctx->r5), ctx->r6);
+            ctx->r2 = ctx->r4;
+            return;
+        case 0x2B: // memset (void *dst, int fill, int len)
+            //printf("memset\n");
+            memset(GET_PTR(ctx->r4), ctx->r5, ctx->r6);
+            ctx->r2 = ctx->r4;
+            return;
+        case 0x17: //ps1_strcmp
+        {
+            char* s1 = (char*)GET_PTR(ctx->r4);
+            char* s2 = (char*)GET_PTR(ctx->r5);
+            if (s1 && s2) {
+                ctx->r2 = strcmp(s1, s2);
+            }
+            else {
+                ctx->r2 = 0;
+            }
+            return;
+        }
+        case 0x18: // strncmp
+        {
+            char* s1 = (char*)GET_PTR(ctx->r4);
+            char* s2 = (char*)GET_PTR(ctx->r5);
+            uint32_t n = ctx->r6; // 3-й аргумент: лимит символов (в данном случае 5)
+
+            if (s1 && s2) {
+                ctx->r2 = strncmp(s1, s2, n);
+            }
+            else {
+                ctx->r2 = 0;
+            }
+            return;
+        }
+
+        case 0x19: // strncmp (const char *s1, const char *s2, int n)
+        {
+            const char* s1 = (const char*)GET_PTR(ctx->r4);
+            const char* s2 = (const char*)GET_PTR(ctx->r5);
+            uint32_t n = ctx->r6;
+            ctx->r2 = strncmp(s1, s2, n);
+            return;
+        }
+        case 0x3F: // printf
+        {
+            uint32_t fmt_ptr = ctx->r4; // $a0
+            if (fmt_ptr < 0x80000000 || fmt_ptr >= 0x80200000) return;
+
+            const char* fmt = (const char*)&rdram[fmt_ptr & 0x1FFFFF];
+
+            // Извлекаем следующие 3 аргумента из регистров и 4-й из стека
+            uint32_t arg1 = ctx->r5; // $a1
+            uint32_t arg2 = ctx->r6; // $a2
+            uint32_t arg3 = ctx->r7; // $a3
+            uint32_t arg4 = *(uint32_t*)&rdram[(ctx->r29 + 0x10) & 0x1FFFFF]; // arg4 со стека
+
+            printf("[GAME] ");
+
+            // Магия C: передаем аргументы как есть. 
+            // Если в строке только один %d, printf возьмет только arg1, остальное безопасно отбросит.
+            // Чтобы не крашнуло на %s, если игра передала строку, нужно проверять адреса, 
+            // но для базовых логов игры PS1 обычно это работает отлично.
+            // Для максимальной безопасности преобразуем адреса RAM в реальные указатели:
+
+            auto safe_arg = [&](uint32_t val) -> uint32_t {
+                if (val >= 0x80000000 && val < 0x80200000) {
+                    // Превращаем 32-битный адрес PS1 в реальный 64-битный указатель на ПК
+                    return (uintptr_t)&rdram[val & 0x1FFFFF];
+                }
+                // Если это просто число, оно безопасно расширится нулями до 64 бит
+                return (uintptr_t)val;
+            };
+
+            // Заглушаем варнинги компилятора, мы знаем что делаем
+#pragma warning(suppress: 4774)
+            printf(fmt, safe_arg(arg1), safe_arg(arg2), safe_arg(arg3), safe_arg(arg4));
+
+            // Добавляем перенос строки, если его не было
+            if (strlen(fmt) > 0 && fmt[strlen(fmt) - 1] != '\n') {
+                printf("\n");
+            }
+
+            ctx->r2 = 0; // Возвращаем количество напечатанных символов (неважно)
+            return;
+        }
+        case 0x3C: // Exit
+            printf("[BIOS] Game called Exit!\n");
+            return;
+        default:
+            // ВАЖНО: Выводим в лог функции, которые мы еще не реализовали!
+            // Например, если игра использует sprintf (0x3E), ты сразу это увидишь.
+            printf("[BIOS] WARNING: Unhandled A-function: 0x%02X\n", func_id);
+            ctx->r2 = 1;
+            return;
+    }
+
+
+    ctx->r2 = 1; // Успех 
+}
+
+void ps1_bios_dispatcher_B(uint8_t* rdram, recomp_context* ctx)
+{
+    uint32_t func_id = ctx->r9;
+    switch (func_id)
+    {
+        case 0x3F: // Это внутренний диспетчер в некоторых SDK
+        case 0x78: // СТАНДАРТНЫЙ CdControl
+        {
+            // Если r4 содержит 0x78, значит аргументы сдвинуты!
+            if (ctx->r4 == 0x78 || ctx->r4 == 0x3F) {
+                // Временный хак: перекладываем регистры для обертки
+                uint32_t saved_a0 = ctx->r4;
+                ctx->r4 = ctx->r5; // Команда CD (CdlSetloc и т.д.)
+                ctx->r5 = ctx->r6; // Указатель на CdlLOC
+                printf("");
+                KFCD_CdControl(rdram, ctx);
+
+                ctx->r4 = saved_a0; // Возвращаем как было
+            }
+            else {
+                KFCD_CdControl(rdram, ctx);
+            }
+            return;
+        }
+
+        case 0x7B: // CdReadSync
+        {
+            ctx->r2 = KFCD_CdReadSync(ctx->r4);
+            return;
+        }
+        case 0x4A: // InitPAD
+        {
+            // Настоящий InitPAD из Psy-X
+            InitPAD((char*)GET_PTR(ctx->r4), ctx->r5, (char*)GET_PTR(ctx->r6), ctx->r7);
+            ctx->r2 = 1;
+            return;
+        }
+        case 0x4B: // StartPAD
+        {
+            // Запуск опроса геймпада
+            StartPAD();
+            ctx->r2 = 1;
+            return;
+        }
+        case 0x56: // PadRead
+        {
+            int mode = (int)ctx->r4;
+            PadRead(mode);
+            // Возвращаем, что джойстик подключен, но кнопки не нажаты.
+        // 0xFFFF - стандарт для PS1 (инвертированные биты)
+            //ctx->r2 = 0xFFFF; // Нажат START (для теста) или просто 0xFFFF  0xFFFB
+            return;
+        }
+    default:
+        break;
+    }
+    printf("[BIOS] B-Call: 0x%02X (a0=0x%08X)\n", func_id, ctx->r4);
+    ctx->r2 = 0;
+}
+
+void ps1_bios_dispatcher_C(uint8_t* rdram, recomp_context* ctx)
+{
+    uint32_t func_id = ctx->r9;
+
+    switch (func_id) {
+    case 0x02: // CdInit
+        printf("[BIOS] CdInit called -> Forcing Success!\n");
+        ctx->r2 = 1; // Возвращаем 1 (успех)
+        return;
+
+    case 0x0A: // ChangeClearRCnt
+        // Таймеры, просто игнорируем пока
+        printf("[BIOS] 0x0A  -> Forcing r2 = 1!\n");
+        ctx->r2 = 1;
+        return;
+    }
+
+    printf("[BIOS] C-Call: 0x%02X (a0=0x%08X)\n", func_id, ctx->r4);
+}
+
+void gte_command(recomp_context* ctx, uint32_t cmd)
+{
+    printf("------->gte_command call!!!!!!!!!\n");
+}
+
+void gte_lwc2(uint8_t* rdram, recomp_context* ctx, int rt, int rs, int imm)
+{
+}
+
+void gte_swc2(uint8_t* rdram, recomp_context* ctx, int rt, int rs, int imm)
+{
+}
+
+void gte_mtc2(recomp_context* ctx, int rt, int rd)
+{
+}
+
+uint32_t gte_mfc2(recomp_context* ctx, int rd)
+{
+    return uint32_t();
+}
+
+void gte_ctc2(recomp_context* ctx, int rt, int rd)
+{
+}
+
+uint32_t gte_cfc2(recomp_context* ctx, int rd)
+{
+    return uint32_t();
+}
+
+void recomp_vram_call(uint8_t* rdram, recomp_context* ctx, uint32_t vram)
+{
+    recomp_func_t f = lookup_recomp_func(vram);
+    if (f)
+    {
+        printf(" -> Calling function at 0x%08X\n", vram);
+        f(rdram, ctx);
+    }
+    else {
+        // Если функция не найдена, просто выходим, чтобы не упасть
+        printf("Unknown VRAM call: 0x%08X\n", vram);
+    }
+}
+
+// LWL - Load Word Left (Little Endian)
+uint32_t do_lwl(uint8_t* rdram, uint32_t reg, uint32_t offset, uint32_t base) {
+    uint32_t addr = base + offset;
+    uint32_t mem = *(uint32_t*)GET_PTR(addr & ~3);
+    switch (addr & 3) {
+    case 0: return (reg & 0x00FFFFFF) | (mem << 24);
+    case 1: return (reg & 0x0000FFFF) | (mem << 16);
+    case 2: return (reg & 0x000000FF) | (mem << 8);
+    case 3: return mem;
+    }
+    return reg;
+}
+
+// LWR - Load Word Right (Little Endian)
+uint32_t do_lwr(uint8_t* rdram, uint32_t reg, uint32_t offset, uint32_t base) {
+    uint32_t addr = base + offset;
+    uint32_t mem = *(uint32_t*)GET_PTR(addr & ~3);
+    switch (addr & 3) {
+    case 0: return mem;
+    case 1: return (reg & 0xFF000000) | (mem >> 8);
+    case 2: return (reg & 0xFFFF0000) | (mem >> 16);
+    case 3: return (reg & 0xFFFFFF00) | (mem >> 24);
+    }
+    return reg;
+}
+
+// SWL - Store Word Left (Little Endian)
+void do_swl(uint8_t* rdram, uint32_t offset, uint32_t base, uint32_t reg) {
+    uint32_t addr = base + offset;
+    uint32_t* mem_ptr = (uint32_t*)GET_PTR(addr & ~3);
+    uint32_t v = *mem_ptr;
+    switch (addr & 3) {
+    case 0: v = (v & 0xFFFFFF00) | (reg >> 24); break;
+    case 1: v = (v & 0xFFFF0000) | (reg >> 16); break;
+    case 2: v = (v & 0xFF000000) | (reg >> 8); break;
+    case 3: v = reg; break;
+    }
+    *mem_ptr = v;
+}
+
+// SWR - Store Word Right (Little Endian)
+void do_swr(uint8_t* rdram, uint32_t offset, uint32_t base, uint32_t reg) {
+    uint32_t addr = base + offset;
+    uint32_t* mem_ptr = (uint32_t*)GET_PTR(addr & ~3);
+    uint32_t v = *mem_ptr;
+    switch (addr & 3) {
+    case 0: v = reg; break;
+    case 1: v = (v & 0x000000FF) | (reg << 8); break;
+    case 2: v = (v & 0x0000FFFF) | (reg << 16); break;
+    case 3: v = (v & 0x00FFFFFF) | (reg << 24); break;
+    }
+    *mem_ptr = v;
+}
+
+
+
+
+void recomp_syscall_handler(uint8_t* rdram, recomp_context* ctx, uint32_t addr1)
+{
+    uint32_t a0 = ctx->r4;
+   
+
+    if (a0 == 1) { // EnterCriticalSection
+        // Игра отключает прерывания
+        SwEnterCriticalSection();
+        //printf("EnterCriticalSection\n");
+        return;
+    }
+
+    if (a0 == 2) // ExitCriticalSection
+    {
+        SwExitCriticalSection();
+        //printf("ExitCriticalSection\n");
+        //// Гасим DMA
+        //uint32_t* gpu_dma = (uint32_t*)GET_PTR(0x1F8010A8);
+        //if (*gpu_dma & 0x01000000) *gpu_dma &= ~0x01000000;
+        //uint32_t* cd_dma = (uint32_t*)GET_PTR(0x1F8010B8);
+        //if (*cd_dma & 0x01000000) *cd_dma &= ~0x01000000;
+        //uint32_t* otc_dma = (uint32_t*)GET_PTR(0x1F8010E8);
+        //if (*otc_dma & 0x01000000) *otc_dma &= ~0x01000000;
+
+        //// --- ОБРАБОТКА ОЧЕРЕДИ ЗДЕСЬ ТОЖЕ ---
+        //// Если игра застряла в цикле и не вызывает VSync, 
+        //// этот код спасет ситуацию!
+        //process_cd_tasks(rdram, ctx);
+        //std::this_thread::yield();
+        return;
+    }
+
+    // Если это какой-то другой Syscall
+    printf("Syscall hit! a0: 0x%08X\n", a0);
+}
+
+uint32_t cop0_status_read(recomp_context* ctx)
+{
+    printf("cop0_status_read\n");
+    return (ctx->cop0_status == 0) ? 0x401 : ctx->cop0_status;
+}
+
+void cop0_status_write(recomp_context* ctx, uint32_t val)
+{
+    ctx->cop0_status = val;
+    printf("cop0_status_write\n");
+}
+
+int32_t setjmp_recomp(uint8_t* rdram, recomp_context* ctx)
+{
+    printf("setjmp_recomp\n");
+    return 0;
+}
+
+void do_break(uint32_t code)
+{
+    printf("[PS1] BREAK instruction hit! Code: %d\n", code);
+}
+
+void dummy_safe_func(uint8_t* rdram, recomp_context* ctx)
+{
+    uint32_t phys_addr = *rdram & 0x1FFFFFFF;
+    printf("dummy_safe_func call  0x%08X\n", phys_addr);
+}

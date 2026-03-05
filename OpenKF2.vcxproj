@@ -1,0 +1,1193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{4b841ef5-b4fc-47ce-89c0-e5acdf6dd1af}</ProjectGuid>
+    <RootNamespace>OpenKF2</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>F:\vcpkg\installed\x64-windows\include\SDL2;F:\VS\OpenKF2\kf;F:\VS\OpenKF2\PsyCross\include\;F:\VS\OpenKF2\PsyCross\src\psx;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>F:\VS\OpenKF2\PsyCross\src;F:\vcpkg\installed\x64-windows\include\SDL2;F:\VS\OpenKF2\PsyCross\include;F:\VS\OpenKF2\kf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OpenGL32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="kf\scr\AddPrims.c" />
+    <ClCompile Include="kf\scr\AI_GetRandomizedWeight.c" />
+    <ClCompile Include="kf\scr\AllocateMemory.c" />
+    <ClCompile Include="kf\scr\AllocateMemor_0.c" />
+    <ClCompile Include="kf\scr\AllocateMemor_01.c" />
+    <ClCompile Include="kf\scr\AllocateParticleSlot.c" />
+    <ClCompile Include="kf\scr\AnalizingTMD.c" />
+    <ClCompile Include="kf\scr\ApplyDamage.c" />
+    <ClCompile Include="kf\scr\ApplyMatrix.c" />
+    <ClCompile Include="kf\scr\ApplyMatrixLV.c" />
+    <ClCompile Include="kf\scr\ApplyRotMatrix.c" />
+    <ClCompile Include="kf\scr\ApplyStatusEffect.c" />
+    <ClCompile Include="kf\scr\ClearImageWithCallback.c" />
+    <ClCompile Include="kf\scr\ApplyViewTransforms.c" />
+    <ClCompile Include="kf\scr\atoi.c" />
+    <ClCompile Include="kf\scr\AverageSZ3.c" />
+    <ClCompile Include="kf\scr\AverageSZ3_0.c" />
+    <ClCompile Include="kf\scr\AverageSZ4_0.c" />
+    <ClCompile Include="kf\scr\AverageZ3.c" />
+    <ClCompile Include="kf\scr\AverageZ4.c" />
+    <ClCompile Include="kf\scr\BcdToDec.c" />
+    <ClCompile Include="kf\scr\bcopy_recomp.c" />
+    <ClCompile Include="kf\scr\BeginDraw2D.c" />
+    <ClCompile Include="kf\scr\BuildRenderCommand.c" />
+    <ClCompile Include="kf\scr\BuildUnifiedActionMenu.c" />
+    <ClCompile Include="kf\scr\BuyItemMenu.c" />
+    <ClCompile Include="kf\scr\bzero_recomp.c" />
+    <ClCompile Include="kf\scr\CalculateDamagePart.c" />
+    <ClCompile Include="kf\scr\CalculateDistance.c" />
+    <ClCompile Include="kf\scr\CalculateNextCdChunk.c" />
+    <ClCompile Include="kf\scr\CalculatePlayerStats.c" />
+    <ClCompile Include="kf\scr\CalculateSectorCount.c" />
+    <ClCompile Include="kf\scr\CalculateSellPrices.c" />
+    <ClCompile Include="kf\scr\CalculateTrajectory.c" />
+    <ClCompile Include="kf\scr\CatPrim.c" />
+    <ClCompile Include="kf\scr\CDAudio_SetVolume.c" />
+    <ClCompile Include="kf\scr\CDAudio_Stop.c" />
+    <ClCompile Include="kf\scr\CdCheckISO9660.c" />
+    <ClCompile Include="kf\scr\CdCheckStatus.c" />
+    <ClCompile Include="kf\scr\CdControl.c" />
+    <ClCompile Include="kf\scr\CdFlush.c" />
+    <ClCompile Include="kf\scr\CdIntstr.c" />
+    <ClCompile Include="kf\scr\CdLastCom.c" />
+    <ClCompile Include="kf\scr\CdMode.c" />
+    <ClCompile Include="kf\scr\CdReadSector.c" />
+    <ClCompile Include="kf\scr\CdReadWithRetry.c" />
+    <ClCompile Include="kf\scr\CdReadyCallback.c" />
+    <ClCompile Include="kf\scr\CdSearchFile.c" />
+    <ClCompile Include="kf\scr\CdSetDebug.c" />
+    <ClCompile Include="kf\scr\CdStatus.c" />
+    <ClCompile Include="kf\scr\CdSyncCallback.c" />
+    <ClCompile Include="kf\scr\CdWaitForCompletion.c" />
+    <ClCompile Include="kf\scr\CD_cw_8004DBE0.c" />
+    <ClCompile Include="kf\scr\ChangeClearPAD.c" />
+    <ClCompile Include="kf\scr\ChangeClearRCnt.c" />
+    <ClCompile Include="kf\scr\CheckCallback.c" />
+    <ClCompile Include="kf\scr\CheckHasWeaponMagic.c" />
+    <ClCompile Include="kf\scr\CleaningUpTempResources.c" />
+    <ClCompile Include="kf\scr\ClearOTag.c" />
+    <ClCompile Include="kf\scr\close.c" />
+    <ClCompile Include="kf\scr\CloseEvent.c" />
+    <ClCompile Include="kf\scr\CollectAvailableSpells.c" />
+    <ClCompile Include="kf\scr\CollectBuyData.c" />
+    <ClCompile Include="kf\scr\CollectEquippableItems.c" />
+    <ClCompile Include="kf\scr\CollectEquippedItemsData.c" />
+    <ClCompile Include="kf\scr\CollisionWithTilemap.c" />
+    <ClCompile Include="kf\scr\ColorCol.c" />
+    <ClCompile Include="kf\scr\ColorDpq.c" />
+    <ClCompile Include="kf\scr\CompMatrix.c" />
+    <ClCompile Include="kf\scr\ConvertCdAddress.c" />
+    <ClCompile Include="kf\scr\ConvertVertexCoordinates.c" />
+    <ClCompile Include="kf\scr\CDReadSectorsInternal.c" />
+    <ClCompile Include="kf\scr\CopyToFinalBuffer.c" />
+    <ClCompile Include="kf\scr\CreateAudioCDTask.c" />
+    <ClCompile Include="kf\scr\CreateCDTask.c" />
+    <ClCompile Include="kf\scr\DecToBcd.c" />
+    <ClCompile Include="kf\scr\DeliverEvent.c" />
+    <ClCompile Include="kf\scr\DisableEvent.c" />
+    <ClCompile Include="kf\scr\DMACallback.c" />
+    <ClCompile Include="kf\scr\DpqColor.c" />
+    <ClCompile Include="kf\scr\DpqColor3.c" />
+    <ClCompile Include="kf\scr\DpqColorLight.c" />
+    <ClCompile Include="kf\scr\Draw3dPreview.c" />
+    <ClCompile Include="kf\scr\DrawDebugNumbers.c" />
+    <ClCompile Include="kf\scr\DrawDefAtkStats.c" />
+    <ClCompile Include="kf\scr\DrawHUDNumberString.c" />
+    <ClCompile Include="kf\scr\DrawPlayerStat.c" />
+    <ClCompile Include="kf\scr\DrawTexture.c" />
+    <ClCompile Include="kf\scr\DrawTextureNPatch.c" />
+    <ClCompile Include="kf\scr\DropMenu.c" />
+    <ClCompile Include="kf\scr\DsPosToInt.c" />
+    <ClCompile Include="kf\scr\DumpClut.c" />
+    <ClCompile Include="kf\scr\DumpDispEnv.c" />
+    <ClCompile Include="kf\scr\DumpTPage.c" />
+    <ClCompile Include="kf\scr\EnableEvent.c" />
+    <ClCompile Include="kf\scr\EndDraw2D.c" />
+    <ClCompile Include="kf\scr\Engine_PackPrimitive.c" />
+    <ClCompile Include="kf\scr\EnterCriticalSection.c" />
+    <ClCompile Include="kf\scr\Entities_UpdateAll.c" />
+    <ClCompile Include="kf\scr\EntityClass_GetActionSequence.c" />
+    <ClCompile Include="kf\scr\Entity_Alert.c" />
+    <ClCompile Include="kf\scr\Entity_ApplySequence.c" />
+    <ClCompile Include="kf\scr\Entity_ChangeState.c" />
+    <ClCompile Include="kf\scr\Entity_CheckWorldCollision.c" />
+    <ClCompile Include="kf\scr\Entity_EnterCombatState.c" />
+    <ClCompile Include="kf\scr\Entity_LoadStats.c" />
+    <ClCompile Include="kf\scr\Entity_SelectAction.c" />
+    <ClCompile Include="kf\scr\Entity_SetContext.c" />
+    <ClCompile Include="kf\scr\Entity_UpdateAIByDistance.c" />
+    <ClCompile Include="kf\scr\Entity_UpdateDetection.c" />
+    <ClCompile Include="kf\scr\Entity_UpdatePhysics.c" />
+    <ClCompile Include="kf\scr\EquipmentMenu.c" />
+    <ClCompile Include="kf\scr\erase.c" />
+    <ClCompile Include="kf\scr\exit.c" />
+    <ClCompile Include="kf\scr\ExitCriticalSection.c" />
+    <ClCompile Include="kf\scr\LoadTFile.c" />
+    <ClCompile Include="kf\scr\FadeScreenIn.c" />
+    <ClCompile Include="kf\scr\FinalizePlayerInit.c" />
+    <ClCompile Include="kf\scr\FindFreeAudioChannel.c" />
+    <ClCompile Include="kf\scr\FindFreeOrOldestProjectileSlot.c" />
+    <ClCompile Include="kf\scr\FindInteractableInCone.c" />
+    <ClCompile Include="kf\scr\firstfile2.c" />
+    <ClCompile Include="kf\scr\FixedCos.c" />
+    <ClCompile Include="kf\scr\FixedPointLerp.c" />
+    <ClCompile Include="kf\scr\FixedSin.c" />
+    <ClCompile Include="kf\scr\Flush3dRender.c" />
+    <ClCompile Include="kf\scr\FlushCache.c" />
+    <ClCompile Include="kf\scr\FMOAllocateBuffer.c" />
+    <ClCompile Include="kf\scr\format.c" />
+    <ClCompile Include="kf\scr\FormatHUDNumber.c" />
+    <ClCompile Include="kf\scr\FreeSPUVoice.c" />
+    <ClCompile Include="kf\scr\GatherCameraContext.c" />
+    <ClCompile Include="kf\scr\GetDistanceIfInRange.c" />
+    <ClCompile Include="kf\scr\GetIntrMask.c" />
+    <ClCompile Include="kf\scr\GetInventoryItems.c" />
+    <ClCompile Include="kf\scr\GetPrimitiveBuffer.c" />
+    <ClCompile Include="kf\scr\GetTPage.c" />
+    <ClCompile Include="kf\scr\GPU_CheckTimeout_800655DC.c" />
+    <ClCompile Include="kf\scr\GPU_Cmd_FinalizeAndAdvance.c" />
+    <ClCompile Include="kf\scr\GPU_Cmd_MergeParams.c" />
+    <ClCompile Include="kf\scr\GPU_Cmd_SetBaseParams.c" />
+    <ClCompile Include="kf\scr\GPU_Cmd_SetBlendFlag.c" />
+    <ClCompile Include="kf\scr\GPU_Cmd_SetupFlatGrayQuad.c" />
+    <ClCompile Include="kf\scr\GPU_cw.c" />
+    <ClCompile Include="kf\scr\GPU_SafeExecute.c" />
+    <ClCompile Include="kf\scr\GPU_SafeExecuteWrap.c" />
+    <ClCompile Include="kf\scr\StoreImageWithCallback.c" />
+    <ClCompile Include="kf\scr\GsGetWorkBase.c" />
+    <ClCompile Include="kf\scr\Heap_Init.c" />
+    <ClCompile Include="kf\scr\HideInGameUI.c" />
+    <ClCompile Include="kf\scr\HookEntryInt.c" />
+    <ClCompile Include="kf\scr\InGameMenu.c" />
+    <ClCompile Include="kf\scr\InitBiosEvents.c" />
+    <ClCompile Include="kf\scr\InitCARD2.c" />
+    <ClCompile Include="kf\scr\InitDmaChannel.c" />
+    <ClCompile Include="kf\scr\InitEntitySystem.c" />
+    <ClCompile Include="kf\scr\InitEventSystem.c" />
+    <ClCompile Include="kf\scr\InitGraphicsSystem.c" />
+    <ClCompile Include="kf\scr\InitListWidget.c" />
+    <ClCompile Include="kf\scr\InitMenuTextCoords.c" />
+    <ClCompile Include="kf\scr\InitNoSaveFoundLabels.c" />
+    <ClCompile Include="kf\scr\InitParticleSystem.c" />
+    <ClCompile Include="kf\scr\InitPlayerInventory.c" />
+    <ClCompile Include="kf\scr\InitPlayerStats.c" />
+    <ClCompile Include="kf\scr\InitProjectileSystem.c" />
+    <ClCompile Include="kf\scr\InitSoundSystem.c" />
+    <ClCompile Include="kf\scr\InitTileMap.c" />
+    <ClCompile Include="kf\scr\InteractWithObj.c" />
+    <ClCompile Include="kf\scr\Interact_8004A5E4.c" />
+    <ClCompile Include="kf\scr\InterpolateAnimationFrame.c" />
+    <ClCompile Include="kf\scr\InterruptCallback.c" />
+    <ClCompile Include="kf\scr\Intpl.c" />
+    <ClCompile Include="kf\scr\InventoryAddItem.c" />
+    <ClCompile Include="kf\scr\InventoryRemoveItem.c" />
+    <ClCompile Include="kf\scr\InvSquareRoot.c" />
+    <ClCompile Include="kf\scr\IsConsumable.c" />
+    <ClCompile Include="kf\scr\IsEndPrim.c" />
+    <ClCompile Include="kf\scr\IsFacingFountainTile.c" />
+    <ClCompile Include="kf\scr\JustReturn2.c" />
+    <ClCompile Include="kf\scr\KF_ClearImage.c" />
+    <ClCompile Include="kf\scr\KF_DrawOTag.c" />
+    <ClCompile Include="kf\scr\KF_LoadImage.c" />
+    <ClCompile Include="kf\scr\KF_SetDefDispEnv.c" />
+    <ClCompile Include="kf\scr\KF_SetDefDrawEnv.c" />
+    <ClCompile Include="kf\scr\LbaToMsf.c" />
+    <ClCompile Include="kf\scr\LerpBrightnes.c" />
+    <ClCompile Include="kf\scr\LerpRotationMatrix.c" />
+    <ClCompile Include="kf\scr\LightColor.c" />
+    <ClCompile Include="kf\scr\ListNavigating.c" />
+    <ClCompile Include="kf\scr\Load.c" />
+    <ClCompile Include="kf\scr\LoadAverage0.c" />
+    <ClCompile Include="kf\scr\LoadAverage12.c" />
+    <ClCompile Include="kf\scr\LoadAverageByte.c" />
+    <ClCompile Include="kf\scr\LoadAverageCol.c" />
+    <ClCompile Include="kf\scr\LoadAverageShort0.c" />
+    <ClCompile Include="kf\scr\LoadAverageShort12.c" />
+    <ClCompile Include="kf\scr\loadDatabaseCallback.c" />
+    <ClCompile Include="kf\scr\LoadFileByIndex.c" />
+    <ClCompile Include="kf\scr\LoadGameData.c" />
+    <ClCompile Include="kf\scr\LoadImage.c" />
+    <ClCompile Include="kf\scr\LoadMemCardErrorLabels.c" />
+    <ClCompile Include="kf\scr\LoadPopupsTexturOrTalk.c" />
+    <ClCompile Include="kf\scr\LoadSave.c" />
+    <ClCompile Include="kf\scr\loadScriptCallback.c" />
+    <ClCompile Include="kf\scr\LoadTalkFiles.c" />
+    <ClCompile Include="kf\scr\loadTilemapCallback.c" />
+    <ClCompile Include="kf\scr\loadTilesetCallback.c" />
+    <ClCompile Include="kf\scr\Local2World.c" />
+    <ClCompile Include="kf\scr\LocalLight.c" />
+    <ClCompile Include="kf\scr\LOCKSMITH_BuyMenu.c" />
+    <ClCompile Include="kf\scr\LOCKSMITH_CopyKey.c" />
+    <ClCompile Include="kf\scr\Locksmith_Menu.c" />
+    <ClCompile Include="kf\scr\Lzc.c" />
+    <ClCompile Include="kf\scr\Map_ApplyBlueprint.c" />
+    <ClCompile Include="kf\scr\Map_CalculatePhysics.c" />
+    <ClCompile Include="kf\scr\MAP_CollisionWithTile.c" />
+    <ClCompile Include="kf\scr\Map_CopyTileBlock.c" />
+    <ClCompile Include="kf\scr\Map_GetCellData.c" />
+    <ClCompile Include="kf\scr\Map_InitializeObjects.c" />
+    <ClCompile Include="kf\scr\Map_Load.c" />
+    <ClCompile Include="kf\scr\Map_MarkOccupiedTiles.c" />
+    <ClCompile Include="kf\scr\Map_ScriptUpdate.c" />
+    <ClCompile Include="kf\scr\Math_AnglesToDirVector.c" />
+    <ClCompile Include="kf\scr\Math_Atan2_Fixed.c" />
+    <ClCompile Include="kf\scr\Math_CORDIC_Atan.c" />
+    <ClCompile Include="kf\scr\Math_IsAngleInRange.c" />
+    <ClCompile Include="kf\scr\Math_IsTargetInVerticalRange.c" />
+    <ClCompile Include="kf\scr\Math_VectorToAngles.c" />
+    <ClCompile Include="kf\scr\MatrixNormal.c" />
+    <ClCompile Include="kf\scr\MatrixNormal_0.c" />
+    <ClCompile Include="kf\scr\MatrixNormal_1_0.c" />
+    <ClCompile Include="kf\scr\MatrixNormal_2.c" />
+    <ClCompile Include="kf\scr\MatrixNormal_2_0.c" />
+    <ClCompile Include="kf\scr\MeleeAttack_800281CC.c" />
+    <ClCompile Include="kf\scr\MemCard_CheckSlot.c" />
+    <ClCompile Include="kf\scr\MemCard_InitSystem.c" />
+    <ClCompile Include="kf\scr\MemCard_ScanForSaves.c" />
+    <ClCompile Include="kf\scr\MemcpyDword.c" />
+    <ClCompile Include="kf\scr\memcpy_recomp.c" />
+    <ClCompile Include="kf\scr\memset_0.c" />
+    <ClCompile Include="kf\scr\memset_1.c" />
+    <ClCompile Include="kf\scr\memset_recomp.c" />
+    <ClCompile Include="kf\scr\Mem_FreeBlock.c" />
+    <ClCompile Include="kf\scr\MenuInputProcess.c" />
+    <ClCompile Include="kf\scr\Menu_SelectLanguage.c" />
+    <ClCompile Include="kf\scr\MessageQueuePush.c" />
+    <ClCompile Include="kf\scr\MOLoadedCallback.c" />
+    <ClCompile Include="kf\scr\MO_Something01Set.c" />
+    <ClCompile Include="kf\scr\MO_Something02Set.c" />
+    <ClCompile Include="kf\scr\MsfToLba.c" />
+    <ClCompile Include="kf\scr\Music_PlaySEQ.c" />
+    <ClCompile Include="kf\scr\Music_PlayTrack.c" />
+    <ClCompile Include="kf\scr\Music_Stop.c" />
+    <ClCompile Include="kf\scr\Music_UpdateState.c" />
+    <ClCompile Include="kf\scr\NextCdTask.c" />
+    <ClCompile Include="kf\scr\nextfile.c" />
+    <ClCompile Include="kf\scr\NextPrim.c" />
+    <ClCompile Include="kf\scr\NormalClipS.c" />
+    <ClCompile Include="kf\scr\NormalColor.c" />
+    <ClCompile Include="kf\scr\NormalColor3.c" />
+    <ClCompile Include="kf\scr\NormalColorCol.c" />
+    <ClCompile Include="kf\scr\NormalColorCol3.c" />
+    <ClCompile Include="kf\scr\NormalColorDpq.c" />
+    <ClCompile Include="kf\scr\NormalColorDpq3.c" />
+    <ClCompile Include="kf\scr\nullsub_1.c" />
+    <ClCompile Include="kf\scr\nullsub_2.c" />
+    <ClCompile Include="kf\scr\nullsub_3.c" />
+    <ClCompile Include="kf\scr\nullsub_4.c" />
+    <ClCompile Include="kf\scr\nullsub_5.c" />
+    <ClCompile Include="kf\scr\OnAudioStreamComplete.c" />
+    <ClCompile Include="kf\scr\OnCDReadComplete.c" />
+    <ClCompile Include="kf\scr\open.c" />
+    <ClCompile Include="kf\scr\OpenEvent.c" />
+    <ClCompile Include="kf\scr\OpenTIM.c" />
+    <ClCompile Include="kf\scr\OpenTMD_0.c" />
+    <ClCompile Include="kf\scr\OptionsMenu.c" />
+    <ClCompile Include="kf\scr\OuterProduct0.c" />
+    <ClCompile Include="kf\scr\OuterProduct12.c" />
+    <ClCompile Include="kf\scr\PackColorPSX.c" />
+    <ClCompile Include="kf\scr\PackMaterialFlags.c" />
+    <ClCompile Include="kf\scr\PackVertex10.c" />
+    <ClCompile Include="kf\scr\PackVertex10B.c" />
+    <ClCompile Include="kf\scr\PackVertex11.c" />
+    <ClCompile Include="kf\scr\PadChkVsync.c" />
+    <ClCompile Include="kf\scr\PadChkVsync_0.c" />
+    <ClCompile Include="kf\scr\PadInfoAct_0.c" />
+    <ClCompile Include="kf\scr\PadInfoComb_0.c" />
+    <ClCompile Include="kf\scr\PadInit.c" />
+    <ClCompile Include="kf\scr\PadRead.c" />
+    <ClCompile Include="kf\scr\PadSetAct_0.c" />
+    <ClCompile Include="kf\scr\AsyncDataLoad.c" />
+    <ClCompile Include="kf\scr\PadStartCom_0.c" />
+    <ClCompile Include="kf\scr\PadStopCom_0.c" />
+    <ClCompile Include="kf\scr\PAD_dr.c" />
+    <ClCompile Include="kf\scr\PAD_init2.c" />
+    <ClCompile Include="kf\scr\ParseTIMHeader.c" />
+    <ClCompile Include="kf\scr\PlayAudioStream.c" />
+    <ClCompile Include="kf\scr\PlayEntitySound.c" />
+    <ClCompile Include="kf\scr\PlayerDoInteract.c" />
+    <ClCompile Include="kf\scr\PlayerSetDefault.c" />
+    <ClCompile Include="kf\scr\Player_CheckHeadroom.c" />
+    <ClCompile Include="kf\scr\Player_LevelUp.c" />
+    <ClCompile Include="kf\scr\Player_MagicPowerUp.c" />
+    <ClCompile Include="kf\scr\Player_ResetMovement.c" />
+    <ClCompile Include="kf\scr\Player_Spawn.c" />
+    <ClCompile Include="kf\scr\Player_StrengthPowerUP.c" />
+    <ClCompile Include="kf\scr\PlayPositionalSound3D.c" />
+    <ClCompile Include="kf\scr\PlayPositionalSound3D_Wrap.c" />
+    <ClCompile Include="kf\scr\PlaySfx.c" />
+    <ClCompile Include="kf\scr\PlaySoundEffect.c" />
+    <ClCompile Include="kf\scr\PlayTrack.c" />
+    <ClCompile Include="kf\scr\PrecomputeCardinalOrientations.c" />
+    <ClCompile Include="kf\scr\PrepareReadTask.c" />
+    <ClCompile Include="kf\scr\PrepareRenderPrimitives.c" />
+    <ClCompile Include="kf\scr\printf.c" />
+    <ClCompile Include="kf\scr\ProcessAssetLoadQueue.c" />
+    <ClCompile Include="kf\scr\ProcessCDAudioLoad.c" />
+    <ClCompile Include="kf\scr\ProcessListNavigation.c" />
+    <ClCompile Include="kf\scr\ProcessMeleeAttack.c" />
+    <ClCompile Include="kf\scr\ProcessPlayerInput.c" />
+    <ClCompile Include="kf\scr\ProcessTIMContainer.c" />
+    <ClCompile Include="kf\scr\PutDrawEnv_800637A4.c" />
+    <ClCompile Include="kf\scr\QueueCDReadTask.c" />
+    <ClCompile Include="kf\scr\rand_recomp.c" />
+    <ClCompile Include="kf\scr\read.c" />
+    <ClCompile Include="kf\scr\ReadColorMatrix.c" />
+    <ClCompile Include="kf\scr\ReadFromFile.c" />
+    <ClCompile Include="kf\scr\ReadPadWithFlag.c" />
+    <ClCompile Include="kf\scr\ReadTIM.c" />
+    <ClCompile Include="kf\scr\ReadTMD.c" />
+    <ClCompile Include="kf\scr\ReadTMD_0.c" />
+    <ClCompile Include="kf\scr\RegisterAndTransformModel.c" />
+    <ClCompile Include="kf\scr\RegisterPrimitiveTypes.c" />
+    <ClCompile Include="kf\scr\RenderFadeOverlay.c" />
+    <ClCompile Include="kf\scr\RenderItemList.c" />
+    <ClCompile Include="kf\scr\RenderMenuFrame.c" />
+    <ClCompile Include="kf\scr\RenderOptionsList.c" />
+    <ClCompile Include="kf\scr\RenderStaticMenuBox.c" />
+    <ClCompile Include="kf\scr\ResetCallback.c" />
+    <ClCompile Include="kf\scr\ResetEntryInt.c" />
+    <ClCompile Include="kf\scr\ResetGPU.c" />
+    <ClCompile Include="kf\scr\ResetGraph.c" />
+    <ClCompile Include="kf\scr\ResetGraph_Internal.c" />
+    <ClCompile Include="kf\scr\ResetPlayerBuffers.c" />
+    <ClCompile Include="kf\scr\ResolveCurrentMetaTile.c" />
+    <ClCompile Include="kf\scr\Resource_UnlinkAndFree.c" />
+    <ClCompile Include="kf\scr\RestartCallback.c" />
+    <ClCompile Include="kf\scr\ReturnFromException.c" />
+    <ClCompile Include="kf\scr\RotateMatrixCardinal.c" />
+    <ClCompile Include="kf\scr\RotMatrix.c" />
+    <ClCompile Include="kf\scr\RotMatrixC.c" />
+    <ClCompile Include="kf\scr\RotMatrixY_C.c" />
+    <ClCompile Include="kf\scr\RotMatrixY_C_0.c" />
+    <ClCompile Include="kf\scr\RotMatrixZ_C.c" />
+    <ClCompile Include="kf\scr\SaveDataMenu.c" />
+    <ClCompile Include="kf\scr\ScaleMatrix.c" />
+    <ClCompile Include="kf\scr\ScaleMatrixL.c" />
+    <ClCompile Include="kf\scr\SectorToMSF.c" />
+    <ClCompile Include="kf\scr\SellItemMenu_8001F46C.c" />
+    <ClCompile Include="kf\scr\SEQ_InitData.c" />
+    <ClCompile Include="kf\scr\SEQ_Open.c" />
+    <ClCompile Include="kf\scr\SEQ_Play.c" />
+    <ClCompile Include="kf\scr\SetBackColor.c" />
+    <ClCompile Include="kf\scr\SetColorMatrix.c" />
+    <ClCompile Include="kf\scr\SetDQB.c" />
+    <ClCompile Include="kf\scr\SetDrawMove.c" />
+    <ClCompile Include="kf\scr\SetDrawTPage.c" />
+    <ClCompile Include="kf\scr\SetFadeColor.c" />
+    <ClCompile Include="kf\scr\SetFarColor.c" />
+    <ClCompile Include="kf\scr\SetFogNear.c" />
+    <ClCompile Include="kf\scr\SetGeomOffset.c" />
+    <ClCompile Include="kf\scr\SetGeomScreen.c" />
+    <ClCompile Include="kf\scr\SetIntrMask.c" />
+    <ClCompile Include="kf\scr\SetLightMatrix.c" />
+    <ClCompile Include="kf\scr\SetLineF2.c" />
+    <ClCompile Include="kf\scr\SetLineF3.c" />
+    <ClCompile Include="kf\scr\SetLineF4.c" />
+    <ClCompile Include="kf\scr\SetLineG2.c" />
+    <ClCompile Include="kf\scr\SetLineG3.c" />
+    <ClCompile Include="kf\scr\SetLineG4.c" />
+    <ClCompile Include="kf\scr\SetMasterVolume.c" />
+    <ClCompile Include="kf\scr\SetMulMatrix.c" />
+    <ClCompile Include="kf\scr\SetPolyF3.c" />
+    <ClCompile Include="kf\scr\SetPolyF4.c" />
+    <ClCompile Include="kf\scr\SetPolyFT3.c" />
+    <ClCompile Include="kf\scr\SetPolyG3.c" />
+    <ClCompile Include="kf\scr\SetPolyG4.c" />
+    <ClCompile Include="kf\scr\SetPolyGT3.c" />
+    <ClCompile Include="kf\scr\SetPolyGT4.c" />
+    <ClCompile Include="kf\scr\SetProjectileModel.c" />
+    <ClCompile Include="kf\scr\SetRotMatrix.c" />
+    <ClCompile Include="kf\scr\SetShadeTex.c" />
+    <ClCompile Include="kf\scr\SetSprt.c" />
+    <ClCompile Include="kf\scr\SetSprt16.c" />
+    <ClCompile Include="kf\scr\SetSprt8.c" />
+    <ClCompile Include="kf\scr\SetStateCallback.c" />
+    <ClCompile Include="kf\scr\SetTile.c" />
+    <ClCompile Include="kf\scr\SetTile1.c" />
+    <ClCompile Include="kf\scr\SetTile16.c" />
+    <ClCompile Include="kf\scr\SetTile8.c" />
+    <ClCompile Include="kf\scr\SetTransMatrix.c" />
+    <ClCompile Include="kf\scr\CD_readm.c" />
+    <ClCompile Include="kf\scr\SetupEntityAnimation.c" />
+    <ClCompile Include="kf\scr\SetupGTE.c" />
+    <ClCompile Include="kf\scr\SetupMenuUIBuffers.c" />
+    <ClCompile Include="kf\scr\SetVertex0.c" />
+    <ClCompile Include="kf\scr\SetVertex1.c" />
+    <ClCompile Include="kf\scr\SetVertex2.c" />
+    <ClCompile Include="kf\scr\SetVertexTri.c" />
+    <ClCompile Include="kf\scr\SetVib.c" />
+    <ClCompile Include="kf\scr\SetVideoMode.c" />
+    <ClCompile Include="kf\scr\SeVibOn.c" />
+    <ClCompile Include="kf\scr\ShowEquipmentMenu.c" />
+    <ClCompile Include="kf\scr\ShowLoadOrNewGameMenu.c" />
+    <ClCompile Include="kf\scr\ShowUseMenu.c" />
+    <ClCompile Include="kf\scr\sin_1.c" />
+    <ClCompile Include="kf\scr\SpawnMagicProjectile.c" />
+    <ClCompile Include="kf\scr\SpawnParticleEntity.c" />
+    <ClCompile Include="kf\scr\SpawnProjectile.c" />
+    <ClCompile Include="kf\scr\SpuClearReverbWorkArea.c" />
+    <ClCompile Include="kf\scr\SpuFree.c" />
+    <ClCompile Include="kf\scr\SpuInitMalloc.c" />
+    <ClCompile Include="kf\scr\SpuMalloc.c" />
+    <ClCompile Include="kf\scr\SpuSetCommonAttr.c" />
+    <ClCompile Include="kf\scr\SpuVoice_Clear.c" />
+    <ClCompile Include="kf\scr\SpuVoice_StopAll.c" />
+    <ClCompile Include="kf\scr\SpuVoice_Trigger.c" />
+    <ClCompile Include="kf\scr\SPU_PlayVoice.c" />
+    <ClCompile Include="kf\scr\Square0.c" />
+    <ClCompile Include="kf\scr\Square12.c" />
+    <ClCompile Include="kf\scr\SquareRoot0.c" />
+    <ClCompile Include="kf\scr\SsSetAutoKeyOffMode.c" />
+    <ClCompile Include="kf\scr\SsUtGetDetVVol.c" />
+    <ClCompile Include="kf\scr\SsUtGetDetVVol_0.c" />
+    <ClCompile Include="kf\scr\SsUtGetDetVVol_1.c" />
+    <ClCompile Include="kf\scr\SsUtGetVVol.c" />
+    <ClCompile Include="kf\scr\SsUtSetDetVVol_0.c" />
+    <ClCompile Include="kf\scr\SsUtSetVVol.c" />
+    <ClCompile Include="kf\scr\SsUtSetVVol_0.c" />
+    <ClCompile Include="kf\scr\SsUtVibrateOff.c" />
+    <ClCompile Include="kf\scr\SsUtVibrateOff_0.c" />
+    <ClCompile Include="kf\scr\SsUtVibrateOn.c" />
+    <ClCompile Include="kf\scr\SsUtVibrateOn_0.c" />
+    <ClCompile Include="kf\scr\SsVabFakeHead.c" />
+    <ClCompile Include="kf\scr\SsVabOpenHead.c" />
+    <ClCompile Include="kf\scr\SsVabOpenHeadSticky.c" />
+    <ClCompile Include="kf\scr\SsVabOpenHeadWithMode.c" />
+    <ClCompile Include="kf\scr\SsVabTransCompleted.c" />
+    <ClCompile Include="kf\scr\start.c" />
+    <ClCompile Include="kf\scr\StartAudioStream.c" />
+    <ClCompile Include="kf\scr\StartCARD2.c" />
+    <ClCompile Include="kf\scr\StopCallback.c" />
+    <ClCompile Include="kf\scr\StopCARD2.c" />
+    <ClCompile Include="kf\scr\StopPAD.c" />
+    <ClCompile Include="kf\scr\StopPAD2.c" />
+    <ClCompile Include="kf\scr\StoreImage_8006494C.c" />
+    <ClCompile Include="kf\scr\strcat_recomp.c" />
+    <ClCompile Include="kf\scr\strcmp_recomp.c" />
+    <ClCompile Include="kf\scr\strcpy_recomp.c" />
+    <ClCompile Include="kf\scr\strncmp.c" />
+    <ClCompile Include="kf\scr\SubmitDisplayListToGPU.c" />
+    <ClCompile Include="kf\scr\sub_80013A5C.c" />
+    <ClCompile Include="kf\scr\sub_800140B4.c" />
+    <ClCompile Include="kf\scr\sub_800143E0.c" />
+    <ClCompile Include="kf\scr\sub_80014448.c" />
+    <ClCompile Include="kf\scr\sub_80014594.c" />
+    <ClCompile Include="kf\scr\sub_800145F8.c" />
+    <ClCompile Include="kf\scr\sub_80014C84.c" />
+    <ClCompile Include="kf\scr\sub_80014D48.c" />
+    <ClCompile Include="kf\scr\sub_80014DB0.c" />
+    <ClCompile Include="kf\scr\sub_80014ED4.c" />
+    <ClCompile Include="kf\scr\sub_80014FAC.c" />
+    <ClCompile Include="kf\scr\sub_80015304.c" />
+    <ClCompile Include="kf\scr\sub_80015378.c" />
+    <ClCompile Include="kf\scr\sub_800153EC.c" />
+    <ClCompile Include="kf\scr\sub_80015460.c" />
+    <ClCompile Include="kf\scr\sub_800154CC.c" />
+    <ClCompile Include="kf\scr\sub_80015614.c" />
+    <ClCompile Include="kf\scr\sub_8001565C.c" />
+    <ClCompile Include="kf\scr\sub_80015694.c" />
+    <ClCompile Include="kf\scr\sub_800157D4.c" />
+    <ClCompile Include="kf\scr\sub_800157E4.c" />
+    <ClCompile Include="kf\scr\sub_80015990.c" />
+    <ClCompile Include="kf\scr\sub_80015B74.c" />
+    <ClCompile Include="kf\scr\sub_80015CC8.c" />
+    <ClCompile Include="kf\scr\sub_80015D30.c" />
+    <ClCompile Include="kf\scr\sub_80015DD0.c" />
+    <ClCompile Include="kf\scr\sub_8001605C.c" />
+    <ClCompile Include="kf\scr\sub_80016168.c" />
+    <ClCompile Include="kf\scr\sub_80016580.c" />
+    <ClCompile Include="kf\scr\sub_800166F8.c" />
+    <ClCompile Include="kf\scr\sub_80016CBC.c" />
+    <ClCompile Include="kf\scr\sub_8001772C.c" />
+    <ClCompile Include="kf\scr\sub_800177B0.c" />
+    <ClCompile Include="kf\scr\sub_800177D0.c" />
+    <ClCompile Include="kf\scr\sub_80017920.c" />
+    <ClCompile Include="kf\scr\sub_800179BC.c" />
+    <ClCompile Include="kf\scr\sub_80017B7C.c" />
+    <ClCompile Include="kf\scr\sub_80017BA4.c" />
+    <ClCompile Include="kf\scr\sub_80017C98.c" />
+    <ClCompile Include="kf\scr\sub_80017CC8.c" />
+    <ClCompile Include="kf\scr\sub_80017DB4.c" />
+    <ClCompile Include="kf\scr\sub_80017F2C.c" />
+    <ClCompile Include="kf\scr\sub_80018960.c" />
+    <ClCompile Include="kf\scr\sub_80019128.c" />
+    <ClCompile Include="kf\scr\sub_80019198.c" />
+    <ClCompile Include="kf\scr\sub_80019F94.c" />
+    <ClCompile Include="kf\scr\sub_8001A35C.c" />
+    <ClCompile Include="kf\scr\sub_8001A3C8.c" />
+    <ClCompile Include="kf\scr\sub_8001A3F8.c" />
+    <ClCompile Include="kf\scr\sub_8001AEF4.c" />
+    <ClCompile Include="kf\scr\sub_8001B480.c" />
+    <ClCompile Include="kf\scr\sub_8001C068.c" />
+    <ClCompile Include="kf\scr\sub_8001C3A0.c" />
+    <ClCompile Include="kf\scr\sub_8001D214.c" />
+    <ClCompile Include="kf\scr\sub_8001D770.c" />
+    <ClCompile Include="kf\scr\sub_8001DAF0.c" />
+    <ClCompile Include="kf\scr\sub_8001DCD0.c" />
+    <ClCompile Include="kf\scr\sub_8001E2B8.c" />
+    <ClCompile Include="kf\scr\sub_8001E480.c" />
+    <ClCompile Include="kf\scr\sub_8001E648.c" />
+    <ClCompile Include="kf\scr\sub_8001E810.c" />
+    <ClCompile Include="kf\scr\sub_8001E938.c" />
+    <ClCompile Include="kf\scr\sub_8001EA60.c" />
+    <ClCompile Include="kf\scr\sub_8001EDE0.c" />
+    <ClCompile Include="kf\scr\sub_8001EF38.c" />
+    <ClCompile Include="kf\scr\sub_8001F77C.c" />
+    <ClCompile Include="kf\scr\sub_8001F9B8.c" />
+    <ClCompile Include="kf\scr\sub_800213E8.c" />
+    <ClCompile Include="kf\scr\sub_800234CC.c" />
+    <ClCompile Include="kf\scr\sub_80023C94.c" />
+    <ClCompile Include="kf\scr\sub_80025064.c" />
+    <ClCompile Include="kf\scr\sub_8002536C.c" />
+    <ClCompile Include="kf\scr\sub_800255B0.c" />
+    <ClCompile Include="kf\scr\sub_800255E0.c" />
+    <ClCompile Include="kf\scr\sub_80025700.c" />
+    <ClCompile Include="kf\scr\sub_80025C3C.c" />
+    <ClCompile Include="kf\scr\sub_80025D40.c" />
+    <ClCompile Include="kf\scr\sub_80025D64.c" />
+    <ClCompile Include="kf\scr\sub_80025DE0.c" />
+    <ClCompile Include="kf\scr\sub_80025EDC.c" />
+    <ClCompile Include="kf\scr\sub_800260BC.c" />
+    <ClCompile Include="kf\scr\sub_800262C0.c" />
+    <ClCompile Include="kf\scr\sub_80026314.c" />
+    <ClCompile Include="kf\scr\sub_80026E38.c" />
+    <ClCompile Include="kf\scr\sub_80026EE0.c" />
+    <ClCompile Include="kf\scr\sub_80026F34.c" />
+    <ClCompile Include="kf\scr\sub_80027280.c" />
+    <ClCompile Include="kf\scr\sub_80027700.c" />
+    <ClCompile Include="kf\scr\sub_80027D54.c" />
+    <ClCompile Include="kf\scr\sub_80027E20.c" />
+    <ClCompile Include="kf\scr\sub_80027E80.c" />
+    <ClCompile Include="kf\scr\sub_80027EA8.c" />
+    <ClCompile Include="kf\scr\sub_80027ED0.c" />
+    <ClCompile Include="kf\scr\sub_8002810C.c" />
+    <ClCompile Include="kf\scr\sub_80028E8C.c" />
+    <ClCompile Include="kf\scr\sub_80029F08.c" />
+    <ClCompile Include="kf\scr\sub_8002A338.c" />
+    <ClCompile Include="kf\scr\sub_8002A398.c" />
+    <ClCompile Include="kf\scr\sub_8002A3DC.c" />
+    <ClCompile Include="kf\scr\sub_8002A964.c" />
+    <ClCompile Include="kf\scr\sub_8002AC04.c" />
+    <ClCompile Include="kf\scr\sub_8002AF20.c" />
+    <ClCompile Include="kf\scr\sub_8002B974.c" />
+    <ClCompile Include="kf\scr\sub_8002BC74.c" />
+    <ClCompile Include="kf\scr\sub_8002BCDC.c" />
+    <ClCompile Include="kf\scr\sub_8002BCF8.c" />
+    <ClCompile Include="kf\scr\sub_8002BED0.c" />
+    <ClCompile Include="kf\scr\sub_8002BF24.c" />
+    <ClCompile Include="kf\scr\sub_8002BF60.c" />
+    <ClCompile Include="kf\scr\sub_8002BFF4.c" />
+    <ClCompile Include="kf\scr\sub_8002C06C.c" />
+    <ClCompile Include="kf\scr\sub_8002C0F8.c" />
+    <ClCompile Include="kf\scr\sub_8002C124.c" />
+    <ClCompile Include="kf\scr\sub_8002C1E0.c" />
+    <ClCompile Include="kf\scr\sub_8002C24C.c" />
+    <ClCompile Include="kf\scr\sub_8002C29C.c" />
+    <ClCompile Include="kf\scr\sub_8002E394.c" />
+    <ClCompile Include="kf\scr\sub_8002E4F4.c" />
+    <ClCompile Include="kf\scr\sub_8002EAFC.c" />
+    <ClCompile Include="kf\scr\sub_8002EB24.c" />
+    <ClCompile Include="kf\scr\sub_8002ECC0.c" />
+    <ClCompile Include="kf\scr\sub_8002ED24.c" />
+    <ClCompile Include="kf\scr\sub_8002EDE4.c" />
+    <ClCompile Include="kf\scr\sub_8002EF78.c" />
+    <ClCompile Include="kf\scr\sub_8002F1C8.c" />
+    <ClCompile Include="kf\scr\sub_8002FA5C.c" />
+    <ClCompile Include="kf\scr\sub_8002FBC0.c" />
+    <ClCompile Include="kf\scr\sub_8002FD90.c" />
+    <ClCompile Include="kf\scr\sub_8002FE74.c" />
+    <ClCompile Include="kf\scr\sub_8002FF0C.c" />
+    <ClCompile Include="kf\scr\sub_8002FFA4.c" />
+    <ClCompile Include="kf\scr\sub_8002FFD4.c" />
+    <ClCompile Include="kf\scr\sub_8002FFF8.c" />
+    <ClCompile Include="kf\scr\sub_80030008.c" />
+    <ClCompile Include="kf\scr\sub_80030044.c" />
+    <ClCompile Include="kf\scr\sub_80030474.c" />
+    <ClCompile Include="kf\scr\sub_800305F4.c" />
+    <ClCompile Include="kf\scr\sub_8003073C.c" />
+    <ClCompile Include="kf\scr\sub_800307E8.c" />
+    <ClCompile Include="kf\scr\sub_80030894.c" />
+    <ClCompile Include="kf\scr\sub_80030924.c" />
+    <ClCompile Include="kf\scr\sub_80031034.c" />
+    <ClCompile Include="kf\scr\sub_8003171C.c" />
+    <ClCompile Include="kf\scr\sub_80031CD0.c" />
+    <ClCompile Include="kf\scr\sub_800320BC.c" />
+    <ClCompile Include="kf\scr\sub_800322FC.c" />
+    <ClCompile Include="kf\scr\sub_80032A1C.c" />
+    <ClCompile Include="kf\scr\sub_800336D4.c" />
+    <ClCompile Include="kf\scr\sub_800338A0.c" />
+    <ClCompile Include="kf\scr\sub_80033A1C.c" />
+    <ClCompile Include="kf\scr\sub_80033DB4.c" />
+    <ClCompile Include="kf\scr\sub_80033E44.c" />
+    <ClCompile Include="kf\scr\sub_80033ED4.c" />
+    <ClCompile Include="kf\scr\sub_80033FBC.c" />
+    <ClCompile Include="kf\scr\sub_80034100.c" />
+    <ClCompile Include="kf\scr\sub_80034304.c" />
+    <ClCompile Include="kf\scr\sub_80034824.c" />
+    <ClCompile Include="kf\scr\sub_80034A2C.c" />
+    <ClCompile Include="kf\scr\sub_80034AD4.c" />
+    <ClCompile Include="kf\scr\sub_80034B44.c" />
+    <ClCompile Include="kf\scr\sub_80034C04.c" />
+    <ClCompile Include="kf\scr\sub_80034C68.c" />
+    <ClCompile Include="kf\scr\sub_80034D08.c" />
+    <ClCompile Include="kf\scr\sub_80034DFC.c" />
+    <ClCompile Include="kf\scr\sub_80034F14.c" />
+    <ClCompile Include="kf\scr\sub_80035ADC.c" />
+    <ClCompile Include="kf\scr\sub_80035D64.c" />
+    <ClCompile Include="kf\scr\sub_80035D74.c" />
+    <ClCompile Include="kf\scr\sub_80036428.c" />
+    <ClCompile Include="kf\scr\sub_8003654C.c" />
+    <ClCompile Include="kf\scr\sub_800365CC.c" />
+    <ClCompile Include="kf\scr\sub_80036690.c" />
+    <ClCompile Include="kf\scr\sub_80036754.c" />
+    <ClCompile Include="kf\scr\sub_800367D0.c" />
+    <ClCompile Include="kf\scr\sub_80036A8C.c" />
+    <ClCompile Include="kf\scr\sub_80036DD8.c" />
+    <ClCompile Include="kf\scr\sub_8003706C.c" />
+    <ClCompile Include="kf\scr\sub_800370CC.c" />
+    <ClCompile Include="kf\scr\sub_800370FC.c" />
+    <ClCompile Include="kf\scr\sub_800371F4.c" />
+    <ClCompile Include="kf\scr\sub_80037264.c" />
+    <ClCompile Include="kf\scr\sub_800372AC.c" />
+    <ClCompile Include="kf\scr\sub_80037F78.c" />
+    <ClCompile Include="kf\scr\sub_80038004.c" />
+    <ClCompile Include="kf\scr\sub_8003804C.c" />
+    <ClCompile Include="kf\scr\sub_80038120.c" />
+    <ClCompile Include="kf\scr\sub_80038214.c" />
+    <ClCompile Include="kf\scr\sub_80038AF0.c" />
+    <ClCompile Include="kf\scr\sub_80039068.c" />
+    <ClCompile Include="kf\scr\sub_80039190.c" />
+    <ClCompile Include="kf\scr\sub_80039348.c" />
+    <ClCompile Include="kf\scr\sub_80039448.c" />
+    <ClCompile Include="kf\scr\sub_8003955C.c" />
+    <ClCompile Include="kf\scr\sub_800395EC.c" />
+    <ClCompile Include="kf\scr\sub_8003B748.c" />
+    <ClCompile Include="kf\scr\sub_8003B984.c" />
+    <ClCompile Include="kf\scr\sub_8003B9A8.c" />
+    <ClCompile Include="kf\scr\sub_8003BB98.c" />
+    <ClCompile Include="kf\scr\sub_8003C220.c" />
+    <ClCompile Include="kf\scr\sub_8003C250.c" />
+    <ClCompile Include="kf\scr\sub_8003C27C.c" />
+    <ClCompile Include="kf\scr\sub_8003CD9C.c" />
+    <ClCompile Include="kf\scr\sub_8003D090.c" />
+    <ClCompile Include="kf\scr\sub_8003D200.c" />
+    <ClCompile Include="kf\scr\sub_8003D5EC.c" />
+    <ClCompile Include="kf\scr\sub_8003D824.c" />
+    <ClCompile Include="kf\scr\sub_8003D858.c" />
+    <ClCompile Include="kf\scr\sub_8003D8B4.c" />
+    <ClCompile Include="kf\scr\sub_8003D8E4.c" />
+    <ClCompile Include="kf\scr\sub_8003DDB0.c" />
+    <ClCompile Include="kf\scr\sub_8003DF98.c" />
+    <ClCompile Include="kf\scr\sub_8003E038.c" />
+    <ClCompile Include="kf\scr\sub_8003E414.c" />
+    <ClCompile Include="kf\scr\sub_8003E540.c" />
+    <ClCompile Include="kf\scr\sub_8003E608.c" />
+    <ClCompile Include="kf\scr\sub_8003E75C.c" />
+    <ClCompile Include="kf\scr\sub_8003E7D0.c" />
+    <ClCompile Include="kf\scr\sub_8003E8E8.c" />
+    <ClCompile Include="kf\scr\sub_8003EA30.c" />
+    <ClCompile Include="kf\scr\sub_8003EAC0.c" />
+    <ClCompile Include="kf\scr\sub_8003EBC0.c" />
+    <ClCompile Include="kf\scr\sub_8003ECE8.c" />
+    <ClCompile Include="kf\scr\sub_8003EEB0.c" />
+    <ClCompile Include="kf\scr\sub_8003F0F4.c" />
+    <ClCompile Include="kf\scr\sub_8003FAE8.c" />
+    <ClCompile Include="kf\scr\sub_8003FB58.c" />
+    <ClCompile Include="kf\scr\sub_80042244.c" />
+    <ClCompile Include="kf\scr\sub_800422B8.c" />
+    <ClCompile Include="kf\scr\sub_800424C8.c" />
+    <ClCompile Include="kf\scr\sub_800425A0.c" />
+    <ClCompile Include="kf\scr\sub_800427C8.c" />
+    <ClCompile Include="kf\scr\sub_800427EC.c" />
+    <ClCompile Include="kf\scr\sub_800428D0.c" />
+    <ClCompile Include="kf\scr\sub_80042938.c" />
+    <ClCompile Include="kf\scr\sub_80042AEC.c" />
+    <ClCompile Include="kf\scr\sub_80042BD4.c" />
+    <ClCompile Include="kf\scr\sub_80042CC8.c" />
+    <ClCompile Include="kf\scr\sub_80044184.c" />
+    <ClCompile Include="kf\scr\sub_8004435C.c" />
+    <ClCompile Include="kf\scr\sub_80044520.c" />
+    <ClCompile Include="kf\scr\sub_800446E0.c" />
+    <ClCompile Include="kf\scr\sub_80044784.c" />
+    <ClCompile Include="kf\scr\sub_80044814.c" />
+    <ClCompile Include="kf\scr\sub_8004489C.c" />
+    <ClCompile Include="kf\scr\sub_80044B20.c" />
+    <ClCompile Include="kf\scr\sub_80044C74.c" />
+    <ClCompile Include="kf\scr\sub_80044DF8.c" />
+    <ClCompile Include="kf\scr\sub_80044EC0.c" />
+    <ClCompile Include="kf\scr\sub_80048768.c" />
+    <ClCompile Include="kf\scr\sub_8004878C.c" />
+    <ClCompile Include="kf\scr\sub_80048874.c" />
+    <ClCompile Include="kf\scr\sub_8004892C.c" />
+    <ClCompile Include="kf\scr\sub_800489FC.c" />
+    <ClCompile Include="kf\scr\sub_80048AB4.c" />
+    <ClCompile Include="kf\scr\sub_80048B10.c" />
+    <ClCompile Include="kf\scr\sub_8004908C.c" />
+    <ClCompile Include="kf\scr\sub_80049DE4.c" />
+    <ClCompile Include="kf\scr\sub_80049EFC.c" />
+    <ClCompile Include="kf\scr\sub_8004AD48.c" />
+    <ClCompile Include="kf\scr\sub_8004AD98.c" />
+    <ClCompile Include="kf\scr\sub_8004AE08.c" />
+    <ClCompile Include="kf\scr\sub_8004AE54.c" />
+    <ClCompile Include="kf\scr\sub_8004AEC4.c" />
+    <ClCompile Include="kf\scr\sub_8004B31C.c" />
+    <ClCompile Include="kf\scr\sub_8004B694.c" />
+    <ClCompile Include="kf\scr\sub_8004BC5C.c" />
+    <ClCompile Include="kf\scr\sub_8004C264.c" />
+    <ClCompile Include="kf\scr\sub_8004C358.c" />
+    <ClCompile Include="kf\scr\sub_8004C500.c" />
+    <ClCompile Include="kf\scr\sub_8004CEBC.c" />
+    <ClCompile Include="kf\scr\sub_8004CEE0.c" />
+    <ClCompile Include="kf\scr\sub_8004D148.c" />
+    <ClCompile Include="kf\scr\sub_8004D910.c" />
+    <ClCompile Include="kf\scr\sub_8004E048.c" />
+    <ClCompile Include="kf\scr\sub_8004E0D0.c" />
+    <ClCompile Include="kf\scr\sub_8004E1E0.c" />
+    <ClCompile Include="kf\scr\sub_8004E2C8.c" />
+    <ClCompile Include="kf\scr\sub_8004E3BC.c" />
+    <ClCompile Include="kf\scr\sub_8004E42C.c" />
+    <ClCompile Include="kf\scr\sub_8004E73C.c" />
+    <ClCompile Include="kf\scr\sub_8004EE68.c" />
+    <ClCompile Include="kf\scr\sub_8004EFD4.c" />
+    <ClCompile Include="kf\scr\sub_8004F0C4.c" />
+    <ClCompile Include="kf\scr\sub_8004F1A4.c" />
+    <ClCompile Include="kf\scr\sub_8004F310.c" />
+    <ClCompile Include="kf\scr\sub_8004F3A0.c" />
+    <ClCompile Include="kf\scr\sub_8004F3C8.c" />
+    <ClCompile Include="kf\scr\sub_8004F3F0.c" />
+    <ClCompile Include="kf\scr\sub_8004F418.c" />
+    <ClCompile Include="kf\scr\sub_8004F794.c" />
+    <ClCompile Include="kf\scr\sub_8004FAAC.c" />
+    <ClCompile Include="kf\scr\sub_8004FB58.c" />
+    <ClCompile Include="kf\scr\sub_8004FE80.c" />
+    <ClCompile Include="kf\scr\sub_8004FEB4.c" />
+    <ClCompile Include="kf\scr\sub_8005082C.c" />
+    <ClCompile Include="kf\scr\sub_80050860.c" />
+    <ClCompile Include="kf\scr\sub_800509EC.c" />
+    <ClCompile Include="kf\scr\sub_80050A2C.c" />
+    <ClCompile Include="kf\scr\sub_80050B64.c" />
+    <ClCompile Include="kf\scr\sub_80050C7C.c" />
+    <ClCompile Include="kf\scr\sub_800511C4.c" />
+    <ClCompile Include="kf\scr\sub_80051508.c" />
+    <ClCompile Include="kf\scr\sub_800518A4.c" />
+    <ClCompile Include="kf\scr\sub_80051B4C.c" />
+    <ClCompile Include="kf\scr\sub_80051C3C.c" />
+    <ClCompile Include="kf\scr\sub_80051C84.c" />
+    <ClCompile Include="kf\scr\sub_80051D64.c" />
+    <ClCompile Include="kf\scr\sub_80051E08.c" />
+    <ClCompile Include="kf\scr\sub_80051E8C.c" />
+    <ClCompile Include="kf\scr\sub_80051EB0.c" />
+    <ClCompile Include="kf\scr\sub_8005201C.c" />
+    <ClCompile Include="kf\scr\sub_80052050.c" />
+    <ClCompile Include="kf\scr\sub_8005208C.c" />
+    <ClCompile Include="kf\scr\sub_800520B8.c" />
+    <ClCompile Include="kf\scr\sub_800520C8.c" />
+    <ClCompile Include="kf\scr\sub_80052154.c" />
+    <ClCompile Include="kf\scr\sub_80052244.c" />
+    <ClCompile Include="kf\scr\sub_80052358.c" />
+    <ClCompile Include="kf\scr\sub_80052398.c" />
+    <ClCompile Include="kf\scr\sub_800523B8.c" />
+    <ClCompile Include="kf\scr\sub_800524D0.c" />
+    <ClCompile Include="kf\scr\sub_800524F0.c" />
+    <ClCompile Include="kf\scr\sub_80052510.c" />
+    <ClCompile Include="kf\scr\sub_800525C0.c" />
+    <ClCompile Include="kf\scr\sub_8005267C.c" />
+    <ClCompile Include="kf\scr\sub_800526BC.c" />
+    <ClCompile Include="kf\scr\sub_800526FC.c" />
+    <ClCompile Include="kf\scr\sub_8005314C.c" />
+    <ClCompile Include="kf\scr\sub_80053364.c" />
+    <ClCompile Include="kf\scr\sub_80053EC0.c" />
+    <ClCompile Include="kf\scr\sub_80053F00.c" />
+    <ClCompile Include="kf\scr\sub_80053F50.c" />
+    <ClCompile Include="kf\scr\sub_800541F4.c" />
+    <ClCompile Include="kf\scr\sub_80054214.c" />
+    <ClCompile Include="kf\scr\sub_8005476C.c" />
+    <ClCompile Include="kf\scr\sub_80054A10.c" />
+    <ClCompile Include="kf\scr\sub_80054EFC.c" />
+    <ClCompile Include="kf\scr\sub_80054FD8.c" />
+    <ClCompile Include="kf\scr\sub_80055088.c" />
+    <ClCompile Include="kf\scr\sub_800552C0.c" />
+    <ClCompile Include="kf\scr\sub_80055790.c" />
+    <ClCompile Include="kf\scr\sub_80055950.c" />
+    <ClCompile Include="kf\scr\sub_8005599C.c" />
+    <ClCompile Include="kf\scr\sub_80055A58.c" />
+    <ClCompile Include="kf\scr\sub_80055D90.c" />
+    <ClCompile Include="kf\scr\sub_80055F60.c" />
+    <ClCompile Include="kf\scr\sub_80056334.c" />
+    <ClCompile Include="kf\scr\sub_80056504.c" />
+    <ClCompile Include="kf\scr\sub_800568CC.c" />
+    <ClCompile Include="kf\scr\sub_80056C3C.c" />
+    <ClCompile Include="kf\scr\sub_80056D94.c" />
+    <ClCompile Include="kf\scr\sub_80056FE4.c" />
+    <ClCompile Include="kf\scr\sub_800570D0.c" />
+    <ClCompile Include="kf\scr\sub_80057484.c" />
+    <ClCompile Include="kf\scr\sub_800579E4.c" />
+    <ClCompile Include="kf\scr\sub_80057C6C.c" />
+    <ClCompile Include="kf\scr\sub_80057DEC.c" />
+    <ClCompile Include="kf\scr\sub_80057F04.c" />
+    <ClCompile Include="kf\scr\sub_80057FA0.c" />
+    <ClCompile Include="kf\scr\sub_80058120.c" />
+    <ClCompile Include="kf\scr\sub_80058A90.c" />
+    <ClCompile Include="kf\scr\sub_80059720.c" />
+    <ClCompile Include="kf\scr\sub_80059798.c" />
+    <ClCompile Include="kf\scr\sub_8005984C.c" />
+    <ClCompile Include="kf\scr\sub_80059920.c" />
+    <ClCompile Include="kf\scr\sub_80059EFC.c" />
+    <ClCompile Include="kf\scr\sub_8005A00C.c" />
+    <ClCompile Include="kf\scr\sub_8005A2A4.c" />
+    <ClCompile Include="kf\scr\sub_8005A388.c" />
+    <ClCompile Include="kf\scr\sub_8005A400.c" />
+    <ClCompile Include="kf\scr\sub_8005A964.c" />
+    <ClCompile Include="kf\scr\sub_8005AAB0.c" />
+    <ClCompile Include="kf\scr\sub_8005AB78.c" />
+    <ClCompile Include="kf\scr\sub_8005ACA4.c" />
+    <ClCompile Include="kf\scr\sub_8005ADF0.c" />
+    <ClCompile Include="kf\scr\sub_8005AE68.c" />
+    <ClCompile Include="kf\scr\sub_8005AEE0.c" />
+    <ClCompile Include="kf\scr\sub_8005B468.c" />
+    <ClCompile Include="kf\scr\sub_8005B73C.c" />
+    <ClCompile Include="kf\scr\sub_8005B7E8.c" />
+    <ClCompile Include="kf\scr\sub_8005BB50.c" />
+    <ClCompile Include="kf\scr\sub_8005BC0C.c" />
+    <ClCompile Include="kf\scr\sub_8005BC68.c" />
+    <ClCompile Include="kf\scr\sub_8005BCF4.c" />
+    <ClCompile Include="kf\scr\sub_8005BF30.c" />
+    <ClCompile Include="kf\scr\sub_8005C0F8.c" />
+    <ClCompile Include="kf\scr\sub_8005C10C.c" />
+    <ClCompile Include="kf\scr\sub_8005C214.c" />
+    <ClCompile Include="kf\scr\sub_8005C32C.c" />
+    <ClCompile Include="kf\scr\sub_8005C58C.c" />
+    <ClCompile Include="kf\scr\sub_8005C634.c" />
+    <ClCompile Include="kf\scr\sub_8005C7F8.c" />
+    <ClCompile Include="kf\scr\sub_8005CA30.c" />
+    <ClCompile Include="kf\scr\sub_8005CB30.c" />
+    <ClCompile Include="kf\scr\sub_8005CD18.c" />
+    <ClCompile Include="kf\scr\sub_8005CFA8.c" />
+    <ClCompile Include="kf\scr\sub_8005D174.c" />
+    <ClCompile Include="kf\scr\sub_8005D23C.c" />
+    <ClCompile Include="kf\scr\sub_8005D29C.c" />
+    <ClCompile Include="kf\scr\sub_8005D34C.c" />
+    <ClCompile Include="kf\scr\sub_8005D538.c" />
+    <ClCompile Include="kf\scr\sub_8005D854.c" />
+    <ClCompile Include="kf\scr\sub_8005DBA8.c" />
+    <ClCompile Include="kf\scr\sub_8005DC50.c" />
+    <ClCompile Include="kf\scr\sub_8005DCEC.c" />
+    <ClCompile Include="kf\scr\sub_8005DDF8.c" />
+    <ClCompile Include="kf\scr\sub_8005E1AC.c" />
+    <ClCompile Include="kf\scr\sub_8005E234.c" />
+    <ClCompile Include="kf\scr\sub_8005E2CC.c" />
+    <ClCompile Include="kf\scr\sub_8005E43C.c" />
+    <ClCompile Include="kf\scr\sub_8005E5E8.c" />
+    <ClCompile Include="kf\scr\sub_8005EE1C.c" />
+    <ClCompile Include="kf\scr\sub_8005F2C8.c" />
+    <ClCompile Include="kf\scr\sub_8005F348.c" />
+    <ClCompile Include="kf\scr\sub_8005F578.c" />
+    <ClCompile Include="kf\scr\sub_80060C54.c" />
+    <ClCompile Include="kf\scr\sub_800611CC.c" />
+    <ClCompile Include="kf\scr\sub_80061B0C.c" />
+    <ClCompile Include="kf\scr\sub_80061CEC.c" />
+    <ClCompile Include="kf\scr\sub_80061DC8.c" />
+    <ClCompile Include="kf\scr\sub_80061FB0.c" />
+    <ClCompile Include="kf\scr\sub_80062104.c" />
+    <ClCompile Include="kf\scr\sub_800621B4.c" />
+    <ClCompile Include="kf\scr\sub_8006223C.c" />
+    <ClCompile Include="kf\scr\sub_80062268.c" />
+    <ClCompile Include="kf\scr\sub_800622B8.c" />
+    <ClCompile Include="kf\scr\sub_8006243C.c" />
+    <ClCompile Include="kf\scr\sub_800624E4.c" />
+    <ClCompile Include="kf\scr\sub_80062510.c" />
+    <ClCompile Include="kf\scr\sub_80062568.c" />
+    <ClCompile Include="kf\scr\sub_800625E4.c" />
+    <ClCompile Include="kf\scr\sub_80062610.c" />
+    <ClCompile Include="kf\scr\sub_800628B0.c" />
+    <ClCompile Include="kf\scr\sub_800629F8.c" />
+    <ClCompile Include="kf\scr\sub_80062B20.c" />
+    <ClCompile Include="kf\scr\sub_80062C20.c" />
+    <ClCompile Include="kf\scr\sub_80062FB8.c" />
+    <ClCompile Include="kf\scr\sub_80062FC8.c" />
+    <ClCompile Include="kf\scr\MoveImageWithCallback.c" />
+    <ClCompile Include="kf\scr\sub_8006353C.c" />
+    <ClCompile Include="kf\scr\sub_800636A8.c" />
+    <ClCompile Include="kf\scr\sub_8006431C.c" />
+    <ClCompile Include="kf\scr\sub_800643D8.c" />
+    <ClCompile Include="kf\scr\sub_80064BE8.c" />
+    <ClCompile Include="kf\scr\sub_80064C14.c" />
+    <ClCompile Include="kf\scr\sub_80064C2C.c" />
+    <ClCompile Include="kf\scr\sub_80064CC8.c" />
+    <ClCompile Include="kf\scr\sub_80065010.c" />
+    <ClCompile Include="kf\scr\sub_80065460.c" />
+    <ClCompile Include="kf\scr\sub_80065748.c" />
+    <ClCompile Include="kf\scr\sub_800670D8.c" />
+    <ClCompile Include="kf\scr\SyncVSyncStatus.c" />
+    <ClCompile Include="kf\scr\TermPrim.c" />
+    <ClCompile Include="kf\scr\TestEvent.c" />
+    <ClCompile Include="kf\scr\TGetFileSize.c" />
+    <ClCompile Include="kf\scr\TLoadFileASync1.c" />
+    <ClCompile Include="kf\scr\TriggerGpuDma.c" />
+    <ClCompile Include="kf\scr\TriggerLightFlash.c" />
+    <ClCompile Include="kf\scr\TryCastMagic.c" />
+    <ClCompile Include="kf\scr\UI_DrawCursor.c" />
+    <ClCompile Include="kf\scr\ui_DrawFrame.c" />
+    <ClCompile Include="kf\scr\ui_DrawText.c" />
+    <ClCompile Include="kf\scr\Update3dPreview.c" />
+    <ClCompile Include="kf\scr\UpdateCamera.c" />
+    <ClCompile Include="kf\scr\UpdateEnemyAI.c" />
+    <ClCompile Include="kf\scr\UpdateEnvironmentTint.c" />
+    <ClCompile Include="kf\scr\UpdateObjects.c" />
+    <ClCompile Include="kf\scr\UpdateObjectVerticalMovement.c" />
+    <ClCompile Include="kf\scr\UpdateParticleEffect.c" />
+    <ClCompile Include="kf\scr\UpdateParticleSystem.c" />
+    <ClCompile Include="kf\scr\UpdatePlayerMapContext.c" />
+    <ClCompile Include="kf\scr\UpdatePlayerSystem.c" />
+    <ClCompile Include="kf\scr\UpdateStatusEffects.c" />
+    <ClCompile Include="kf\scr\UpdateTileLighting.c" />
+    <ClCompile Include="kf\scr\UseConsumableItem.c" />
+    <ClCompile Include="kf\scr\UseItems_80049108.c" />
+    <ClCompile Include="kf\scr\UseMagicMenu.c" />
+    <ClCompile Include="kf\scr\VectorNormal.c" />
+    <ClCompile Include="kf\scr\VectorNormalS.c" />
+    <ClCompile Include="kf\scr\VectorNormalSS.c" />
+    <ClCompile Include="kf\scr\VerifyChecksum.c" />
+    <ClCompile Include="kf\scr\VRAM_FindFreeSlot.c" />
+    <ClCompile Include="kf\scr\VRAM_ReserveTextureSpace.c" />
+    <ClCompile Include="kf\scr\VSync.c" />
+    <ClCompile Include="kf\scr\VSyncCallback.c" />
+    <ClCompile Include="kf\scr\VSyncCallbacks.c" />
+    <ClCompile Include="kf\scr\v_wait.c" />
+    <ClCompile Include="kf\scr\WaitEvent.c" />
+    <ClCompile Include="kf\scr\WaitForButtonRelease.c" />
+    <ClCompile Include="kf\scr\AsyncStructForcedLoadSync.c" />
+    <ClCompile Include="kf\scr\KF_DrawSync.c" />
+    <ClCompile Include="kf\scr\WaitForInputStable.c" />
+    <ClCompile Include="kf\scr\FAsyncLoadSomething_0005.c" />
+    <ClCompile Include="kf\scr\write.c" />
+    <ClCompile Include="kf\scr\_bu_init.c" />
+    <ClCompile Include="kf\scr\_card_info.c" />
+    <ClCompile Include="kf\scr\_card_write.c" />
+    <ClCompile Include="kf\scr\_ControllerInput.c" />
+    <ClCompile Include="kf\scr\_loadTIM.c" />
+    <ClCompile Include="kf\scr\_new_card.c" />
+    <ClCompile Include="kf\scr\_patch_gte.c" />
+    <ClCompile Include="kf\scr\_spu_gcSPU.c" />
+    <ClCompile Include="kf\scr\_spu_setReverbAttr.c" />
+    <ClCompile Include="kf\scr\_SsVmDamperOff.c" />
+    <ClCompile Include="kf\scr\___MainGameLoop.c" />
+    <ClCompile Include="kf_cd.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PsyCross\src\audio\PsyX_SPUAL.cpp" />
+    <ClCompile Include="PsyCross\src\gpu\PsyX_GPU.cpp" />
+    <ClCompile Include="PsyCross\src\gte\half_float.cpp" />
+    <ClCompile Include="PsyCross\src\gte\PsyX_GTE.cpp" />
+    <ClCompile Include="PsyCross\src\pad\PsyX_pad.cpp" />
+    <ClCompile Include="PsyCross\src\psx\ABS.C" />
+    <ClCompile Include="PsyCross\src\psx\INLINE_C.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBAPI.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBCD.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBETC.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBGPU.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBGTE.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBMCRD.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBPAD.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBSN.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBSPU.C" />
+    <ClCompile Include="PsyCross\src\PsyX_main.cpp" />
+    <ClCompile Include="PsyCross\src\render\glad.c" />
+    <ClCompile Include="PsyCross\src\render\PsyX_render.cpp" />
+    <ClCompile Include="PsyCross\src\util\crash_handler.cpp" />
+    <ClCompile Include="PsyCross\src\util\timer.c" />
+    <ClCompile Include="recomp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kf\recomp.h" />
+    <ClInclude Include="kf\scr\disable_warnings.h" />
+    <ClInclude Include="kf\scr\funcs.h" />
+    <ClInclude Include="kf\_context.h" />
+    <ClInclude Include="kf_cd.h" />
+    <ClInclude Include="PsyCross\include\psx\abs.h" />
+    <ClInclude Include="PsyCross\include\psx\asm.h" />
+    <ClInclude Include="PsyCross\include\psx\gtemac.h" />
+    <ClInclude Include="PsyCross\include\psx\gtereg.h" />
+    <ClInclude Include="PsyCross\include\psx\inline_c.h" />
+    <ClInclude Include="PsyCross\include\psx\kernel.h" />
+    <ClInclude Include="PsyCross\include\psx\libapi.h" />
+    <ClInclude Include="PsyCross\include\psx\libcd.h" />
+    <ClInclude Include="PsyCross\include\psx\libetc.h" />
+    <ClInclude Include="PsyCross\include\psx\libgpu.h" />
+    <ClInclude Include="PsyCross\include\psx\libgte.h" />
+    <ClInclude Include="PsyCross\include\psx\libmath.h" />
+    <ClInclude Include="PsyCross\include\psx\libmcrd.h" />
+    <ClInclude Include="PsyCross\include\psx\libpad.h" />
+    <ClInclude Include="PsyCross\include\psx\libpress.h" />
+    <ClInclude Include="PsyCross\include\psx\libsn.h" />
+    <ClInclude Include="PsyCross\include\psx\libspu.h" />
+    <ClInclude Include="PsyCross\include\psx\r3000.h" />
+    <ClInclude Include="PsyCross\include\psx\rand.h" />
+    <ClInclude Include="PsyCross\include\psx\strings.h" />
+    <ClInclude Include="PsyCross\include\psx\types.h" />
+    <ClInclude Include="PsyCross\include\PsyX\common\glad.h" />
+    <ClInclude Include="PsyCross\include\PsyX\common\half_float.h" />
+    <ClInclude Include="PsyCross\include\PsyX\common\pgxp_defs.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_config.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_globals.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_public.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_render.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_version.h" />
+    <ClInclude Include="PsyCross\include\PsyX\util\timer.h" />
+    <ClInclude Include="PsyCross\src\audio\PsyX_SPUAL.h" />
+    <ClInclude Include="PsyCross\src\gpu\font.h" />
+    <ClInclude Include="PsyCross\src\gpu\PsyX_GPU.h" />
+    <ClInclude Include="PsyCross\src\gte\PsyX_GTE.h" />
+    <ClInclude Include="PsyCross\src\gte\ratan_tbl.h" />
+    <ClInclude Include="PsyCross\src\gte\rcossin_tbl.h" />
+    <ClInclude Include="PsyCross\src\gte\sqrt_tbl.h" />
+    <ClInclude Include="PsyCross\src\iso9660.h" />
+    <ClInclude Include="PsyCross\src\pad\PsyX_pad.h" />
+    <ClInclude Include="PsyCross\src\platform.h" />
+    <ClInclude Include="PsyCross\src\PsyX_main.h" />
+    <ClInclude Include="PsyCross\src\util\crash_handler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kf\scr\recomp_overlays.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
