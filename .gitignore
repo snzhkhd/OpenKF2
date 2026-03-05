@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 *.bin
 *.EXE
+x64/
