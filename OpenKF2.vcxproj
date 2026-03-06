@@ -465,7 +465,7 @@
     <ClCompile Include="kf\scr\ProcessMeleeAttack.c" />
     <ClCompile Include="kf\scr\ProcessPlayerInput.c" />
     <ClCompile Include="kf\scr\ProcessTIMContainer.c" />
-    <ClCompile Include="kf\scr\PutDrawEnv_800637A4.c" />
+    <ClCompile Include="kf\scr\KF_PutDispEnv.c" />
     <ClCompile Include="kf\scr\QueueCDReadTask.c" />
     <ClCompile Include="kf\scr\rand_recomp.c" />
     <ClCompile Include="kf\scr\read.c" />

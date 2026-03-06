@@ -736,6 +736,12 @@ static void AddSplit(bool semiTrans, bool textured)
 
 void DrawSplit(const GPUDrawSplit& split)
 {
+	printf("[DrawSplit] numVerts=%d startVertex=%d textureId=%d dfe=%d\n",
+		split.numVerts, split.startVertex, split.textureId, split.drawenv.dfe);
+	printf("[DrawSplit] clip=(%d,%d,%d,%d)\n",
+		split.drawenv.clip.x, split.drawenv.clip.y,
+		split.drawenv.clip.w, split.drawenv.clip.h);
+
 	if(split.debugText)
 		GR_PushDebugLabel(split.debugText);
 
@@ -746,7 +752,7 @@ void DrawSplit(const GPUDrawSplit& split)
 	if (split.texFormat == TF_32_BIT_RGBA)
 		GR_SetOverrideTextureSize(split.drawenv.tw.w, split.drawenv.tw.h);
 
-	const bool drawOnScreen = split.drawenv.dfe;
+	const bool drawOnScreen = true;//split.drawenv.dfe;
 	GR_SetupClipMode(&split.drawenv.clip, drawOnScreen);
 	GR_SetOffscreenState(&split.drawenv.clip, !drawOnScreen);
 
@@ -794,11 +800,16 @@ void DrawAllSplits()
 	}
 #endif // _DEBUG
 
+	printf("[DrawAllSplits] g_vertexIndex=%d g_splitIndex=%d\n", g_vertexIndex, g_splitIndex);
+
 	// next code ideally should be called before EndScene
 	GR_UpdateVertexBuffer(g_vertexBuffer, g_vertexIndex);
 
 	for (int i = 1; i <= g_splitIndex; i++)
+	{
+		printf("[Split %d] numVerts=%d startVertex=%d\n", i, g_splits[i].numVerts, g_splits[i].startVertex);
 		DrawSplit(g_splits[i]);
+	}
 
 	ClearSplits();
 }
@@ -1289,6 +1300,7 @@ static int ProcessGouraudPoly(P_TAG* polyTag)
 
 static int ProcessTileAndSprt(P_TAG* polyTag)
 {
+	printf("[TileSprt] code=0x%02X\n", polyTag->code);
 #if USE_PGXP && USE_EXTENDED_PRIM_POINTERS
 	const u_short gteIndex = polyTag->pgxp_index;
 #else
@@ -1422,6 +1434,7 @@ static int ProcessTileAndSprt(P_TAG* polyTag)
 		return 2;
 	}
 	case 0x7C:
+	case 0x7D:
 	{
 		SPRT_16* poly = (SPRT_16*)polyTag;
 

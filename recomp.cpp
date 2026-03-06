@@ -49,51 +49,36 @@ void _recompbcopy(uint8_t* rdram, recomp_context* ctx)
     printf("[CORE] Call _recompbcopy 0x%02X (a0: 0x%08X)\n", function_id, ctx->r4);
 }
 
-
-
-void gpu_process_dma_list(void)
-{
-}
-
-void process_otc_dma(void)
-{
-}
-
-void* resolve_ptr(uint32_t addr)
-{
-    return nullptr;
-}
-
-void CdBridge(unsigned char status, unsigned char* result) {
-    uint32_t target_ps1_addr = 0;
-
-    if (g_CdSyncCbAddr != 0) target_ps1_addr = g_CdSyncCbAddr;
-    else if (g_CdReadyCbAddr != 0) target_ps1_addr = g_CdReadyCbAddr;
-
-    if (target_ps1_addr != 0 && g_ctx != nullptr) {
-        recomp_func_t func = lookup_recomp_func(target_ps1_addr);
-        if (func) {
-            // ÑÎÕĞÀÍßÅÌ ĞÅÃÈÑÒĞÛ, ÊÎÒÎĞÛÅ ÈÑÏÎËÜÇÎÂÀËÀ ÈÃĞÀ ÄÎ ÏĞÅĞÛÂÀÍÈß
-            uint32_t saved_r4 = g_ctx->r4;
-            uint32_t saved_r5 = g_ctx->r5;
-            uint32_t saved_r2 = g_ctx->r2;
-            uint32_t saved_r31 = g_ctx->r31; // Àäğåñ âîçâğàòà (ra)
-
-            // Ïåğåäàåì àğãóìåíòû äëÿ êîëëáıêà
-            g_ctx->r4 = (uint32_t)status;
-            g_ctx->r5 = (uint32_t)((uint8_t*)result - rdram);
-
-            // ÂÛÇÛÂÀÅÌ ÈÃĞÎÂÎÉ ÊÎËËÁİÊ
-            func(rdram, g_ctx);
-
-            // ÂÎÑÑÒÀÍÀÂËÈÂÀÅÌ ĞÅÃÈÑÒĞÛ, ×ÒÎÁÛ ÈÃĞÀ ÏĞÎÄÎËÆÈËÀ ĞÀÁÎÒÓ ÁÅÇ ÃËŞÊÎÂ
-            g_ctx->r4 = saved_r4;
-            g_ctx->r5 = saved_r5;
-            g_ctx->r2 = saved_r2;
-            g_ctx->r31 = saved_r31;
-        }
-    }
-}
+//void CdBridge(unsigned char status, unsigned char* result) {
+//    uint32_t target_ps1_addr = 0;
+//
+//    if (g_CdSyncCbAddr != 0) target_ps1_addr = g_CdSyncCbAddr;
+//    else if (g_CdReadyCbAddr != 0) target_ps1_addr = g_CdReadyCbAddr;
+//
+//    if (target_ps1_addr != 0 && g_ctx != nullptr) {
+//        recomp_func_t func = lookup_recomp_func(target_ps1_addr);
+//        if (func) {
+//            // ÑÎÕĞÀÍßÅÌ ĞÅÃÈÑÒĞÛ, ÊÎÒÎĞÛÅ ÈÑÏÎËÜÇÎÂÀËÀ ÈÃĞÀ ÄÎ ÏĞÅĞÛÂÀÍÈß
+//            uint32_t saved_r4 = g_ctx->r4;
+//            uint32_t saved_r5 = g_ctx->r5;
+//            uint32_t saved_r2 = g_ctx->r2;
+//            uint32_t saved_r31 = g_ctx->r31; // Àäğåñ âîçâğàòà (ra)
+//
+//            // Ïåğåäàåì àğãóìåíòû äëÿ êîëëáıêà
+//            g_ctx->r4 = (uint32_t)status;
+//            g_ctx->r5 = (uint32_t)((uint8_t*)result - rdram);
+//
+//            // ÂÛÇÛÂÀÅÌ ÈÃĞÎÂÎÉ ÊÎËËÁİÊ
+//            func(rdram, g_ctx);
+//
+//            // ÂÎÑÑÒÀÍÀÂËÈÂÀÅÌ ĞÅÃÈÑÒĞÛ, ×ÒÎÁÛ ÈÃĞÀ ÏĞÎÄÎËÆÈËÀ ĞÀÁÎÒÓ ÁÅÇ ÃËŞÊÎÂ
+//            g_ctx->r4 = saved_r4;
+//            g_ctx->r5 = saved_r5;
+//            g_ctx->r2 = saved_r2;
+//            g_ctx->r31 = saved_r31;
+//        }
+//    }
+//}
 
 recomp_func_t lookup_recomp_func(uint32_t fvram)
 {
@@ -334,27 +319,33 @@ void gte_command(recomp_context* ctx, uint32_t cmd)
 
 void gte_lwc2(uint8_t* rdram, recomp_context* ctx, int rt, int rs, int imm)
 {
+    printf("------->gte_lwc2\n");
 }
 
 void gte_swc2(uint8_t* rdram, recomp_context* ctx, int rt, int rs, int imm)
 {
+    printf("------->gte_swc2\n");
 }
 
 void gte_mtc2(recomp_context* ctx, int rt, int rd)
 {
+    printf("------->gte_mtc2\n");
 }
 
 uint32_t gte_mfc2(recomp_context* ctx, int rd)
 {
+    printf("------->gte_mfc2\n");
     return uint32_t();
 }
 
 void gte_ctc2(recomp_context* ctx, int rt, int rd)
 {
+    printf("------->gte_ctc2\n");
 }
 
 uint32_t gte_cfc2(recomp_context* ctx, int rd)
 {
+    printf("------->gte_cfc2\n");
     return uint32_t();
 }
 

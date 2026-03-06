@@ -120,23 +120,6 @@ void EndDraw2D(uint8_t* rdram, recomp_context* ctx)
     // jr          $ra
     // nop
 
-
-    //uint16_t* vram_test = (uint16_t*)GET_PTR(0x80000000);
-    //// Нет — лучше напрямую через GR_ClearVRAM:
-    //RECT16 tpage_rect = { 896, 256, 128, 128 };
-    //// ClearVRAM белым
-    //GR_ClearVRAM(896, 256, 128, 128, 255, 255, 255);
-    //GR_ClearVRAM(576, 510, 16, 1, 255, 255, 255); // CLUT
-    //GR_UpdateVRAM();
-
-    DrawAllSplits();
-
-    PsyX_EndScene();
-    if (g_vsync_pending) {
-        VSync(0);
-        g_vsync_pending = false;
-    }
     return;
     // nop
-
 ;}

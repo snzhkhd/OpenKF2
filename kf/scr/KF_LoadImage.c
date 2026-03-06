@@ -44,7 +44,7 @@ void KF_LoadImage(uint8_t* rdram, recomp_context* ctx)
             if (chunk <= 0) break;
 
             GR_CopyVRAM(src + offset, 0, 0, chunk, 1, cur_x, cur_y);
-
+            GR_UpdateVRAM();
             offset += chunk;
             cur_x += chunk;
             if (cur_x >= 1024) {
@@ -58,6 +58,7 @@ void KF_LoadImage(uint8_t* rdram, recomp_context* ctx)
     else {
         // Обычная загрузка
         LoadImage(rect, p);
+        GR_UpdateVRAM();
     }
 
 

@@ -1062,7 +1062,7 @@
     <ClCompile Include="kf\scr\ProcessTIMContainer.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\PutDrawEnv_800637A4.c">
+    <ClCompile Include="kf\scr\KF_PutDispEnv.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\QueueCDReadTask.c">

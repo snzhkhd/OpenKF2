@@ -1,22 +1,26 @@
-#include "_context.h"
+п»ї#include "_context.h"
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "PsyX/PsyX_public.h"
+#include "PsyX/PsyX_render.h"
+#include "gpu/PsyX_GPU.h"
 #include "psx/libgte.h"
 #include "psx/libgpu.h"
 #include <string>
 
+
+
 void KF_PutDrawEnv(uint8_t* rdram, recomp_context* ctx)
 {
-    uint32_t env_ptr = ctx->r4; // a0
+    DRAWENV* env = (DRAWENV*)GET_PTR(ctx->r4);
 
-    printf("[HLE GPU] Custom PutDrawEnv(0x%08X)\n", env_ptr);
+    //env->dfe = 1;  // в†ђ РїСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕ СЂРµРЅРґРµСЂРёРј РЅР° СЌРєСЂР°РЅ
 
-    // Попробуем прочитать как стандартный DRAWENV
-    DRAWENV* env = (DRAWENV*)GET_PTR(env_ptr);
-    PutDrawEnv(env);
-    // обновляем глобальную переменную, как в оригинале (чтобы игра не сломалась, если читает её)
+    memcpy(&activeDrawEnv, env, sizeof(DRAWENV));
     memcpy(GET_PTR(0x800761B0), env, sizeof(DRAWENV));
-    ctx->r2 = env_ptr;
+
+
+    ctx->r2 = ctx->r4;
 }
     /*
     uint64_t hi = 0, lo = 0, result = 0;

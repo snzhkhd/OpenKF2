@@ -1,4 +1,4 @@
-#include "PsyX_main.h"
+﻿#include "PsyX_main.h"
 
 #include "PsyX/PsyX_version.h"
 #include "PsyX/PsyX_globals.h"
@@ -831,8 +831,9 @@ void PsyX_EndScene()
 #endif
 
 	GR_EndScene();
-	
+
 	GR_StoreFrameBuffer(activeDispEnv.disp.x, activeDispEnv.disp.y, activeDispEnv.disp.w, activeDispEnv.disp.h);
+
 
 	GR_SwapWindow();
 }

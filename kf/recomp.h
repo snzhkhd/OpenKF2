@@ -16,11 +16,6 @@ extern bool g_vsync_pending;
 
 extern struct recomp_context* g_ctx;
 
-void gpu_process_dma_list(void);
-void process_otc_dma(void);
-
-void* resolve_ptr(uint32_t addr);
-
 
 #define LOOKUP_FUNC(fvram) lookup_recomp_func(fvram)
 

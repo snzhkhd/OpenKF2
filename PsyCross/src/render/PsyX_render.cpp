@@ -1,4 +1,4 @@
-#include "PsyX/PsyX_public.h"
+﻿#include "PsyX/PsyX_public.h"
 
 #include "../platform.h"
 #include "../gpu/PsyX_GPU.h"
@@ -430,6 +430,9 @@ void GR_UpdateSwapIntervalState(int swapInterval)
 
 void GR_BeginScene()
 {
+	g_PreviousOffscreenState = -1; // ← форсируем сброс состояния
+	glBindFramebuffer(GL_FRAMEBUFFER, 0); // ← явно биндим экран
+
 	g_lastBoundTexture = 0;
 
 #if USE_OPENGL
