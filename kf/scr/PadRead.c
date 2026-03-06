@@ -13,8 +13,8 @@ void KF_PadRead(uint8_t* rdram, recomp_context* ctx)
 
     u_short buttons = ~raw;
 
-    if (buttons != 0)
-        printf("[PAD] buttons=0x%04X\n", buttons);
+  /*  if (buttons != 0)
+        printf("[PAD] buttons=0x%04X\n", buttons);*/
 
     ctx->r2 = (uint32_t)buttons;
 }
