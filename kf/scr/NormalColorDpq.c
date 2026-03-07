@@ -9,7 +9,7 @@
 
 void KF_NormalColorDpq(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("NormalColorDpq\n");
+   // printf("NormalColorDpq\n");
 
     SVECTOR* v0 = (SVECTOR*)GET_PTR(ctx->r4);
     CVECTOR* v1 = (CVECTOR*)GET_PTR(ctx->r5);

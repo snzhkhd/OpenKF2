@@ -39,7 +39,7 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
     {
         g_cdCurrentSector = KFCD_CdPosToInt(loc);
         ctx->r2 = 1;
-        printf("CdlSetloc\n");
+   //     printf("CdlSetloc\n");
         return;
     }
 
@@ -152,14 +152,14 @@ void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
     stream[36] = 1;
     ctx->r2 = 1;
 
-    if (stream[0] == 0x30)
-    {
-        printf("KFCD_CdlReadN -> [VAB stream] stream[20]=%08X stream[24]=%d stream[16]=%d\n",
-            *(uint32_t*)(stream + 20),
-            *(int16_t*)(stream + 24),
-            *(int16_t*)(stream + 16));
-    }
-    
+    //if (stream[0] == 0x30)
+    //{
+    //    printf("KFCD_CdlReadN -> [VAB stream] stream[20]=%08X stream[24]=%d stream[16]=%d\n",
+    //        *(uint32_t*)(stream + 20),
+    //        *(int16_t*)(stream + 24),
+    //        *(int16_t*)(stream + 16));
+    //}
+    //
 
     return;
 }

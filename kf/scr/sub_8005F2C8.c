@@ -4,7 +4,7 @@
 
 void sub_8005F2C8(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("sub_8005F2C8\n");
+    //printf("sub_8005F2C8\n");
     // a0 = вектор (SVECTOR*), a1 = SXY out, a2 = SZ out, a3 = flags out
     uint32_t vec_addr = ctx->r4;
     uint32_t sxy_addr = ctx->r5;

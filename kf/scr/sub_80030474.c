@@ -3,9 +3,9 @@
 
 void sub_80030474(uint8_t* rdram, recomp_context* ctx) 
 {
-    int a1 = (int)ctx->r4;
+   /* int a1 = (int)ctx->r4;
     printf("[sub_80030474] a1=%d dword_80194F5C=%d\n",
-        a1, *(int*)GET_PTR(0x80194F5C));
+        a1, *(int*)GET_PTR(0x80194F5C));*/
 
    /* if (a1 <= 0 || a1 > 10000) {
         printf("[sub_80030474] suspicious a1, skip\n");

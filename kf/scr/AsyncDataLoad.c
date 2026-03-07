@@ -1,100 +1,91 @@
+#include "..//kf_cd.h"
 #include "recomp.h"
 #include "disable_warnings.h"
+
+void KFCD_IntToCdPos(int lba, CdlLOC* loc) {
+    lba += 150;
+    loc->minute = itob(lba / (60 * 75));
+    loc->second = itob((lba / 75) % 60);
+    loc->sector = itob(lba % 75);
+    loc->track = 0;
+}
 
 void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx) 
 {
     printf("[DEBUG] AsyncDataLoad.\n");
-    //uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
-    //if (p_active && *p_active) {
-    //    uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
-    //    if (stream) {
-    //        uint16_t chunks = *(uint16_t*)(stream + 16);
-    //        // Если есть данные для чтения но никто не запустил CdlReadN
-    //        if (chunks > 0 && stream[36] == 0 && stream[1] == 0) 
-    //        {
-    //            while (true) 
-    //            {
-    //                ctx->r4 = 0x16;
-    //                ctx->r5 = (uint32_t)((*p_active + 2) | 0x80000000);
-    //                KF_CdControl(rdram, ctx);
 
-    //                uint16_t remaining = *(uint16_t*)(stream + 16);
-    //                printf("[Async] chunks remaining=%d\n", remaining);
-
-    //                if (remaining == 0) break;
-
-    //                // Вызываем обработчик если нужно
-    //                if (stream[36]) {
-    //                    stream[36] = 0;
-    //                    recomp_func_t handler = lookup_recomp_func(0x80017DB4);
-    //                    if (handler) {
-    //                        uint32_t saved_ra = ctx->r31;
-    //                        uint32_t saved_r4 = ctx->r4;
-    //                        ctx->r4 = *p_active;
-    //                        handler(rdram, ctx);
-    //                        ctx->r4 = saved_r4;
-    //                        ctx->r31 = saved_ra;
-    //                    }
-    //                }
-
-    //                if (stream[0] == 0) break; // NextCdTask вызвался
-    //            }
-    //           /* printf("[Async] forcing CdlReadN for stream[0]=%d chunks=%d\n",
-    //                stream[0], chunks);
-    //            uint32_t saved_r4 = ctx->r4;
-    //            uint32_t saved_r5 = ctx->r5;
-    //            ctx->r4 = 0x16;
-    //            ctx->r5 = (uint32_t)((*p_active + 2) | 0x80000000);
-    //            KF_CdControl(rdram, ctx);
-    //            ctx->r4 = saved_r4;
-    //            ctx->r5 = saved_r5;*/
-    //        }
-
-    //        // Обработчик если данные готовы
-    //        if (stream[36]) 
-    //        {
-    //            //stream[36] = 0;
-    //            recomp_func_t handler = nullptr;
-    //            switch (stream[0]) {
-    //            case 0x10: handler = lookup_recomp_func(0x80017DB4); break;
-    //            case 0x20:
-    //            case 0x40: handler = lookup_recomp_func(0x80017F2C); break;
-    //            }
-    //            if (handler) {
-    //                uint32_t saved_ra = ctx->r31;
-    //                uint32_t saved_r4 = ctx->r4;
-    //                ctx->r4 = *p_active;
-    //                handler(rdram, ctx);
-    //                ctx->r4 = saved_r4;
-    //                ctx->r31 = saved_ra;
-    //            }
-    //        }
-    //    }
-    //}
      // Симулируем CD IRQ для стримов которые ждут callback
     uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
+    uint32_t saved_r4 = ctx->r4;
+    uint32_t saved_ra = ctx->r31;
+    //
     if (p_active && *p_active) 
     {
         uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
-        if (stream && stream[0] == 0x30 && stream[36] == 1) 
+        if (stream && stream[36] == 1) 
         {
-            stream[36] = 0;
-            uint32_t cb_addr = *(uint32_t*)(stream + 20);
-            if (cb_addr) 
+            uint8_t type = stream[0];
+
+            recomp_func_t handler = nullptr;
+            if (type == 0x10)
             {
-                recomp_func_t cb = lookup_recomp_func(cb_addr);
-                if (cb) 
-                {
-                    printf("[AsyncDataLoad] IRQ sim for 0x30, stream[24]=%d\n",
-                        *(int16_t*)(stream + 24));
-                    uint32_t saved_r4 = ctx->r4;
-                    uint32_t saved_ra = ctx->r31;
+                //handler = lookup_recomp_func(0x80017DB4);
+                handler = lookup_recomp_func(0x80017DB4);
+                if (handler) {
+                    stream[36] = 0;
+
+                    // Получаем общее количество секторов
+                    uint16_t chunks_now = *(uint16_t*)(stream + 16);
+                    uint16_t chunks_rest = *(uint16_t*)(stream + 34);
+                    uint16_t total = chunks_now + chunks_rest;
+
+                    CdlLOC* base_loc = (CdlLOC*)(stream + 6); // базовая позиция
+                    int base_lba = KFCD_CdPosToInt(base_loc);
+                    uint32_t dst = *(uint32_t*)(stream + 12);
+
+                    printf("[0x10 full read] base_lba=%d total=%d dst=%08X\n",
+                        base_lba, total, dst);
+
+                    // Читаем ВСЁ за один раз
+                    uint8_t* dst_ptr = (uint8_t*)GET_PTR(dst);
+                    for (int i = 0; i < total; i++) {
+                        fseek(g_cdImage, (uint32_t)(base_lba + i) * 2352 + 24, SEEK_SET);
+                        fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
+                    }
+
+                    // Обновляем состояние стрима
+                    *(uint32_t*)(stream + 12) = dst + total * 2048;
+                    *(uint16_t*)(stream + 16) = 0;
+                    *(uint16_t*)(stream + 34) = 0;
+                    stream[36] = 1;
+
                     ctx->r4 = *p_active;
-                    cb(rdram, ctx);
+                    handler(rdram, ctx);
                     ctx->r4 = saved_r4;
                     ctx->r31 = saved_ra;
                 }
             }
+            else if (type == 0x30) 
+            {
+                uint32_t cb = *(uint32_t*)(stream + 20);
+                if (cb) handler = lookup_recomp_func(cb);
+            }
+
+            if (handler) 
+            {
+                stream[36] = 0;
+                //printf("[AsyncDataLoad] IRQ sim type=0x%02X\n", type);
+                
+                uint32_t saved_r4 = ctx->r4;
+                uint32_t saved_ra = ctx->r31;
+                ctx->r4 = *p_active;
+                handler(rdram, ctx);
+                ctx->r4 = saved_r4;
+                ctx->r31 = saved_ra;
+            }
+            printf("[IRQ sim 0x10] stream[16]=%d stream[34]=%d\n",
+                *(uint16_t*)(stream + 16),
+                *(uint16_t*)(stream + 34));
         }
     }
 
