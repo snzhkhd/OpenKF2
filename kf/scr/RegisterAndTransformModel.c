@@ -28,7 +28,7 @@ void RegisterAndTransformModel(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80030130
     // sw          $a1, 0x0($v1)
     MEM_W(0X0, ctx->r3) = ctx->r5;
-    ConvertVertexCoordinates(rdram, ctx);
+    KF_TMDIndicesToOffsets(rdram, ctx);
     goto after_0;
     // sw          $a1, 0x0($v1)
     MEM_W(0X0, ctx->r3) = ctx->r5;

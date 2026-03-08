@@ -3,7 +3,10 @@
 
 void sub_80016CBC(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("Map_Load state Ready\n");
+   // printf("Map_Load callback state Ready\n");
+   // *(uint32_t*)GET_PTR(0x80194F5C) = 0x7FFFFFFF; // максимум
+   // printf("[DEBUG] SET FOG DIST TO 0x7FFFFFFF\n");
+   
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

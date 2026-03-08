@@ -12,14 +12,15 @@
 
 void KF_PutDrawEnv(uint8_t* rdram, recomp_context* ctx)
 {
+   /* printf("[DrawEnv] clip x0=%d y0=%d x1=%d y1=%d dfe=%d\n",
+        activeDrawEnv.clip.x, activeDrawEnv.clip.y,
+        activeDrawEnv.clip.x + activeDrawEnv.clip.w,
+        activeDrawEnv.clip.y + activeDrawEnv.clip.h,
+        activeDrawEnv.dfe);*/
+
     DRAWENV* env = (DRAWENV*)GET_PTR(ctx->r4);
-
-    //env->dfe = 1;  // ← принудительно рендерим на экран
-
     memcpy(&activeDrawEnv, env, sizeof(DRAWENV));
-    memcpy(GET_PTR(0x800761B0), env, sizeof(DRAWENV));
-
-
+    PutDrawEnv(env); 
     ctx->r2 = ctx->r4;
 }
     /*

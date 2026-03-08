@@ -1,9 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void UpdatePlayerSystem(uint8_t* rdram, recomp_context* ctx) 
+void KF_GpuUpdate(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("UpdatePlayerSystem\n");
+   // printf("UpdatePlayerSystem\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -14,7 +14,7 @@ void UpdatePlayerSystem(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80030044
     // nop
 
-    sub_80030044(rdram, ctx);
+    KF_RenderUpdateCamera(rdram, ctx);
     goto after_0;
     // nop
 
@@ -46,7 +46,7 @@ void UpdatePlayerSystem(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8002FE74
     // nop
 
-    sub_8002FE74(rdram, ctx);
+    KF_RenderBegin(rdram, ctx);
     goto after_4;
     // nop
 
@@ -468,7 +468,7 @@ L_800361AC:
     // jal         0x80033A1C
     // nop
 
-    sub_80033A1C(rdram, ctx);
+    KF_RenderTilemap(rdram, ctx);
     goto after_10;
     // nop
 
@@ -516,7 +516,7 @@ L_800361AC:
     // jal         0x8002FF0C
     // nop
 
-    sub_8002FF0C(rdram, ctx);
+    KF_RenderEnd(rdram, ctx);
     goto after_16;
     // nop
 
@@ -543,7 +543,7 @@ L_800361AC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
     // jr          $ra
     // nop
-    printf("UpdatePlayerSystem  end\n");
+ //   printf("UpdatePlayerSystem  end\n");
     return;
     // nop
 

@@ -4,7 +4,12 @@
 
 void KF_SetTransMatrix(uint8_t* rdram, recomp_context* ctx)
 {
-    // r4 (a0) содержит PS1-адрес структуры MATRIX
+    //MATRIX* m = (MATRIX*)GET_PTR(ctx->r4);
+    //if (!m) return;
+    //// ctc2 $5-$7 Ч translation vector (offset +20,+24,+28)
+    //ctx->cp2c[5] = *(uint32_t*)((uint8_t*)m + 20); // TRX
+    //ctx->cp2c[6] = *(uint32_t*)((uint8_t*)m + 24); // TRY
+    //ctx->cp2c[7] = *(uint32_t*)((uint8_t*)m + 28); // TRZ
     MATRIX* m = (MATRIX*)GET_PTR(ctx->r4);
 
     if (m) {

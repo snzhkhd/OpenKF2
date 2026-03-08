@@ -12,17 +12,54 @@ static int SaveTimer = 0;
 
 void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx) 
 {
+    //PsyX_BeginScene(); <- вызывается в BeginDraw2D и RenderScene
     uint32_t madr = ctx->r4;
+    calls_per_frame++;
     if (madr < 0x80000000 || madr >= 0x80200000) return;
+    uint32_t cur_addr = madr;
+
+    // Считаем непустые записи OTag
+    int non_empty = 0;
+    
+    //for (int i = 0; i < 0x2000; i++) 
+    //{
+    //    uint32_t* cur = (uint32_t*)GET_PTR(cur_addr);
+    //    uint32_t tag = cur[0];
+    //    uint8_t len = (tag >> 24) & 0xFF;
+    //    uint32_t next = tag & 0x00FFFFFF;
+    //    if (len > 0)
+    //    {
+    //        non_empty++;
+
+    //        uint8_t code = (cur[1] >> 24) & 0xFF;
+    //        // Для GT3 (0x34) и GT4 (0x3E) — вершины начинаются с cur[2]
+    //        if ((code == 0x34 || code == 0x3E) && non_empty < 3) {
+    //            int16_t x0 = (int16_t)(cur[2] & 0xFFFF);
+    //            int16_t y0 = (int16_t)(cur[2] >> 16);
+    //            int16_t x1 = (int16_t)(cur[4] & 0xFFFF);
+    //            int16_t y1 = (int16_t)(cur[4] >> 16);
+    //            int16_t x2 = (int16_t)(cur[6] & 0xFFFF);
+    //            int16_t y2 = (int16_t)(cur[6] >> 16);
+    //            printf("[Vert] code=%02X (%d,%d) (%d,%d) (%d,%d)\n",
+    //                code, x0, y0, x1, y1, x2, y2);
+    //        }
+    //    }
+    //    if (next == 0x00FFFFFF || next < 0x00010000) break;
+    //    cur_addr = next | 0x80000000;
+    //}
+  //  printf("[TriggerGpuDma] madr=%08X non_empty=%d\n", madr, non_empty);
+
 
     uint32_t* p_data = (uint32_t*)GET_PTR(madr);
+    
+
     uint32_t first_word = p_data[0];
     uint32_t next_ptr = first_word & 0x00FFFFFF;
     uint8_t  top_byte = (first_word >> 24) & 0xFF;
 
-    if (next_ptr >= 0x00010000 && next_ptr < 0x001FFFFF && top_byte < 0x20)
+    if (next_ptr >= 0x00010000 && next_ptr < 0x00200000 && top_byte < 0x20)
     {
-        uint32_t cur_addr = madr;
+       
         int max_iter = 1024;
 
         while (true)
@@ -32,13 +69,22 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
             uint8_t  len = (tag >> 24) & 0xFF;
             uint32_t next = tag & 0x00FFFFFF;
 
-         //   printf("[Walk] addr=0x%08X tag=0x%08X len=%d next=0x%06X\n",
-         //       cur_addr, tag, len, next);
-
             if (len > 0) 
             {
                 uint8_t code = (cur[1] >> 24) & 0xFF;
-                if (code == 0x2E) {
+
+                ////non_empty++;
+                //if (code == 0x3E) 
+                //{
+                //    bool semiTrans = (code & 0x02) != 0;
+                //    if (semiTrans)
+                //        break;
+                //}
+
+                
+                if (code == 0x2E) 
+                {
+
                     uint16_t clut = (cur[3] >> 16) & 0xFFFF;
                     uint16_t tpage = (cur[5] >> 16) & 0xFFFF;
                     uint8_t u0 = cur[3] & 0xFF;
@@ -47,8 +93,8 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
                     uint8_t v1 = (cur[5] >> 8) & 0xFF;
                     int16_t x0 = cur[2] & 0xFFFF;
                     int16_t y0 = cur[2] >> 16;
-            //        printf("[FT4 0x%02X] tpage=0x%04X clut=0x%04X u0=%d v0=%d u1=%d v1=%d xy0=(%d,%d)\n", code, tpage, clut, u0, v0, u1, v1, x0, y0);
                 }
+
 
                 static uint8_t psyx_prim[256];
                 memset(psyx_prim, 0, 256);
@@ -69,28 +115,19 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
                 //    // Временный фикс:
                 //    psyx_prim[15] &= ~0x02; // убираем бит semi-transparency
                 //}
-               
-            //    printf("[Prim] addr=0x%08X code=0x%02X len=%d\n", cur_addr, code, len);
-            //    printf("[Before ParsePrim] g_splitIndex=%d\n", g_splitIndex);
+
                 ParsePrimitivesLinkedList((u_long*)psyx_prim, 0);
-            //    printf("[After ParsePrim] g_splitIndex=%d\n", g_splitIndex);
 
             }
-
             if (next == 0x00FFFFFF || next < 0x00010000) break;
             cur_addr = next | 0x80000000;
         }
-       
 
         GR_UpdateVRAM();
 
         DrawAllSplits();
-       /* printf("[DispEnv] disp x=%d y=%d w=%d h=%d\n",
-            activeDispEnv.disp.x, activeDispEnv.disp.y,
-            activeDispEnv.disp.w, activeDispEnv.disp.h);*/
 
-       
-        PsyX_EndScene();
+        //PsyX_EndScene(); <- вызывается в RenderEnd и EndDraw2D
         if (g_vsync_pending) 
         {
             VSync(0);

@@ -222,7 +222,7 @@ L_80034980:
     // jal         0x80036594
     // addu        $a0, $s0, $zero
     ctx->r4 = ADD32(ctx->r16, 0);
-    GetPrimitiveBuffer(rdram, ctx);
+    KF_RenderSetTMDFromLoadedMO(rdram, ctx);
     goto after_7;
     // addu        $a0, $s0, $zero
     ctx->r4 = ADD32(ctx->r16, 0);

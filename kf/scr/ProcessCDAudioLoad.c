@@ -3,16 +3,16 @@
 
 void ProcessCDAudioLoad(uint8_t* rdram, recomp_context* ctx) 
 {
-    uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
-    uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
-    if (stream) 
-    {
-        printf("[ProcessCDAudioLoad] stream[0]=%d stream[24]=%d stream[26]=%d stream[28]=%d\n",
-            *(int16_t*)(stream + 0),
-            *(int16_t*)(stream + 24),
-            *(int16_t*)(stream + 26),
-            *(int16_t*)(stream + 28));
-    }
+    //uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
+    //uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
+    //if (stream) 
+    //{
+    //    printf("[ProcessCDAudioLoad] stream[0]=%d stream[24]=%d stream[26]=%d stream[28]=%d\n",
+    //        *(int16_t*)(stream + 0),
+    //        *(int16_t*)(stream + 24),
+    //        *(int16_t*)(stream + 26),
+    //        *(int16_t*)(stream + 28));
+    //}
    
     //uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
     //if (!p_active || !*p_active) 

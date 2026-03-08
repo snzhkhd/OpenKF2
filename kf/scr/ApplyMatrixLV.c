@@ -6,8 +6,10 @@ void KF_ApplyMatrixLV(uint8_t* rdram, recomp_context* ctx) {
     MATRIX* m = (MATRIX*)GET_PTR(ctx->r4);  // a0
     VECTOR* v0 = (VECTOR*)GET_PTR(ctx->r5); // a1
     VECTOR* v1 = (VECTOR*)GET_PTR(ctx->r6); // a2
-
+	
+	ctx_to_gte(ctx);
     ApplyMatrixLV(m, v0, v1);
+	gte_to_ctx(ctx);
     ctx->r2 = ctx->r6;
 }
 

@@ -126,6 +126,7 @@ void KF_CdControl(uint8_t* rdram, recomp_context* ctx)
         }
         
     }
+
     //CD_cw_8004DBE0 (rdram, ctx)   <- можно вызвать напрямую!
    KFCD_CdControl(rdram, ctx);
     return;

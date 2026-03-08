@@ -1,10 +1,25 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "PsyX/PsyX_public.h"
+#include "PsyX/PsyX_render.h"
 
-void sub_8005F578(uint8_t* rdram, recomp_context* ctx) 
+void KF_InitGeom(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("sub_8005F578 - ctx->r2 = 0\n");
-    ctx->r2 = 0; return;
+    printf("KF_InitGeom\n");
+    //ctx_to_gte(ctx);
+    //InitGeom();
+    //gte_to_ctx(ctx);
+
+    ctx->cp2c[29] = 0x155;
+    ctx->cp2c[30] = 0x100;
+    ctx->cp2c[26] = 0x3E8;      // H = focal length
+    ctx->cp2c[27] = 0xFFFFEF9E;
+    ctx->cp2c[28] = 0x00140000;
+    ctx->cp2c[24] = 0x00A00000; // OFX = 160 << 16
+    ctx->cp2c[25] = 0x00780000; // OFY = 120 << 16
+    ctx_to_gte(ctx);
+    ctx->r2 = 0;
+
     //uint64_t hi = 0, lo = 0, result = 0;
     //unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     //int c1cs = 0; 

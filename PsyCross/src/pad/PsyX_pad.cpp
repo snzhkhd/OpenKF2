@@ -214,9 +214,7 @@ void PsyX_Pad_InternalPadUpdates()
 			ushort test = *(u_short*)pad->buttons;
 
 			// In order to switch From/To analog user has to use left gamepad stick
-			//printf("PsyX_Pad_InternalPadUpdates\n");
-			//printf("[PsyX_Pad_InternalPadUpdates] id=%d buttons=0x%04X\n", pad->id, *(u_short*)pad->buttons);
-			
+
 			// Select + Start pressed
 			if ((test & 0x1) == 0 && (test & 0x8) == 0)
 			{
@@ -259,6 +257,8 @@ void PsyX_Pad_InternalPadUpdates()
 				}
 			//	printf("[PAD_UPDATE] keyboard override! kbInputs=0x%04X\n", kbInputs);
 				*(u_short*)pad->buttons &= kbInputs;
+
+				
 			}
 		//	printf("[PAD_UPDATE] final buttons=0x%04X\n", *(u_short*)pad->buttons);
 		}

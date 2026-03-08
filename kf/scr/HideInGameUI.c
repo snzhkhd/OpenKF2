@@ -36,7 +36,7 @@ void HideInGameUI(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800360A0
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_0;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);

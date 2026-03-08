@@ -43,6 +43,7 @@ int VSync(int mode)
 	else if (mode > 0)
 	{
 		// FIXME: wait many times?
+		PsyX_WaitForTimestep(1);
 	}
 
 	return PsyX_Sys_GetVBlankCount();

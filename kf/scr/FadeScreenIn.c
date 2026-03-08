@@ -84,7 +84,7 @@ L_800398E4:
     // jal         0x8002791C
     // addu        $a1, $s1, $zero
     ctx->r5 = ADD32(ctx->r17, 0);
-    GatherCameraContext(rdram, ctx);
+    KF_PlayerCopyPositionRotation(rdram, ctx);
     goto after_3;
     // addu        $a1, $s1, $zero
     ctx->r5 = ADD32(ctx->r17, 0);
@@ -94,7 +94,7 @@ L_800398E4:
     // jal         0x800360A0
     // addu        $a1, $s1, $zero
     ctx->r5 = ADD32(ctx->r17, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_4;
     // addu        $a1, $s1, $zero
     ctx->r5 = ADD32(ctx->r17, 0);

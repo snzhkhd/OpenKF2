@@ -51,7 +51,7 @@ L_800374A0:
     // jal         0x8002FE74
     // nop
 
-    sub_8002FE74(rdram, ctx);
+    KF_RenderBegin(rdram, ctx);
     goto after_0;
     // nop
 
@@ -568,7 +568,7 @@ L_800377F0:
     // jal         0x8002FF0C
     // nop
 
-    sub_8002FF0C(rdram, ctx);
+    KF_RenderEnd(rdram, ctx);
     goto after_18;
     // nop
 

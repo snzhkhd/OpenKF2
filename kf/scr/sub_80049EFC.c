@@ -557,7 +557,7 @@ L_8004A200:
     // jal         0x800360A0
     // addu        $a1, $s2, $zero
     ctx->r5 = ADD32(ctx->r18, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_12;
     // addu        $a1, $s2, $zero
     ctx->r5 = ADD32(ctx->r18, 0);
@@ -661,7 +661,7 @@ L_8004A2D0:
     // jal         0x800360A0
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_16;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -946,7 +946,7 @@ L_8004A44C:
     // jal         0x800360A0
     // sh          $v0, 0x26($v1)
     MEM_H(0X26, ctx->r3) = ctx->r2;
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_21;
     // sh          $v0, 0x26($v1)
     MEM_H(0X26, ctx->r3) = ctx->r2;
@@ -1077,7 +1077,7 @@ L_8004A504:
     // jal         0x800360A0
     // sh          $v0, 0xE($v1)
     MEM_H(0XE, ctx->r3) = ctx->r2;
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_25;
     // sh          $v0, 0xE($v1)
     MEM_H(0XE, ctx->r3) = ctx->r2;

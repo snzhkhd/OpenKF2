@@ -18,7 +18,7 @@ void MOLoadedCallback(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80030130
     // addu        $a0, $s0, $a0
     ctx->r4 = ADD32(ctx->r16, ctx->r4);
-    ConvertVertexCoordinates(rdram, ctx);
+    KF_TMDIndicesToOffsets(rdram, ctx);
     goto after_0;
     // addu        $a0, $s0, $a0
     ctx->r4 = ADD32(ctx->r16, ctx->r4);

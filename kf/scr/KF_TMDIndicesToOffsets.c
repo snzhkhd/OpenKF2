@@ -1,7 +1,10 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void ConvertVertexCoordinates(uint8_t* rdram, recomp_context* ctx) {
+void KF_TMDIndicesToOffsets(uint8_t* rdram, recomp_context* ctx) 
+{
+  /*  printf("[KF_TMDIndicesToOffsets] a1=%08X *(a1+8)=%d\n", ctx->r4, *(int*)(GET_PTR(ctx->r4) + 8));*/
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

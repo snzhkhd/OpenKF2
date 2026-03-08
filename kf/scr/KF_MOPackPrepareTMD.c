@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void RegisterPrimitiveTypes(uint8_t* rdram, recomp_context* ctx) {
+void KF_MOPackPrepareTMD(uint8_t* rdram, recomp_context* ctx)
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -69,7 +71,7 @@ L_800364DC:
     // jal         0x80036594
     // sw          $s0, 0x0($v0)
     MEM_W(0X0, ctx->r2) = ctx->r16;
-    GetPrimitiveBuffer(rdram, ctx);
+    KF_RenderSetTMDFromLoadedMO(rdram, ctx);
     goto after_0;
     // sw          $s0, 0x0($v0)
     MEM_W(0X0, ctx->r2) = ctx->r16;
@@ -79,7 +81,7 @@ L_800364DC:
     // jal         0x80030130
     // nop
 
-    ConvertVertexCoordinates(rdram, ctx);
+    KF_TMDIndicesToOffsets(rdram, ctx);
     goto after_1;
     // nop
 

@@ -1,8 +1,11 @@
 ﻿#include "recomp.h"
 #include "disable_warnings.h"
+#include "PsyX/PsyX_render.h"
 #include "psx/libetc.h"
 #include "pad/PsyX_pad.h"
 #include "SDL2/SDL_keyboard.h"
+
+
 
 void KF_PadRead(uint8_t* rdram, recomp_context* ctx) 
 {
@@ -13,8 +16,29 @@ void KF_PadRead(uint8_t* rdram, recomp_context* ctx)
 
     u_short buttons = ~raw;
 
-  /*  if (buttons != 0)
-        printf("[PAD] buttons=0x%04X\n", buttons);*/
+    //if (buttons != 0)
+    //    printf("[PAD] buttons=0x%04X\n", buttons);
+
+
+    //printf("[PAD] before swap: 0x%04X\n", raw);
+    //raw = ((raw >> 8) & 0xFF) | ((raw << 8) & 0xFF00);
+    //printf("[PAD] after swap: 0x%04X\n", raw);
+
+    //printf("[PAD] buttons: 0x%04X\n", buttons);
+
+    //8019B606 g_PadKey
+    uint16_t btn = *(uint16_t*)GET_PTR(0x8019B606);
+    //printf("btn <%d>\n",btn);
+    static bool save = false;
+    if (!save && btn == 256)
+    {
+        save = true;
+        GR_SaveVRAM("vram_debug_game.gta", 0, 0, 1024, 512, 0);
+        save = false;
+        ctx->r2 = (uint32_t)buttons;
+        btn = 0;
+        return;
+    }
 
     ctx->r2 = (uint32_t)buttons;
 }

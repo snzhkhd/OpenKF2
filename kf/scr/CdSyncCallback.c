@@ -1,7 +1,8 @@
 #include "..//kf_cd.h"
 #include "disable_warnings.h"
 
-void KF_CdSyncCallback(uint8_t* rdram, recomp_context* ctx) {
+void KF_CdSyncCallback(uint8_t* rdram, recomp_context* ctx) 
+{
 	KFCD_CdSyncCallback(rdram, ctx);
 }
 

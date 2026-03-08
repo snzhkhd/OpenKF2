@@ -1,7 +1,30 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void SubmitDisplayListToGPU(uint8_t* rdram, recomp_context* ctx) {
+void SubmitDisplayListToGPU(uint8_t* rdram, recomp_context* ctx) 
+{
+    // int a2 = (int)ctx->r5;
+
+    /*g_PrimitiveTypeTable[a2] Ч массив int**/
+    // uint32_t* table = (uint32_t*)GET_PTR(0x80190254); // или правильный адрес
+    // uint32_t v8_ps1 = table[a2]; // PS1 адрес элемента
+    // int* v8 = (int*)GET_PTR(v8_ps1);
+    // int v9 = *v8; // = *g_PrimitiveTypeTable[a2]
+
+    // printf("[Submit] a2=%d v8_ps1=%08X v9=%08X check=%d\n",
+        // a2, v8_ps1, v9, v9 ? *(v8 + 1) : -1);
+    // int* ptr = (int*)GET_PTR(v8_ps1);
+    // printf("[PrimType a2=%d] [0]=%d [1]=%d [2]=%d [3]=%d [4]=%d\n",
+        // a2, ptr[0], ptr[1], ptr[2], ptr[3], ptr[4]);
+
+
+    //if (ptr[1] == 0) {
+    //    ptr[1] = 1; // принудительно разрешаем рендер
+    //    //printf("[ZERO_PRIM] a2=%d v8_ps1=%08X Ч primitives not initialized!\n", a2, v8_ps1);
+    //}
+
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -77,7 +100,7 @@ L_80036B78:
     // jal         0x80036594
     // andi        $a0, $s0, 0xFFFF
     ctx->r4 = ctx->r16 & 0XFFFF;
-    GetPrimitiveBuffer(rdram, ctx);
+    KF_RenderSetTMDFromLoadedMO(rdram, ctx);
     goto after_1;
     // andi        $a0, $s0, 0xFFFF
     ctx->r4 = ctx->r16 & 0XFFFF;

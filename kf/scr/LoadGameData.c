@@ -378,7 +378,7 @@ void LoadGameData(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80036490
     // addu        $s0, $s0, $v0
     ctx->r16 = ADD32(ctx->r16, ctx->r2);
-    RegisterPrimitiveTypes(rdram, ctx);
+    KF_MOPackPrepareTMD(rdram, ctx);
     goto after_18;
     // addu        $s0, $s0, $v0
     ctx->r16 = ADD32(ctx->r16, ctx->r2);
@@ -406,7 +406,7 @@ void LoadGameData(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80036490
     // addu        $a1, $s1, $zero
     ctx->r5 = ADD32(ctx->r17, 0);
-    RegisterPrimitiveTypes(rdram, ctx);
+    KF_MOPackPrepareTMD(rdram, ctx);
     goto after_20;
     // addu        $a1, $s1, $zero
     ctx->r5 = ADD32(ctx->r17, 0);

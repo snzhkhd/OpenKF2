@@ -18,16 +18,8 @@ void KF_ClearOTagR(uint8_t* rdram, recomp_context* ctx)
         // Читаем dword_8007625C как делает оригинал
         uint32_t terminator = MEM_W(0, 0x8007625C) & 0x00FFFFFF;
         ot[0] = terminator;
-
-      //  printf("[ClearOTagR] ot[0]=0x%06X (terminator)\n", terminator);
     }
-	//printf("[ClearOTagR] PsyX_BeginScene\n");
 
-    //u_long ot_addr = ctx->r4;
-    //int n = (int)ctx->r5;
-    //u_long* ot = (u_long*)GET_PTR(ot_addr);
-    //ClearOTagR(ot, n);
-    //PsyX_BeginScene();
     ctx->r2 = 0;
 
 ;}

@@ -6,15 +6,15 @@ void ProcessAssetLoadQueue(uint8_t* rdram, recomp_context* ctx)
 {
 
     //// Лог ВСЕГДА, без условий
-    uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
-    if (p_active)
-    {
-        uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
-        if (stream)
-        {
-            printf("[ProcessAssetLoadQueue] stream=%d | (24) = <%d>, (12) = <%d>\n", stream[0], stream[24], stream[12]);
-        }
-    }
+    //uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
+    //if (p_active)
+    //{
+    //    uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
+    //    if (stream)
+    //    {
+    //        printf("[ProcessAssetLoadQueue] stream=%d | (24) = <%d>, (12) = <%d>\n", stream[0], stream[24], stream[12]);
+    //    }
+    //}
     
 
     //// if (p_active && *p_active) {

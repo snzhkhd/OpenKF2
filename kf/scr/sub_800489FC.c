@@ -79,7 +79,7 @@ L_80048A48:
     // jal         0x800360A0
     // sh          $v0, 0x18($s0)
     MEM_H(0X18, ctx->r16) = ctx->r2;
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_1;
     // sh          $v0, 0x18($s0)
     MEM_H(0X18, ctx->r16) = ctx->r2;
@@ -98,7 +98,7 @@ L_80048A80:
     // jal         0x800360A0
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_2;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);

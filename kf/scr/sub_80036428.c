@@ -32,7 +32,7 @@ void sub_80036428(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8002FFA4
     // ori         $a0, $zero, 0x3
     ctx->r4 = 0 | 0X3;
-    sub_8002FFA4(rdram, ctx);
+    KF_TMDCurrentSet(rdram, ctx);
     goto after_2;
     // ori         $a0, $zero, 0x3
     ctx->r4 = 0 | 0X3;

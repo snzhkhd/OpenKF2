@@ -309,7 +309,7 @@
     <ClCompile Include="kf\scr\ConvertCdAddress.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\ConvertVertexCoordinates.c">
+    <ClCompile Include="kf\scr\KF_TMDIndicesToOffsets.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\CDReadSectorsInternal.c">
@@ -492,7 +492,7 @@
     <ClCompile Include="kf\scr\FreeSPUVoice.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\GatherCameraContext.c">
+    <ClCompile Include="kf\scr\KF_PlayerCopyPositionRotation.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\GetDistanceIfInRange.c">
@@ -1095,7 +1095,7 @@
     <ClCompile Include="kf\scr\RegisterAndTransformModel.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\RegisterPrimitiveTypes.c">
+    <ClCompile Include="kf\scr\KF_MOPackPrepareTMD.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\RenderFadeOverlay.c">
@@ -1308,7 +1308,7 @@
     <ClCompile Include="kf\scr\SetupEntityAnimation.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\SetupGTE.c">
+    <ClCompile Include="kf\scr\KF_InitClip.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\SetupMenuUIBuffers.c">
@@ -1638,13 +1638,13 @@
     <ClCompile Include="kf\scr\sub_8002FD90.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_8002FE74.c">
+    <ClCompile Include="kf\scr\KF_RenderBegin.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_8002FF0C.c">
+    <ClCompile Include="kf\scr\KF_RenderEnd.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_8002FFA4.c">
+    <ClCompile Include="kf\scr\KF_TMDCurrentSet.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_8002FFD4.c">
@@ -2001,7 +2001,7 @@
     <ClCompile Include="kf\scr\sub_8005F348.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_8005F578.c">
+    <ClCompile Include="kf\scr\KF_InitGeom.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_80013A5C.c">
@@ -2112,7 +2112,7 @@
     <ClCompile Include="kf\scr\sub_80032A1C.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_80033A1C.c">
+    <ClCompile Include="kf\scr\KF_RenderTilemap.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_80033DB4.c">
@@ -2388,7 +2388,7 @@
     <ClCompile Include="kf\scr\sub_800320BC.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_800322FC.c">
+    <ClCompile Include="kf\scr\KF_RenderTMD02.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_800336D4.c">
@@ -2514,7 +2514,7 @@
     <ClCompile Include="kf\scr\MoveImageWithCallback.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_800636A8.c">
+    <ClCompile Include="kf\scr\KF_PutDrawEnv.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_800643D8.c">
@@ -2601,7 +2601,7 @@
     <ClCompile Include="kf\scr\sub_8006243C.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_8006353C.c">
+    <ClCompile Include="kf\scr\KF_ClearOTagR.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_8006431C.c">
@@ -2667,7 +2667,7 @@
     <ClCompile Include="kf\scr\sub_80030008.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_80030044.c">
+    <ClCompile Include="kf\scr\KF_RenderUpdateCamera.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_80030474.c">
@@ -2895,7 +2895,7 @@
     <ClCompile Include="kf\scr\UpdatePlayerMapContext.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\UpdatePlayerSystem.c">
+    <ClCompile Include="kf\scr\KF_GpuUpdate.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\UpdateStatusEffects.c">

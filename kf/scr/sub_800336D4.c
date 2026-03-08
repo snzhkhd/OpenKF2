@@ -273,7 +273,7 @@ L_800337F8:
     // jal         0x800322FC
     // addu        $a2, $s0, $zero
     ctx->r6 = ADD32(ctx->r16, 0);
-    sub_800322FC(rdram, ctx);
+    KF_RenderTMD02(rdram, ctx);
     goto after_13;
     // addu        $a2, $s0, $zero
     ctx->r6 = ADD32(ctx->r16, 0);
@@ -293,7 +293,7 @@ L_80033860:
     // jal         0x800322FC
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);
-    sub_800322FC(rdram, ctx);
+    KF_RenderTMD02(rdram, ctx);
     goto after_14;
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);

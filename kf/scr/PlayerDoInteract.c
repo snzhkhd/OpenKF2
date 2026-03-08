@@ -202,7 +202,7 @@ L_8002BB68:
     // jal         0x800360A0
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_5;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);

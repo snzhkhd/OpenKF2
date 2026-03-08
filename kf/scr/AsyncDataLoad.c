@@ -1,4 +1,4 @@
-#include "..//kf_cd.h"
+п»ї#include "..//kf_cd.h"
 #include "recomp.h"
 #include "disable_warnings.h"
 
@@ -14,7 +14,7 @@ void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx)
 {
     printf("[DEBUG] AsyncDataLoad.\n");
 
-     // Симулируем CD IRQ для стримов которые ждут callback
+     // РЎРёРјСѓР»РёСЂСѓРµРј CD IRQ РґР»СЏ СЃС‚СЂРёРјРѕРІ РєРѕС‚РѕСЂС‹Рµ Р¶РґСѓС‚ callback
     uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
     uint32_t saved_r4 = ctx->r4;
     uint32_t saved_ra = ctx->r31;
@@ -34,26 +34,26 @@ void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx)
                 if (handler) {
                     stream[36] = 0;
 
-                    // Получаем общее количество секторов
+                    // РџРѕР»СѓС‡Р°РµРј РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРµРєС‚РѕСЂРѕРІ
                     uint16_t chunks_now = *(uint16_t*)(stream + 16);
                     uint16_t chunks_rest = *(uint16_t*)(stream + 34);
                     uint16_t total = chunks_now + chunks_rest;
 
-                    CdlLOC* base_loc = (CdlLOC*)(stream + 6); // базовая позиция
+                    CdlLOC* base_loc = (CdlLOC*)(stream + 6); // Р±Р°Р·РѕРІР°СЏ РїРѕР·РёС†РёСЏ
                     int base_lba = KFCD_CdPosToInt(base_loc);
                     uint32_t dst = *(uint32_t*)(stream + 12);
 
                     printf("[0x10 full read] base_lba=%d total=%d dst=%08X\n",
                         base_lba, total, dst);
 
-                    // Читаем ВСЁ за один раз
+                    // Р§РёС‚Р°РµРј Р’РЎРЃ Р·Р° РѕРґРёРЅ СЂР°Р·
                     uint8_t* dst_ptr = (uint8_t*)GET_PTR(dst);
                     for (int i = 0; i < total; i++) {
                         fseek(g_cdImage, (uint32_t)(base_lba + i) * 2352 + 24, SEEK_SET);
                         fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
                     }
 
-                    // Обновляем состояние стрима
+                    // РћР±РЅРѕРІР»СЏРµРј СЃРѕСЃС‚РѕСЏРЅРёРµ СЃС‚СЂРёРјР°
                     *(uint32_t*)(stream + 12) = dst + total * 2048;
                     *(uint16_t*)(stream + 16) = 0;
                     *(uint16_t*)(stream + 34) = 0;
@@ -61,6 +61,12 @@ void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx)
 
                     ctx->r4 = *p_active;
                     handler(rdram, ctx);
+
+                    // Р’С‚РѕСЂРѕР№ РІС‹Р·РѕРІ: stream[1] = 1 в†’ callback + NextCdTask
+                    stream[36] = 1; // СЃРЅРѕРІР° СЃС‚Р°РІРёРј С„Р»Р°Рі
+                    ctx->r4 = *p_active;
+                    handler(rdram, ctx);
+
                     ctx->r4 = saved_r4;
                     ctx->r31 = saved_ra;
                 }

@@ -1,8 +1,25 @@
-#include "recomp.h"
+#include "..//_context.h"
 #include "disable_warnings.h"
+#include "psx/libgte.h" 
+#include "psx/libgpu.h"
+#include <stdio.h>
 
 void GPU_Cmd_MergeParams(uint8_t* rdram, recomp_context* ctx) 
 {
+    // // a0 (r4) - куда вставляем (Ordering Table entry)
+    //void* ot = GET_PTR(ctx->r4);
+
+    //// a1 (r5) - начало нашей цепочки (p0)
+    //void* p0 = GET_PTR(ctx->r5);
+
+    //// a2 (r6) - конец нашей цепочки (p1)
+    //void* p1 = GET_PTR(ctx->r6);
+
+    //// Вызываем Psy-X
+    //if (ot && p0 && p1) {
+    //    AddPrims(ot, p0, p1);
+    //}
+
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

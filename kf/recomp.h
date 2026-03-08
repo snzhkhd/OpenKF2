@@ -9,6 +9,9 @@
 #include "scr/funcs.h"
 
 
+inline int frame = 0;
+inline int calls_per_frame = 0;
+
 extern uint8_t g_pad1_buf[34];
 extern uint8_t g_pad2_buf[34];
 

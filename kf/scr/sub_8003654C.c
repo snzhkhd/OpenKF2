@@ -24,7 +24,7 @@ void sub_8003654C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80036594
     // nop
 
-    GetPrimitiveBuffer(rdram, ctx);
+    KF_RenderSetTMDFromLoadedMO(rdram, ctx);
     goto after_0;
     // nop
 
@@ -36,7 +36,7 @@ void sub_8003654C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80030130
     // nop
 
-    ConvertVertexCoordinates(rdram, ctx);
+    KF_TMDIndicesToOffsets(rdram, ctx);
     goto after_1;
     // nop
 

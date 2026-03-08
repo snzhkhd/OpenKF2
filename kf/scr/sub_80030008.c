@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80030008(uint8_t* rdram, recomp_context* ctx) {
+void sub_80030008(uint8_t* rdram, recomp_context* ctx) 
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -37,7 +39,11 @@ void sub_80030008(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X18);
     // jr          $ra
     // nop
-
+   /* printf("[sub_80030008] a1=%d g_CurrentPrimitiveBuffer=%08X dword_80190B54=%08X\n",
+        (int)(ctx->r4 & 0xFFFF),
+        MEM_W(0x250, S32(0x8019 << 16)),
+        ctx->r2);*/
+    return;
     return;
     // nop
 

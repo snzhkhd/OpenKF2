@@ -681,10 +681,7 @@ void TriangulateQuad()
 
 static void AddSplit(bool semiTrans, bool textured)
 {
-	//printf("[AddSplit] semiTrans=%d textured=%d texFormat=%d tpage=0x%04X\n",
-	//	semiTrans, textured,
-	//	/* texFormat */ 0,
-	//	activeDrawEnv.tpage);
+	//if (semiTrans) return;
 
 	int tpage = activeDrawEnv.tpage;
 	GPUDrawSplit& curSplit = g_splits[g_splitIndex];
@@ -1170,6 +1167,7 @@ static int ProcessFlatPoly(P_TAG* polyTag)
 	{
 		POLY_F4* poly = (POLY_F4*)polyTag;
 
+		//AddSplit(semiTrans, false);
 		AddSplit(semiTrans, false);
 
 		GrVertex* firstVertex = &g_vertexBuffer[g_vertexIndex];

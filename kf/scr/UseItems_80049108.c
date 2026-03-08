@@ -1580,7 +1580,7 @@ L_800499A8:
     // jal         0x800360A0
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_44;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
@@ -1623,7 +1623,7 @@ L_80049A14:
     // jal         0x800360A0
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_47;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
@@ -1679,7 +1679,7 @@ L_80049A5C:
     // jal         0x800360A0
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
     goto after_50;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);

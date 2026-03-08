@@ -120,6 +120,7 @@ void EndDraw2D(uint8_t* rdram, recomp_context* ctx)
     // jr          $ra
     // nop
 
+    PsyX_EndScene();
     return;
     // nop
 ;}

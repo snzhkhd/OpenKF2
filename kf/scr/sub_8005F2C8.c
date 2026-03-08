@@ -4,6 +4,16 @@
 
 void sub_8005F2C8(uint8_t* rdram, recomp_context* ctx) 
 {
+    //// Дамп матрицы вращения (R11-R33) из GTE ctrl
+    //printf("[RTPS] R=%04X %04X %04X | %04X %04X %04X | %04X %04X %04X\n",
+    //    ctx->cp2c[0] & 0xFFFF, ctx->cp2c[0] >> 16,
+    //    ctx->cp2c[1] & 0xFFFF, ctx->cp2c[1] >> 16,
+    //    ctx->cp2c[2] & 0xFFFF,
+    //    ctx->cp2c[3] & 0xFFFF, ctx->cp2c[3] >> 16,
+    //    ctx->cp2c[4] & 0xFFFF, ctx->cp2c[4] >> 16);
+    //printf("[RTPS] TRX=%d TRY=%d TRZ=%d H=%d\n",
+    //    (int32_t)ctx->cp2c[5], (int32_t)ctx->cp2c[6],
+    //    (int32_t)ctx->cp2c[7], ctx->cp2c[26] & 0xFFFF);
     //printf("sub_8005F2C8\n");
     // a0 = вектор (SVECTOR*), a1 = SXY out, a2 = SZ out, a3 = flags out
     uint32_t vec_addr = ctx->r4;

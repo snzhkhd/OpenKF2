@@ -1,9 +1,17 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libgte.h"
 
-void sub_80033A1C(uint8_t* rdram, recomp_context* ctx) 
+#define ADDR_KFCullDistanceXNeg 0x80194F54
+#define ADDR_KFCullDistanceZNeg 0x80194F58
+
+void KF_RenderTilemap(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("sub_80033A1C\n");
+
+    // int drawCount = 0;
+    //MATRIX* world = (MATRIX*)GET_PTR(0x80194ECC);
+    //world->t[0] = world->t[1] = world->t[2] = 0;
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -26,7 +34,7 @@ void sub_80033A1C(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8002FFA4
     // sw          $s0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r16;
-    sub_8002FFA4(rdram, ctx);
+    KF_TMDCurrentSet(rdram, ctx);
     goto after_0;
     // sw          $s0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r16;
@@ -89,6 +97,7 @@ L_80033A74:
     // addu        $a1, $s3, $zero
     ctx->r5 = ADD32(ctx->r19, 0);
     sub_800338A0(rdram, ctx);
+    // drawCount++;
     goto after_1;
     // addu        $a1, $s3, $zero
     ctx->r5 = ADD32(ctx->r19, 0);
@@ -143,6 +152,11 @@ L_80033AB8:
     // jr          $ra
     // nop
 
+    // printf("[Cull] drawCount=%d KFCullDistX=%d KFCullDistZ=%d\n",
+        // drawCount,
+        // MEM_W(0, ADDR_KFCullDistanceXNeg),
+        // MEM_W(0, ADDR_KFCullDistanceZNeg));
+		
     return;
     // nop
 

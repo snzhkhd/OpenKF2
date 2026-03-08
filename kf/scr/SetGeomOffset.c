@@ -4,7 +4,10 @@
 
 void KF_SetGeomOffset(uint8_t* rdram, recomp_context* ctx) 
 {
+    printf("[SetGeomOffset] x=%d y=%d\n", (int32_t)ctx->r4, (int32_t)ctx->r5);
+    ctx_to_gte(ctx);
     SetGeomOffset((int)ctx->r4, (int)ctx->r5);
+    gte_to_ctx(ctx);
     ctx->r2 = 0;
 
     //uint64_t hi = 0, lo = 0, result = 0;

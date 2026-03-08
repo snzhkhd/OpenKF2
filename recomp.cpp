@@ -70,7 +70,7 @@ recomp_func_t lookup_recomp_func(uint32_t fvram)
         return dummy_safe_func;
     }
 
-    printf("[FATAL] JUMP TO NULL OR UNKNOWN: 0x%08X (Phys: 0x%08X)\n", fvram, phys_addr);
+  //  printf("[FATAL] JUMP TO NULL OR UNKNOWN: 0x%08X (Phys: 0x%08X)\n", fvram, phys_addr);
     return dummy_safe_func;
 }
 
@@ -428,8 +428,8 @@ void do_break(uint32_t code)
 
 void dummy_safe_func(uint8_t* rdram, recomp_context* ctx)
 {
-    uint32_t phys_addr = *rdram & 0x1FFFFFFF;
-    printf("dummy_safe_func call  0x%08X\n", phys_addr);
+   // uint32_t phys_addr = *rdram & 0x1FFFFFFF;
+   // printf("dummy_safe_func call  0x%08X\n", phys_addr);
 }
 
 

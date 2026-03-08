@@ -26,7 +26,7 @@ void InitGraphicsSystem(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80063034
     // ori         $a0, $zero, 0x1
     ctx->r4 = 0 | 0X1;
-    ResetGPU(rdram, ctx);
+    KF_SetDispMask(rdram, ctx);
     goto after_1;
     // ori         $a0, $zero, 0x1
     ctx->r4 = 0 | 0X1;
@@ -34,7 +34,7 @@ void InitGraphicsSystem(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8005F578
     // ori         $s0, $zero, 0xF0
     ctx->r16 = 0 | 0XF0;
-    sub_8005F578(rdram, ctx);
+    KF_InitGeom(rdram, ctx);
     goto after_2;
     // ori         $s0, $zero, 0xF0
     ctx->r16 = 0 | 0XF0;
@@ -76,7 +76,7 @@ void InitGraphicsSystem(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8005EF38
     // sw          $v0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r2;
-    SetupGTE(rdram, ctx);
+    KF_InitClip(rdram, ctx);
     goto after_5;
     // sw          $v0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r2;

@@ -678,7 +678,7 @@ L_800346E0:
     // jal         0x80036594
     // addu        $a0, $s3, $zero
     ctx->r4 = ADD32(ctx->r19, 0);
-    GetPrimitiveBuffer(rdram, ctx);
+    KF_RenderSetTMDFromLoadedMO(rdram, ctx);
     goto after_23;
     // addu        $a0, $s3, $zero
     ctx->r4 = ADD32(ctx->r19, 0);
@@ -855,7 +855,7 @@ L_800347C8:
     // jal         0x800322FC
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);
-    sub_800322FC(rdram, ctx);
+    KF_RenderTMD02(rdram, ctx);
     goto after_32;
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);

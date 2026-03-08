@@ -82,7 +82,7 @@ int main(int argc, char* argv[] )
 
 
     PsyX_Initialise(appName, 640, 480, 0);
-    SetDispMask(1);
+    
 
     PsyX_SetMemoryPointer(rdram);
 
@@ -92,6 +92,9 @@ int main(int argc, char* argv[] )
 
     memset(g_pad1_buf, 0xFF, sizeof(g_pad1_buf));
     memset(g_pad2_buf, 0xFF, sizeof(g_pad2_buf));
+    g_pad1_buf[0] = 0x00;
+    g_pad1_buf[1] = 0x41; // тип контроллера
+
     PsyX_Pad_InitPad(1, g_pad1_buf);
     PsyX_Pad_InitPad(0, g_pad2_buf);
 
@@ -100,7 +103,7 @@ int main(int argc, char* argv[] )
 
     KFCD_Init("King's Field2.bin");
 
-    InitGeom();
+    //InitGeom();
     
 
    PsyX_BeginScene();

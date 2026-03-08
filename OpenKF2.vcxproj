@@ -215,7 +215,7 @@
     <ClCompile Include="kf\scr\ColorDpq.c" />
     <ClCompile Include="kf\scr\CompMatrix.c" />
     <ClCompile Include="kf\scr\ConvertCdAddress.c" />
-    <ClCompile Include="kf\scr\ConvertVertexCoordinates.c" />
+    <ClCompile Include="kf\scr\KF_TMDIndicesToOffsets.c" />
     <ClCompile Include="kf\scr\CDReadSectorsInternal.c" />
     <ClCompile Include="kf\scr\CopyToFinalBuffer.c" />
     <ClCompile Include="kf\scr\CreateAudioCDTask.c" />
@@ -276,7 +276,7 @@
     <ClCompile Include="kf\scr\format.c" />
     <ClCompile Include="kf\scr\FormatHUDNumber.c" />
     <ClCompile Include="kf\scr\FreeSPUVoice.c" />
-    <ClCompile Include="kf\scr\GatherCameraContext.c" />
+    <ClCompile Include="kf\scr\KF_PlayerCopyPositionRotation.c" />
     <ClCompile Include="kf\scr\GetDistanceIfInRange.c" />
     <ClCompile Include="kf\scr\GetIntrMask.c" />
     <ClCompile Include="kf\scr\GetInventoryItems.c" />
@@ -477,7 +477,7 @@
     <ClCompile Include="kf\scr\ReadTMD.c" />
     <ClCompile Include="kf\scr\ReadTMD_0.c" />
     <ClCompile Include="kf\scr\RegisterAndTransformModel.c" />
-    <ClCompile Include="kf\scr\RegisterPrimitiveTypes.c" />
+    <ClCompile Include="kf\scr\KF_MOPackPrepareTMD.c" />
     <ClCompile Include="kf\scr\RenderFadeOverlay.c" />
     <ClCompile Include="kf\scr\RenderItemList.c" />
     <ClCompile Include="kf\scr\RenderMenuFrame.c" />
@@ -548,7 +548,7 @@
     <ClCompile Include="kf\scr\SetTransMatrix.c" />
     <ClCompile Include="kf\scr\CD_readm.c" />
     <ClCompile Include="kf\scr\SetupEntityAnimation.c" />
-    <ClCompile Include="kf\scr\SetupGTE.c" />
+    <ClCompile Include="kf\scr\KF_InitClip.c" />
     <ClCompile Include="kf\scr\SetupMenuUIBuffers.c" />
     <ClCompile Include="kf\scr\SetVertex0.c" />
     <ClCompile Include="kf\scr\SetVertex1.c" />
@@ -734,13 +734,13 @@
     <ClCompile Include="kf\scr\sub_8002FA5C.c" />
     <ClCompile Include="kf\scr\sub_8002FBC0.c" />
     <ClCompile Include="kf\scr\sub_8002FD90.c" />
-    <ClCompile Include="kf\scr\sub_8002FE74.c" />
-    <ClCompile Include="kf\scr\sub_8002FF0C.c" />
-    <ClCompile Include="kf\scr\sub_8002FFA4.c" />
+    <ClCompile Include="kf\scr\KF_RenderBegin.c" />
+    <ClCompile Include="kf\scr\KF_RenderEnd.c" />
+    <ClCompile Include="kf\scr\KF_TMDCurrentSet.c" />
     <ClCompile Include="kf\scr\sub_8002FFD4.c" />
     <ClCompile Include="kf\scr\sub_8002FFF8.c" />
     <ClCompile Include="kf\scr\sub_80030008.c" />
-    <ClCompile Include="kf\scr\sub_80030044.c" />
+    <ClCompile Include="kf\scr\KF_RenderUpdateCamera.c" />
     <ClCompile Include="kf\scr\sub_80030474.c" />
     <ClCompile Include="kf\scr\sub_800305F4.c" />
     <ClCompile Include="kf\scr\sub_8003073C.c" />
@@ -751,11 +751,11 @@
     <ClCompile Include="kf\scr\sub_8003171C.c" />
     <ClCompile Include="kf\scr\sub_80031CD0.c" />
     <ClCompile Include="kf\scr\sub_800320BC.c" />
-    <ClCompile Include="kf\scr\sub_800322FC.c" />
+    <ClCompile Include="kf\scr\KF_RenderTMD02.c" />
     <ClCompile Include="kf\scr\sub_80032A1C.c" />
     <ClCompile Include="kf\scr\sub_800336D4.c" />
     <ClCompile Include="kf\scr\sub_800338A0.c" />
-    <ClCompile Include="kf\scr\sub_80033A1C.c" />
+    <ClCompile Include="kf\scr\KF_RenderTilemap.c" />
     <ClCompile Include="kf\scr\sub_80033DB4.c" />
     <ClCompile Include="kf\scr\sub_80033E44.c" />
     <ClCompile Include="kf\scr\sub_80033ED4.c" />
@@ -1020,7 +1020,7 @@
     <ClCompile Include="kf\scr\sub_8005EE1C.c" />
     <ClCompile Include="kf\scr\sub_8005F2C8.c" />
     <ClCompile Include="kf\scr\sub_8005F348.c" />
-    <ClCompile Include="kf\scr\sub_8005F578.c" />
+    <ClCompile Include="kf\scr\KF_InitGeom.c" />
     <ClCompile Include="kf\scr\sub_80060C54.c" />
     <ClCompile Include="kf\scr\sub_800611CC.c" />
     <ClCompile Include="kf\scr\sub_80061B0C.c" />
@@ -1045,8 +1045,8 @@
     <ClCompile Include="kf\scr\sub_80062FB8.c" />
     <ClCompile Include="kf\scr\sub_80062FC8.c" />
     <ClCompile Include="kf\scr\MoveImageWithCallback.c" />
-    <ClCompile Include="kf\scr\sub_8006353C.c" />
-    <ClCompile Include="kf\scr\sub_800636A8.c" />
+    <ClCompile Include="kf\scr\KF_ClearOTagR.c" />
+    <ClCompile Include="kf\scr\KF_PutDrawEnv.c" />
     <ClCompile Include="kf\scr\sub_8006431C.c" />
     <ClCompile Include="kf\scr\sub_800643D8.c" />
     <ClCompile Include="kf\scr\sub_80064BE8.c" />
@@ -1077,7 +1077,7 @@
     <ClCompile Include="kf\scr\UpdateParticleEffect.c" />
     <ClCompile Include="kf\scr\UpdateParticleSystem.c" />
     <ClCompile Include="kf\scr\UpdatePlayerMapContext.c" />
-    <ClCompile Include="kf\scr\UpdatePlayerSystem.c" />
+    <ClCompile Include="kf\scr\KF_GpuUpdate.c" />
     <ClCompile Include="kf\scr\UpdateStatusEffects.c" />
     <ClCompile Include="kf\scr\UpdateTileLighting.c" />
     <ClCompile Include="kf\scr\UseConsumableItem.c" />

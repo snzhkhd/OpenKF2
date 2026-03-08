@@ -448,6 +448,7 @@ void GR_BeginScene()
 	GR_UpdateVRAM();
 	GR_SetViewPort(0, 0, g_windowWidth, g_windowHeight);
 
+
 	if (g_dbg_wireframeMode)
 	{
 		GR_SetWireframe(1);

@@ -182,7 +182,7 @@ void UpdateTileLighting(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80036594
     // ori         $a0, $zero, 0x20
     ctx->r4 = 0 | 0X20;
-    GetPrimitiveBuffer(rdram, ctx);
+    KF_RenderSetTMDFromLoadedMO(rdram, ctx);
     goto after_7;
     // ori         $a0, $zero, 0x20
     ctx->r4 = 0 | 0X20;

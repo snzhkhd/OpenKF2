@@ -41,8 +41,8 @@ std::string GetStateName(int state)
 void Map_Load(uint8_t* rdram, recomp_context* ctx) 
 {
     //801779D6 g_CurrentMapLoadState
-    int state = (int16_t)MEM_H(0, 0x801779D6);
-    printf("Map_Load state <%s>\n", GetStateName(state).c_str() );
+    // int state = (int16_t)MEM_H(0, 0x801779D6);
+    // printf("Map_Load state <%s>\n", GetStateName(state).c_str() );
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

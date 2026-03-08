@@ -3,7 +3,7 @@
 
 void UpdateCamera(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("UpdateCamera\n");
+    //printf("UpdateCamera\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -185,7 +185,7 @@ L_80033B20:
     // jal         0x80036594
     // nop
 
-    GetPrimitiveBuffer(rdram, ctx);
+    KF_RenderSetTMDFromLoadedMO(rdram, ctx);
     goto after_9;
     // nop
 

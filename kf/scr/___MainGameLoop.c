@@ -1,7 +1,8 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void ___MainGameLoop(uint8_t* rdram, recomp_context* ctx) {
+void ___MainGameLoop(uint8_t* rdram, recomp_context* ctx) 
+{
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -557,7 +558,7 @@ L_80013D74:
     // jal         0x8002791C
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
-    GatherCameraContext(rdram, ctx);
+    KF_PlayerCopyPositionRotation(rdram, ctx);
     goto after_42;
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
@@ -601,7 +602,15 @@ L_80013D74:
     // jal         0x800360A0
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
-    UpdatePlayerSystem(rdram, ctx);
+    KF_GpuUpdate(rdram, ctx);
+
+    u_short raw = *(u_short*)&g_pad1_buf[2];
+    raw = ((raw >> 8) & 0xFF) | ((raw << 8) & 0xFF00);
+    u_short buttons = ~raw;
+    if (buttons) {
+        printf("[PAD] raw=%04X buttons=%04X\n", *(u_short*)&g_pad1_buf[2], buttons);
+    }
+
     goto after_47;
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);

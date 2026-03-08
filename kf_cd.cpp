@@ -141,7 +141,11 @@ void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
     }
 
     int real_lba = base_lba + g_cd_pass_count;
-    printf("[CdlReadN] lba=%d sectors=%d dst=%08X\n", real_lba, to_read, dst);
+    printf("[CdlReadN] stream=%08X type=%02X lba=%d to_read=%d total_sectors=%d "
+        "remain=%d dst=%08X pass=%d\n",
+        *p_active, stream[0], real_lba, to_read, sectors,
+        *(uint16_t*)(stream + 34), dst, g_cd_pass_count);
+
 
     for (int i = 0; i < to_read; i++) {
         fseek(g_cdImage, (uint32_t)(real_lba + i) * 2352 + 24, SEEK_SET);

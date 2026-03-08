@@ -1,7 +1,13 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8002FFA4(uint8_t* rdram, recomp_context* ctx) {
+void KF_TMDCurrentSet(uint8_t* rdram, recomp_context* ctx) 
+{
+
+    // printf("[KFTMDCurrentSet] tmdID=%d KFTMDPointers[0]=%08X\n",
+        // (int)ctx->r4,
+        // MEM_W(0, 0x80190240));
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

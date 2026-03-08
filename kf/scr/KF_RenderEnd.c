@@ -1,7 +1,12 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "PsyX/PsyX_public.h"
+#include "PsyX/PsyX_render.h"
 
-void sub_8002FF0C(uint8_t* rdram, recomp_context* ctx) {
+
+void KF_RenderEnd(uint8_t* rdram, recomp_context* ctx) 
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -99,6 +104,10 @@ void sub_8002FF0C(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X18);
     // jr          $ra
     // nop
+
+    PsyX_EndScene();
+   /* printf("[KF_RenderEnd] - [Frame %d] TriggerGpuDma calls=%d\n", frame++, calls_per_frame);
+    calls_per_frame = 0;*/
 
     return;
     // nop
