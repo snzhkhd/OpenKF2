@@ -72,7 +72,7 @@ if (fn) fn(rdram, ctx);
 ### Disk Image
 ```cpp
 FILE* g_cdImage; // It is open as a binary
-// Сектор данных: lba*2352 + 24
+// The data sector: lba*2352 + 24
 fseek(g_cdImage, lba * 2352 + 24, SEEK_SET);
 fread(buf, 1, 2048, g_cdImage);
 ```
