@@ -29,8 +29,8 @@ void KF_SpuTransferVoice(uint8_t* rdram, recomp_context* ctx)
     SpuSetTransferMode(SpuTransByDMA);
     SpuSetTransferStartAddr(spu_addr + g_spu_transferred);
 
-    printf("[SPU data] first 4: %02X %02X %02X %02X\n",
-        src[0], src[1], src[2], src[3]);
+    // printf("[SPU data] first 4: %02X %02X %02X %02X\n",
+        // src[0], src[1], src[2], src[3]);
 
     SpuWrite(src, to_write);
     g_spu_transferred += to_write;

@@ -3,10 +3,9 @@
 
 void TLoadFileASync1(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("TLoadFileASync1\n\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
-    int c1cs = 0; 
+    int c1cs = 0;
     // addiu       $sp, $sp, -0x30
     ctx->r29 = ADD32(ctx->r29, -0X30);
     // sw          $s1, 0x24($sp)
@@ -30,7 +29,7 @@ void TLoadFileASync1(uint8_t* rdram, recomp_context* ctx)
     goto after_0;
     // addiu       $a2, $sp, 0x18
     ctx->r6 = ADD32(ctx->r29, 0X18);
-    after_0:
+after_0:
     // ori         $a0, $zero, 0x10
     ctx->r4 = 0 | 0X10;
     // addiu       $a1, $sp, 0x18
@@ -46,7 +45,7 @@ void TLoadFileASync1(uint8_t* rdram, recomp_context* ctx)
     goto after_1;
     // sw          $s0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r16;
-    after_1:
+after_1:
     // lw          $ra, 0x28($sp)
     ctx->r31 = MEM_W(0X28, ctx->r29);
     // lw          $s1, 0x24($sp)
@@ -62,3 +61,4 @@ void TLoadFileASync1(uint8_t* rdram, recomp_context* ctx)
     // nop
 
 ;}
+

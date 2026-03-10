@@ -1,5 +1,8 @@
-#include "recomp.h"
+ï»¿#include "recomp.h"
 #include "disable_warnings.h"
+extern bool g_pendingType10;
+
+
 
 void ___MainGameLoop(uint8_t* rdram, recomp_context* ctx) 
 {
@@ -583,7 +586,6 @@ L_80013D74:
     after_44:
     // jal         0x800173EC
     // nop
-
     ProcessAssetLoadQueue(rdram, ctx);
     goto after_45;
     // nop
@@ -611,7 +613,7 @@ L_80013D74:
     //    printf("[PAD] raw=%04X buttons=%04X\n", *(u_short*)&g_pad1_buf[2], buttons);
     //}
     //if (MEM_B(0, 0x8019B4CE) == 0) {
-    //    // Åñëè êàðòà çàãðóæåíà íî physics=0, ôîðñèðóåì
+    //    // Ð•ÑÐ»Ð¸ ÐºÐ°Ñ€Ñ‚Ð° Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð° Ð½Ð¾ physics=0, Ñ„Ð¾Ñ€ÑÐ¸Ñ€ÑƒÐµÐ¼
     //    uint16_t load_state = MEM_H(0, 0x801779D6);
     //    if (load_state >= 6) { // Ready
     //        MEM_B(0, 0x8019B4CE) = 1;

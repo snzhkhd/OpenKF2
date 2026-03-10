@@ -700,7 +700,7 @@ void SsVabTransCompleted(uint8_t* rdram, recomp_context* ctx);
 void sub_8005C58C(uint8_t* rdram, recomp_context* ctx);
 void sub_8005C634(uint8_t* rdram, recomp_context* ctx);
 void CDAudio_Stop(uint8_t* rdram, recomp_context* ctx);
-void sub_8005C7F8(uint8_t* rdram, recomp_context* ctx);
+void KF_SsSeqCalledTbyT(uint8_t* rdram, recomp_context* ctx);
 void sub_8005CA30(uint8_t* rdram, recomp_context* ctx);
 void sub_8005CB30(uint8_t* rdram, recomp_context* ctx);
 void sub_8005CD18(uint8_t* rdram, recomp_context* ctx);

@@ -53,7 +53,7 @@ struct PSXHeader {
 bool LoadGameEXE(const char* filename, recomp_context* ctx);
 /////////
 
-
+bool g_pendingType10 = false;
 uint8_t rdram[2 * 1024 * 1024] = { 0 };   // 2 MB Основной RAM
 //gamepad
 uint8_t g_pad1_buf[34]; 

@@ -12,7 +12,13 @@ void KF_VSync(uint8_t* rdram, recomp_context* ctx) {
     int mode = (int32_t)ctx->r4;
     ctx->r2 = VSync(mode == 0 ? 1 : mode);
 
-    KF_SpuUpdateTick(rdram, ctx);   //KF_SpuUpdateTick
+    // Тик SEQ секвенсора
+    uint32_t saved_r4 = ctx->r4;
+    uint32_t saved_ra = ctx->r31;
+
+    KF_SsSeqCalledTbyT(rdram, ctx);   //KF_SpuUpdateTick
+    ctx->r4 = saved_r4;
+    ctx->r31 = saved_ra;
 
     g_vsync_pending = true;
 //    PsyX_UpdateInput();

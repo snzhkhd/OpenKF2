@@ -707,7 +707,7 @@ static FuncEntry section_1_text_funcs[] = {
     { .func = sub_8005C58C, .offset = 0x0004c58c },
     { .func = sub_8005C634, .offset = 0x0004c634 },
     { .func = CDAudio_Stop, .offset = 0x0004c7a4 },
-    { .func = sub_8005C7F8, .offset = 0x0004c7f8 },
+    { .func = KF_SsSeqCalledTbyT, .offset = 0x0004c7f8 },
     { .func = sub_8005CA30, .offset = 0x0004ca30 },
     { .func = sub_8005CB30, .offset = 0x0004cb30 },
     { .func = sub_8005CD18, .offset = 0x0004cd18 },

@@ -1,7 +1,14 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80055088(uint8_t* rdram, recomp_context* ctx) {
+void sub_80055088(uint8_t* rdram, recomp_context* ctx) 
+{
+    //printf("[SetupVoice] voice=%d tone=%d program=%d pitch=%d\n",
+    //    MEM_HU(0, 0x8019E6EA),
+    //    MEM_BU(0, 0x8019E6DC),
+    //    MEM_BU(0, 0x8019E6D7),
+    //    MEM_HU(0, 0x8019E6E8));
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -301,6 +308,9 @@ L_800551AC:
     // jr          $ra
     // addiu       $sp, $sp, 0x8
     ctx->r29 = ADD32(ctx->r29, 0X8);
+
+
+
     return;
     // addiu       $sp, $sp, 0x8
     ctx->r29 = ADD32(ctx->r29, 0X8);

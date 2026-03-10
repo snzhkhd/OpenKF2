@@ -3,6 +3,9 @@
 
 void Music_PlaySEQ(uint8_t* rdram, recomp_context* ctx) 
 {
+    //printf("[Music] PlaySEQ g_Option_Music=%d g_ExitTitleScreen=%d\n",
+    //    MEM_BU(0, 0x8019B58C),
+    //    MEM_BU(0, 0x8019A634/*g_ExitTitleScreen */));  //8019A634 g_ExitTitleScreen
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

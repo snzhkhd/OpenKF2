@@ -4,9 +4,41 @@
 
 void ProcessAssetLoadQueue(uint8_t* rdram, recomp_context* ctx) 
 {
-    //uint32_t queue = MEM_W(0, ADDR_G_CDTASKQUEUE);
-    //uint32_t active = MEM_W(0, ADDR_G_ACTIVECDSTREAM);
-    //printf("[AssetQueue] queue=%08X active=%08X\n", queue, active);
+    // Обработать type=0x10 стримы если есть
+    uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
+    if (p_active && *p_active) {
+        uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
+        if (stream && stream[0] == 0x10) {
+            if (stream[36] == 0) {
+                KFCD_CdlReadN(rdram, ctx);
+            }
+            if (stream[36] == 1) {
+                recomp_func_t handler = lookup_recomp_func(0x80017DB4);
+                if (handler) {
+                    CdlLOC* base_loc = (CdlLOC*)(stream + 6);
+                    int base_lba = KFCD_CdPosToInt(base_loc);
+
+                    stream[36] = 1;
+                    g_cdCurrentSector = base_lba;
+                    KFCD_ResetReadState();
+
+                    uint32_t saved_r4 = ctx->r4;
+                    uint32_t saved_ra = ctx->r31;
+                    ctx->r4 = *p_active;
+                    handler(rdram, ctx);
+
+                    g_cdCurrentSector = base_lba;
+                    KFCD_ResetReadState();
+                    stream[36] = 1;
+                    ctx->r4 = *p_active;
+                    handler(rdram, ctx);
+
+                    ctx->r4 = saved_r4;
+                    ctx->r31 = saved_ra;
+                }
+            }
+        }
+    }
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

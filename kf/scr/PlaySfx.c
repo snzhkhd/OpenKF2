@@ -3,7 +3,7 @@
 
 void PlaySfx(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("PlaySfx sound id = %d\n", (int)ctx->r4);
+    //printf("PlaySfx sound id = %d\n", (int)ctx->r4);
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -54,7 +54,7 @@ L_80024DD0:
     // jal         0x8005C7F8
     // nop
 
-    sub_8005C7F8(rdram, ctx);
+    KF_SsSeqCalledTbyT(rdram, ctx);
     goto after_1;
     // nop
 

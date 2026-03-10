@@ -4,6 +4,8 @@
 
 void CD_readm(uint8_t* rdram, recomp_context* ctx)
 {
+    printf("[CD_readm] sector=%d count=%d dst=%08X\n",
+        g_cdCurrentSector, ctx->r5, ctx->r4);
     uint32_t dest_addr = ctx->r4;
     uint32_t count = ctx->r5;
     if (count == 0) count = 1;

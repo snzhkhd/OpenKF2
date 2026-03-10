@@ -997,7 +997,7 @@
     <ClCompile Include="kf\scr\sub_8005C32C.c" />
     <ClCompile Include="kf\scr\sub_8005C58C.c" />
     <ClCompile Include="kf\scr\sub_8005C634.c" />
-    <ClCompile Include="kf\scr\sub_8005C7F8.c" />
+    <ClCompile Include="kf\scr\KF_SsSeqCalledTbyT.c" />
     <ClCompile Include="kf\scr\sub_8005CA30.c" />
     <ClCompile Include="kf\scr\sub_8005CB30.c" />
     <ClCompile Include="kf\scr\sub_8005CD18.c" />

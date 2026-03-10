@@ -3,28 +3,30 @@
 
 void FAsyncLoadSomething_0005(uint8_t* rdram, recomp_context* ctx) 
 {
+    // Обрабатываем все готовые type=0x10 стримы
+    for (int iter = 0; iter < 30; iter++) {
+        uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
+        if (!p_active || !*p_active) break;
 
-    // Проверяем есть ли активный стрим с непрочитанными данными
-    uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
-    if (!p_active || !*p_active) return;
+        uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
+        if (!stream || stream[0] == 0) break;
 
-    uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
-    if (!stream || stream[0] == 0) return;
+        uint8_t type = stream[0];
 
-    static int fas_log = 0;
-    if (fas_log++ < 50) {
-        printf("[FAsync] type=%02X data_ready=%d chunks=%d\n",
-            stream[0], stream[36], *(uint16_t*)(stream + 16));
-    }
+        // Пропускаем пустые/завершённые стримы
+        if (type == 0) break;
 
-    // Если данные ещё не готовы — читаем
-    if (stream[36] == 0) {
-        KFCD_CdlReadN(rdram, ctx);
-    }
-
-    // Если данные готовы — обрабатываем
-    if (stream[36] == 1) {
-        AsyncDataLoad(rdram, ctx);
+        // Обрабатываем type=0x10 и 0x30
+        if (type == 0x10 || type == 0x30) {
+            if (stream[36] == 0) {
+                KFCD_CdlReadN(rdram, ctx);
+            }
+            if (stream[36] == 1) {
+                AsyncDataLoad(rdram, ctx);
+                continue; // может быть следующий стрим
+            }
+        }
+        break;
     }
    
 //    printf("FAsyncLoadSomething_0005\n");

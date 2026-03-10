@@ -6,8 +6,8 @@ void KF_SpuMalloc(uint8_t* rdram, recomp_context* ctx)
 {
     int size = (int)ctx->r4;
     int spu_addr = SpuMalloc(size);
-    printf("[SpuMalloc] size=%d addr=%08X (prev transferred=%d/%d)\n",
-        size, (uint32_t)spu_addr, g_spu_transferred, g_spu_total_size);
+   // printf("[SpuMalloc] size=%d addr=%08X\n", size, (uint32_t)spu_addr);
+
     g_spu_total_size = size;
     g_spu_transferred = 0;
     ctx->r2 = (uint32_t)spu_addr;

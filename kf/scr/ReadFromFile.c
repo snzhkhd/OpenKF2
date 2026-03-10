@@ -38,25 +38,19 @@ void ReadFromFile(uint8_t* rdram, recomp_context* ctx)
 
     uint16_t type = (uint16_t)ctx->r4;
     uint16_t a2 = (uint16_t)ctx->r5;
-
-    //// g_FileDescriptors — адрес массива в PS1 RAM
     uint32_t desc_base = 0x801BA84C;
     uint32_t desc_addr = desc_base + type * 12;
-
     uint32_t ram_buffer = MEM_W(0, desc_addr);
-    //uint32_t cd_sector_low = MEM_W(4, desc_addr);
-
-    //CdlLOC* loc = (CdlLOC*)GET_PTR(desc_addr + 4);
-    //int lba = KFCD_CdPosToInt(loc);
-
-    //// Размер: (next_offset - cur_offset) << 11
     uint16_t cur = *(uint16_t*)GET_PTR(ram_buffer + 2 * a2);
     uint16_t next = *(uint16_t*)GET_PTR(ram_buffer + 2 * a2 + 2);
     int size = (next - cur) << 11;
 
-    //printf("[ReadFromFile] type=%s(%d) a2=%d LBA=%d size=%d bytes\n",
-    //    GetNameType(type).c_str(), type, a2, lba + cur, size);
-    printf("[ReadFromFile] type=%s(%d) a2=%d size=%d bytes\n", GetNameType(type).c_str(), type, a2, size);
+    uint32_t desc_addr2 = desc_base + type * 12;
+    CdlLOC* file_loc = (CdlLOC*)GET_PTR(desc_addr2 + 4);
+    int file_lba = KFCD_CdPosToInt(file_loc) + cur;
+    g_stream_file_sizes[file_lba] = (uint32_t)size;
+    printf("[ReadFromFile] type=%s(%d) a2=%d size=%d lba=%d\n",
+        GetNameType(type).c_str(), type, a2, size, file_lba);
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

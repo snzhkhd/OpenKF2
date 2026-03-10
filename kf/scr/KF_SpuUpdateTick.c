@@ -20,6 +20,18 @@ void KF_SpuUpdateTick(uint8_t* rdram, recomp_context* ctx)
         attr.voice = (1 << i);
         attr.mask = 0;
 
+        //if (flags != 0) {
+        //    static int upd_log = 0;
+        //    if (upd_log++ < 30) {
+        //        printf("[SpuTick] voice=%d flags=%02X vol=%d/%d pitch=%04X addr=%04X adsr=%04X/%04X\n",
+        //            i, flags,
+        //            (int16_t)MEM_HS(0, base), (int16_t)MEM_HS(2, base),
+        //            MEM_HU(4, base),
+        //            MEM_HU(6, base),
+        //            MEM_HU(8, base), MEM_HU(10, base));
+        //    }
+        //}
+
         if (flags & 1) {
             attr.volume.left = (int16_t)MEM_HS(0, base);
             attr.volume.right = (int16_t)MEM_HS(2, base);
@@ -35,8 +47,8 @@ void KF_SpuUpdateTick(uint8_t* rdram, recomp_context* ctx)
             if (real_addr < 0x80000) {
                 attr.addr = real_addr;
                 attr.mask |= SPU_VOICE_WDSA;
-                printf("[SPU Play] voice=%d addr=%08X pitch=%04X\n",
-                    i, real_addr, MEM_HU(4, base));
+                /*printf("[SPU Play] voice=%d addr=%08X pitch=%04X\n",
+                    i, real_addr, MEM_HU(4, base));*/
             }
         }
         if (flags & 0x10) {
