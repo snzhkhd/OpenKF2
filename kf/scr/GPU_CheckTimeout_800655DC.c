@@ -13,7 +13,7 @@ void GPU_CheckTimeout_800655DC(uint8_t* rdram, recomp_context* ctx)
     // Говорим, что GPU готов принимать данные через DMA (бит 28) и GP0 (бит 26)
     uint32_t* gpu_stat = (uint32_t*)&rdram[0x1F801814 & 0x1FFFFF];
     *gpu_stat |= 0x14000000;
-
+	KF_VSync(rdram, ctx);
     // 3. Возвращаем 0 (ошибки таймаута нет, всё прошло "мгновенно")
     ctx->r2 = 0;
     //    uint64_t hi = 0, lo = 0, result = 0;

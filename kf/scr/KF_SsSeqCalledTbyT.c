@@ -1,7 +1,17 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void KF_SsSeqCalledTbyT(uint8_t* rdram, recomp_context* ctx) {
+void KF_SsSeqCalledTbyT(uint8_t* rdram, recomp_context* ctx) 
+{
+    //int seq_base = MEM_W(0, 0x801DDDB8);
+    //if (seq_base) {
+    //    printf("[SEQ data] ");
+    //    for (int off = 60; off <= 90; off += 2) {
+    //        printf("+%d=%04X ", off, MEM_HU(off, seq_base));
+    //    }
+    //    printf("\n");
+    //}
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -122,6 +132,18 @@ L_8005C888:
     // jal         0x8005D34C
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
+
+    //static int seq_tick_count = 0;
+    //if (seq_tick_count++ < 20) {
+    //    int seq_base = MEM_W(0, 0x801DDDB8); // первый SEQ
+    //    if (seq_base) {
+    //        printf("[SEQ tick] tempo=%d resolution=%d tick_count=%d\n",
+    //            MEM_HU(72, seq_base),    // tempo/ppqn area
+    //            MEM_HU(74, seq_base),
+    //            seq_tick_count);
+    //    }
+    //}
+
     sub_8005D34C(rdram, ctx);
     goto after_1;
     // addu        $a1, $s0, $zero

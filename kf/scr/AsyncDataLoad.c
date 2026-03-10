@@ -187,7 +187,7 @@ void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8006263C
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    KF_VSync(rdram, ctx);
+   // KF_VSync(rdram, ctx);
     goto after_3;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

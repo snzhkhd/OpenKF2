@@ -18,6 +18,7 @@ unsigned int SpuWrite(unsigned char* addr, unsigned int size)
 	else
 		s_inTransfer = 0;
 
+
 	return result;
 }
 

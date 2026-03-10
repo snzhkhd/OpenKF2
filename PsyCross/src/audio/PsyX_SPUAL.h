@@ -35,6 +35,7 @@ extern int PsyX_SPUAL_GetReverbState();
 extern u_int PsyX_SPUAL_SetReverbVoice(int on_off, u_int voice_bit);
 extern u_int PsyX_SPUAL_GetReverbVoice();
 
+extern uint8_t* PsyX_SPUAL_GetMemory();
 #if defined(_LANGUAGE_C_PLUS_PLUS)||defined(__cplusplus)||defined(c_plusplus)
 }
 #endif

@@ -32,7 +32,7 @@ void sub_8004D910(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8006263C
     // sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    KF_VSync(rdram, ctx);
+//    KF_VSync(rdram, ctx);
     goto after_0;
     // sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
@@ -71,7 +71,7 @@ L_8004D984:
     // jal         0x8006263C
     // addiu       $a0, $zero, -0x1
     ctx->r4 = ADD32(0, -0X1);
-    KF_VSync(rdram, ctx);
+//    KF_VSync(rdram, ctx);
     goto after_1;
     // addiu       $a0, $zero, -0x1
     ctx->r4 = ADD32(0, -0X1);

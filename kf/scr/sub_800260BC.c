@@ -133,7 +133,7 @@ L_80026148:
     // jal         0x8006263C
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    KF_VSync(rdram, ctx);
+//    KF_VSync(rdram, ctx);
     goto after_6;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -149,7 +149,7 @@ L_80026148:
     // jal         0x8006263C
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    KF_VSync(rdram, ctx);
+ //   KF_VSync(rdram, ctx);
     goto after_8;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -236,7 +236,7 @@ L_800261C4:
     // jal         0x8006263C
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    KF_VSync(rdram, ctx);
+ //   KF_VSync(rdram, ctx);
     goto after_14;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -252,7 +252,7 @@ L_800261C4:
     // jal         0x8006263C
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    KF_VSync(rdram, ctx);
+ //   KF_VSync(rdram, ctx);
     goto after_16;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

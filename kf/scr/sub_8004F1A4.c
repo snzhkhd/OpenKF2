@@ -100,7 +100,7 @@ L_8004F23C:
     // jal         0x8006263C
     // addiu       $a0, $zero, -0x1
     ctx->r4 = ADD32(0, -0X1);
-    KF_VSync(rdram, ctx);
+//    KF_VSync(rdram, ctx);
     goto after_1;
     // addiu       $a0, $zero, -0x1
     ctx->r4 = ADD32(0, -0X1);

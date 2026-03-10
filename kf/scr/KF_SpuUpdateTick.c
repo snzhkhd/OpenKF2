@@ -2,9 +2,22 @@
 #include "disable_warnings.h"
 #include "psx/libspu.h"
 #include <string>
+#include <chrono>
 
 void KF_SpuUpdateTick(uint8_t* rdram, recomp_context* ctx) 
 {
+
+    //static auto last_time = std::chrono::steady_clock::now();
+    //static int tick_frames = 0;
+    //tick_frames++;
+    //auto now = std::chrono::steady_clock::now();
+    //auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - last_time).count();
+    //if (elapsed >= 1000) {
+    //    printf("[SEQ] ticks per second: %d\n", tick_frames);
+    //    tick_frames = 0;
+    //    last_time = now;
+    //}
+
     uint8_t max_voices = MEM_BU(0, 0x8019B628);
 
     for (int i = 0; i < 24 && i < max_voices; i++) {
@@ -68,7 +81,9 @@ void KF_SpuUpdateTick(uint8_t* rdram, recomp_context* ctx)
     uint16_t kon_lo = MEM_HU(0, 0x80079160);
     uint16_t kon_hi = MEM_HU(0, 0x80079168);
     uint32_t kon = kon_lo | (kon_hi << 16);
-    if (kon) {
+    if (kon) 
+    {
+
         SpuSetKey(SPU_ON, kon);
         MEM_H(0, 0x80079160) = 0;
         MEM_H(0, 0x80079168) = 0;
@@ -78,7 +93,8 @@ void KF_SpuUpdateTick(uint8_t* rdram, recomp_context* ctx)
     uint16_t koff_lo = MEM_HU(0, 0x801DF028);
     uint16_t koff_hi = MEM_HU(0, 0x801DF030);
     uint32_t koff = koff_lo | (koff_hi << 16);
-    if (koff) {
+    if (koff) 
+    {
         SpuSetKey(SPU_OFF, koff);
         MEM_H(0, 0x801DF028) = 0;
         MEM_H(0, 0x801DF030) = 0;

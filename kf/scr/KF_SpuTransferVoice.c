@@ -4,6 +4,8 @@
 
 void KF_SpuTransferVoice(uint8_t* rdram, recomp_context* ctx) 
 {
+
+
     uint32_t src_addr = ctx->r4;
     uint32_t size = ctx->r5;
     int16_t voice = (int16_t)(ctx->r6 & 0xFFFF);
@@ -19,12 +21,23 @@ void KF_SpuTransferVoice(uint8_t* rdram, recomp_context* ctx)
         return;
     }
 
+
     uint32_t spu_addr = MEM_W(0, 0x801DEFA4 + voice * 4);
     uint8_t* src = (uint8_t*)GET_PTR(src_addr);
+
+
+
 
     // Обрезаем последний чанк
     uint32_t remaining = g_spu_total_size - g_spu_transferred;
     uint32_t to_write = (size > remaining) ? remaining : size;
+
+
+   /* printf("[SPU Write] spu_dest=%08X src=%08X size=%d first4: %02X %02X %02X %02X mid4: %02X %02X %02X %02X\n",
+        spu_addr + g_spu_transferred, src_addr, to_write,
+        src[0], src[1], src[2], src[3],
+        src[4096], src[4097], src[4098], src[4099]);*/
+
 
     SpuSetTransferMode(SpuTransByDMA);
     SpuSetTransferStartAddr(spu_addr + g_spu_transferred);
@@ -33,11 +46,14 @@ void KF_SpuTransferVoice(uint8_t* rdram, recomp_context* ctx)
         // src[0], src[1], src[2], src[3]);
 
     SpuWrite(src, to_write);
+
+    // Проверяем — данные реально записались?
+
     g_spu_transferred += to_write;
 
-    static int tc = 0;
-    printf("[SPU Transfer #%d] voice=%d size=%d written=%d total=%d/%d\n",
-        ++tc, voice, size, to_write, g_spu_transferred, g_spu_total_size);
+    //static int tc = 0;
+    //printf("[SPU Transfer #%d] voice=%d size=%d written=%d total=%d/%d\n",
+    //    ++tc, voice, size, to_write, g_spu_transferred, g_spu_total_size);
 
     if (g_spu_transferred >= g_spu_total_size) {
         MEM_B(0, 0x8019E6F0 + voice) = 1;

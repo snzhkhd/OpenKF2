@@ -50,8 +50,8 @@ void ReadFromFile(uint8_t* rdram, recomp_context* ctx)
     CdlLOC* file_loc = (CdlLOC*)GET_PTR(desc_addr2 + 4);
     int file_lba = KFCD_CdPosToInt(file_loc) + cur;
     g_stream_file_sizes[file_lba] = (uint32_t)size;
-    printf("[ReadFromFile] type=%s(%d) a2=%d size=%d lba=%d\n",
-        GetNameType(type).c_str(), type, a2, size, file_lba);
+    //printf("[ReadFromFile] type=%s(%d) a2=%d size=%d lba=%d\n",
+    //    GetNameType(type).c_str(), type, a2, size, file_lba);
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

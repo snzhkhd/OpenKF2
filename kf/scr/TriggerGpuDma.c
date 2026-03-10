@@ -130,7 +130,7 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
         //PsyX_EndScene(); <- вызывается в RenderEnd и EndDraw2D
         if (g_vsync_pending) 
         {
-            VSync(0);
+        //    VSync(0);
             g_vsync_pending = false;
 
             /*SaveTimer++;

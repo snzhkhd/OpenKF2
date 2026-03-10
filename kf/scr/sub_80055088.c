@@ -3,11 +3,8 @@
 
 void sub_80055088(uint8_t* rdram, recomp_context* ctx) 
 {
-    //printf("[SetupVoice] voice=%d tone=%d program=%d pitch=%d\n",
-    //    MEM_HU(0, 0x8019E6EA),
-    //    MEM_BU(0, 0x8019E6DC),
-    //    MEM_BU(0, 0x8019E6D7),
-    //    MEM_HU(0, 0x8019E6E8));
+    //printf("[sub_80055088] dword_8016DAA0=%08X (SFX=80167AB0 Music=80197E48)\n",
+    //    MEM_W(0, 0x8016DAA0));
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

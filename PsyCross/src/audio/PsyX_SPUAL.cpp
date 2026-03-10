@@ -107,6 +107,8 @@ LPALAUXILIARYEFFECTSLOTI alAuxiliaryEffectSloti = NULL;
 
 #endif // __EMSCRIPTEN__
 
+uint8_t* PsyX_SPUAL_GetMemory() { return s_SpuMemory.samplemem; }
+
 static void InitOpenAlEffects()
 {
 	g_ALEffectsSupported = 0;
@@ -327,54 +329,25 @@ u_int PsyX_SPUAL_SetTransferStartAddr(u_int addr)
 
 u_int PsyX_SPUAL_Write(u_char* addr, u_int size)
 {
-	//if (0x7EFF0 < size)
-	//	size = 0x7EFF0;
-
 	volatile int wptr_ofs = s_SpuMemory.writeptr - s_SpuMemory.samplemem;
+
+	/*printf("[PsyX Write] writeptr_ofs=%08X size=%d src_first4: %02X %02X %02X %02X\n",
+		wptr_ofs, size, addr[0], addr[1], addr[2], addr[3]);*/
 
 	if (wptr_ofs + size > SPU_REALMEMSIZE)
 	{
-		eprintf("SPU WARNING: SpuWrite exceeded SPU_REALMEMSIZE by %d bytes!\n", wptr_ofs + size - SPU_REALMEMSIZE);
+		eprintf("SPU WARNING: SpuWrite exceeded SPU_REALMEMSIZE by %d bytes!\n",
+			wptr_ofs + size - SPU_REALMEMSIZE);
 	}
 	assert(size > 0 && wptr_ofs + size < SPU_MEMSIZE);
-
-	// simply copy to the writeptr
 	memcpy(s_SpuMemory.writeptr, addr, size);
 
-#if 0 // BANK TEST
-	{
-		static short waveBuffer[SPU_MEMSIZE];
-
-		ALuint alSource;
-		ALuint alBuffer;
-
-		alGenSources(1, &alSource);
-		alGenBuffers(1, &alBuffer);
-
-		int loopStart = 0, loopLen = 0;
-		int count = decodeSound(addr, size, waveBuffer, &loopStart, &loopLen);
-
-		// update AL buffer
-		alBufferData(alBuffer, AL_FORMAT_MONO16, waveBuffer, count * sizeof(short), 11000);
-
-		// set the buffer
-		alSourcei(alSource, AL_BUFFER, alBuffer);
-		alSourcef(alSource, AL_GAIN, 1.0f);// TODO: panning
-		alSourcef(alSource, AL_PITCH, 1);
-
-		alSourcePlay(alSource);
-		int status;
-		do
-		{
-			alGetSourcei(alSource, AL_SOURCE_STATE, &status);
-		} while (status == AL_PLAYING);
-
-		alSourceStop(alSource);
-
-		alDeleteSources(1, &alSource);
-		alDeleteBuffers(1, &alBuffer);
-	}
-#endif
+	//// Проверка по абсолютному адресу
+	//printf("[PsyX Write] verify at [0x23030]: %02X %02X %02X %02X\n",
+	//	s_SpuMemory.samplemem[0x23030],
+	//	s_SpuMemory.samplemem[0x23031],
+	//	s_SpuMemory.samplemem[0x23032],
+	//	s_SpuMemory.samplemem[0x23033]);
 
 	return size;
 }
@@ -507,6 +480,21 @@ static int decodeSound(u_char* iData, int soundSize, short* oData, int* loopStar
 
 static void UpdateVoiceSample(SPUALVoice* voice)
 {
+	//printf("[SPU RAM check] at 0x23030: ");
+	//for (int i = 0; i < 32; i++)
+	//	printf("%02X ", s_SpuMemory.samplemem[0x23030 + i]);
+	//printf("\n");
+
+	//printf("[SPU RAM check] at 0x25090: ");
+	//for (int i = 0; i < 32; i++)
+	//	printf("%02X ", s_SpuMemory.samplemem[0x25090 + i]);
+	//printf("\n");
+
+	//printf("[SPU RAM check] at 0x3A400: ");
+	//for (int i = 0; i < 32; i++)
+	//	printf("%02X ", s_SpuMemory.samplemem[0x3A400 + i]);
+	//printf("\n");
+
 	static short waveBuffer[SPU_REALMEMSIZE];
 	int loopStart, loopLen, count;
 	ALuint alSource, alBuffer;
@@ -527,6 +515,7 @@ static void UpdateVoiceSample(SPUALVoice* voice)
 
 	count = decodeSound(s_SpuMemory.samplemem + voice->attr.addr, SPU_MEMSIZE - voice->attr.addr, waveBuffer, &loopStart, &loopLen, 1);
 
+	
 	if (count == 0)
 		return;
 
