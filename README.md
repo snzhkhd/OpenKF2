@@ -4,7 +4,11 @@
 - OpenAL-soft (1.21.x or newer)
 - SDL2 (2.0.16 or newer)
 
-
+## Unresolved issues
+- The sounds are slightly shifted (not all)
+- Sometimes objects (textures) are not loaded
+- Music (SEQ) is not implemented
+- The EXE is loaded separately from the .bin
 
 ## General Architecture
 
