@@ -3,6 +3,7 @@
 ### Dependencies
 - OpenAL-soft (1.21.x or newer)
 - SDL2 (2.0.16 or newer)
+- PAL game 
 
 This project uses [vcpkg](https://github.com/microsoft/vcpkg) for dependency management.
 ```bash
