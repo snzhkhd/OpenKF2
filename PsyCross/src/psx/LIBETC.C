@@ -3,7 +3,7 @@
 #include "../PsyX_main.h"
 #include "PsyX/PsyX_public.h"
 
-#include <SDL_timer.h>
+#include <SDL2/SDL_timer.h>
 
 #ifdef DEBUG
 char scratchData[4096 + 8];

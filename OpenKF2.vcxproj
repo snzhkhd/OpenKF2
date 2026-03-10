@@ -81,7 +81,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <ExecutablePath>F:\vcpkg\installed\x64-windows\include\SDL2;F:\VS\OpenKF2\kf;F:\VS\OpenKF2\PsyCross\include\;F:\VS\OpenKF2\PsyCross\src\psx;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(ProjectDir)kf;$(ProjectDir)PsyCross\include\;$(ProjectDir)PsyCross\src\psx;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,7 +132,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>F:\VS\OpenKF2\PsyCross\src;F:\vcpkg\installed\x64-windows\include\SDL2;F:\VS\OpenKF2\PsyCross\include;F:\VS\OpenKF2\kf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)PsyCross\src;$(ProjectDir)PsyCross\include;$(ProjectDir)kf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
