@@ -24,7 +24,6 @@ cd vcpkg
 ```
 ## Unresolved issues
 - The sounds are slightly shifted (not all)
-- Sometimes objects (textures) are not loaded
 - Music (SEQ) is not implemented
 - The EXE is loaded separately from the .bin
 - Minor problems with the menu rendering and maybe something else.
