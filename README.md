@@ -27,7 +27,6 @@ cd vcpkg
 - Music (SEQ) is not implemented
 - The EXE is loaded separately from the .bin
 - Minor problems with the menu rendering and maybe something else.
-- is the next level not loading? I'm not sure
 
 ## General Architecture
 
