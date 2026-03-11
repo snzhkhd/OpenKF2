@@ -68,7 +68,7 @@ typedef struct recomp_context {
   MEM_W(offset, base)      // → uint32_t& (read/write)
   MEM_H(offset, base)      // → uint16_t&
   MEM_B(offset, base)      // → uint8_t&
-  WRITE_W(addr, value)     // запись uint32_t
+  WRITE_W(addr, value)     // write uint32_t
   ```
 
 ---
