@@ -30,11 +30,24 @@ void KF_SsVabTransBodyPartly(uint8_t* rdram, recomp_context* ctx)
     uint8_t* data_src = src;
     uint32_t data_size = to_write;
 
-    // Не-первый чанк: пропускаем T-file overhead
-    if (g_spu_transferred > 0 && to_write > 0x1000) {
-        data_src += 0x1000;
-        data_size -= 0x1000;
-    }
+    //// Не-первый чанк: пропускаем T-file overhead
+    //if (g_spu_transferred > 0 && to_write == 0x9000)//to_write > 0x1000) 
+    //{
+    //    data_src += 0x1000;
+    //    data_size -= 0x1000;
+    //}
+
+
+   /* printf("[VabTrans] voice=%d transferred=%d/%d src_first16: ",
+        voice, g_spu_transferred, g_spu_total_size);
+    for (int i = 0; i < 16; i++) printf("%02X ", src[i]);
+    printf("\n");
+    if (g_spu_transferred > 0 && to_write > 0x1000) 
+    {
+        printf("[VabTrans +1000] ");
+        for (int i = 0x1000; i < 0x1010; i++) printf("%02X ", src[i]);
+        printf("\n");
+    }*/
 
     SpuSetTransferMode(SpuTransByDMA);
     SpuSetTransferStartAddr(spu_addr + g_spu_actual_written);
@@ -43,7 +56,22 @@ void KF_SsVabTransBodyPartly(uint8_t* rdram, recomp_context* ctx)
     g_spu_actual_written += data_size;
     g_spu_transferred += to_write;  // номинальный счётчик для completion
 
-    if (g_spu_transferred >= g_spu_total_size) {
+    if (g_spu_transferred >= g_spu_total_size) 
+    {
+        //// Дампим SPU RAM для каждого VAB
+        //static int vabDumpCount = 0;
+        //char fname[64];
+        //snprintf(fname, sizeof(fname), "spu_ram_vab%d.bin", vabDumpCount++);
+        //FILE* f = fopen(fname, "wb");
+        //if (f) {
+
+        //    fwrite(PsyX_SPUAL_GetMemory(), 1, 0x80000, f);
+        //    fclose(f);
+        //    printf("[DUMP] %s saved (voice=%d spu_base=%08X)\n",
+        //        fname, voice, spu_addr);
+        //}
+
+
         MEM_B(0, 0x8019E6F0 + voice) = 1;
         g_spu_transferred = 0;
         g_spu_actual_written = 0;

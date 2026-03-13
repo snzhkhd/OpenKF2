@@ -171,8 +171,20 @@ void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
         g_cd_pass_count = total;
 
     }
-    else {
-        uint16_t to_read = (sectors > 16) ? 16 : sectors;
+    else 
+    {
+        CdlLOC* current_loc = (CdlLOC*)(stream + 2);
+        int current_lba = KFCD_CdPosToInt(current_loc);
+
+        uint16_t to_read = sectors;
+
+        for (int i = 0; i < to_read; i++) {
+            fseek(g_cdImage, (uint32_t)(current_lba + i) * 2352 + 24, SEEK_SET);
+            fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
+        }
+
+        stream[36] = 1;
+        /*uint16_t to_read = (sectors > 16) ? 16 : sectors;
 
         if (*p_active != g_cd_last_stream || base_lba != g_cd_base_lba) {
             g_cd_last_stream = *p_active;
@@ -190,7 +202,7 @@ void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
             fseek(g_cdImage, (uint32_t)(real_lba + i) * 2352 + 24, SEEK_SET);
             fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
         }
-        g_cd_pass_count += to_read;
+        g_cd_pass_count += to_read;*/
     }
 
     stream[36] = 1;

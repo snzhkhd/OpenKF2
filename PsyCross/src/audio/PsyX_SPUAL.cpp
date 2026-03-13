@@ -779,122 +779,122 @@ typedef enum
 } ADPCM_FLAGS;
 
 
-// Main decoding routine - Takes PSX ADPCM formatted audio data and converts it to PCM. It also extracts the looping information if used.
-//static int decodeSound(u_char* iData, int soundSize, short* oData, int* loopStart, int* loopLength, int breakOnEnd /*= 0*/)
-//{
-//	u_char sp;
-//	u_char flag;
-//	int sd = 0;
-//	float vagPrev1 = 0.0;
-//	float vagPrev2 = 0.0;
-//	int k = 0;
-//
-//	int loopStrt = 0, loopEnd = 0;
-//	int breakOn = -1;
-//
-//	for (int i = 0; i < soundSize; i++)
-//	{
-//		if (i % 16 == 0)
-//		{
-//			sp = iData[i];
-//			flag = iData[i+1];
-//			i += 2;
-//		}
-//
-//		sd = (int)iData[i] & 0xF;
-//		oData[k++] = vagToPcm(sp, sd, &vagPrev1, &vagPrev2);
-//
-//		sd = ((int)iData[i] >> 4) & 0xF;
-//		oData[k++] = vagToPcm(sp, sd, &vagPrev1, &vagPrev2);
-//
-//		if (breakOnEnd && k == breakOn)
-//			return k;
-//
-//		if (breakOn == -1)
-//		{
-//			// flags parsed
-//			if (flag & LoopStart)
-//			{
-//				loopStrt = k + 26; // FIXME: is that correct?
-//			}
-//
-//			if (flag & LoopEnd)
-//			{
-//				loopEnd = k + 26;
-//
-//				if (flag & Repeat)
-//				{
-//					*loopStart = loopStrt;
-//					*loopLength = loopEnd - loopStrt;
-//				}
-//
-//				if (breakOnEnd)
-//					breakOn = k + 26;
-//			}
-//		}
-//	}
-//
-//	return soundSize;
-//}
-
-
-static int decodeSound(u_char* iData, int soundSize, short* oData,
-	int* loopStart, int* loopLength, int breakOnEnd)
+ //Main decoding routine - Takes PSX ADPCM formatted audio data and converts it to PCM. It also extracts the looping information if used.
+static int decodeSound(u_char* iData, int soundSize, short* oData, int* loopStart, int* loopLength, int breakOnEnd /*= 0*/)
 {
-	double s_1 = 0.0;
-	double s_2 = 0.0;
+	u_char sp;
+	u_char flag;
+	int sd = 0;
+	float vagPrev1 = 0.0;
+	float vagPrev2 = 0.0;
 	int k = 0;
-	int loopStrt = 0;
 
-	for (int i = 0; i < soundSize; i += 16)
+	int loopStrt = 0, loopEnd = 0;
+	int breakOn = -1;
+
+	for (int i = 0; i < soundSize; i++)
 	{
-		if (i + 16 > soundSize) break;
-
-		int shift = iData[i] & 0x0F;
-		int filter = (iData[i] >> 4) & 0x0F;
-		u_char flag = iData[i + 1];
-
-		if (filter >= 5) filter = 0;
-
-		if (flag & LoopStart)
-			loopStrt = k;
-
-		for (int j = 2; j < 16; j++)
+		if (i % 16 == 0)
 		{
-			u_char byte = iData[i + j];
-
-			for (int n = 0; n < 2; n++)
-			{
-				int8_t nibble = (n == 0) ? (byte & 0x0F) : (byte >> 4);
-				if (nibble & 0x08) nibble |= 0xF0;
-
-				double sample = (double)((int)nibble << (12 - (shift > 12 ? 12 : shift)));
-				if (shift > 12)
-					sample /= (double)(1 << (shift - 12));
-
-				double output = sample + s_1 * K0[filter] + s_2 * K1[filter];
-				s_2 = s_1;
-				s_1 = output;
-
-				int result = (int)output;
-				if (result > 32767) result = 32767;
-				if (result < -32768) result = -32768;
-				oData[k++] = (short)result;
-			}
+			sp = iData[i];
+			flag = iData[i+1];
+			i += 2;
 		}
 
-		if (breakOnEnd && (flag & LoopEnd))
+		sd = (int)iData[i] & 0xF;
+		oData[k++] = vagToPcm(sp, sd, &vagPrev1, &vagPrev2);
+
+		sd = ((int)iData[i] >> 4) & 0xF;
+		oData[k++] = vagToPcm(sp, sd, &vagPrev1, &vagPrev2);
+
+		if (breakOnEnd && k == breakOn)
+			return k;
+
+		if (breakOn == -1)
 		{
-			if (flag & Repeat)
+			// flags parsed
+			if (flag & LoopStart)
 			{
-				*loopStart = loopStrt;
-				*loopLength = k - loopStrt;
+				loopStrt = k + 26; // FIXME: is that correct?
 			}
-			break;
+
+			if (flag & LoopEnd)
+			{
+				loopEnd = k + 26;
+
+				if (flag & Repeat)
+				{
+					*loopStart = loopStrt;
+					*loopLength = loopEnd - loopStrt;
+				}
+
+				if (breakOnEnd)
+					breakOn = k + 26;
+			}
 		}
 	}
-	return k;
+
+	return soundSize;
 }
+
+
+//static int decodeSound(u_char* iData, int soundSize, short* oData,
+//	int* loopStart, int* loopLength, int breakOnEnd)
+//{
+//	double s_1 = 0.0;
+//	double s_2 = 0.0;
+//	int k = 0;
+//	int loopStrt = 0;
+//
+//	for (int i = 0; i < soundSize; i += 16)
+//	{
+//		if (i + 16 > soundSize) break;
+//
+//		int shift = iData[i] & 0x0F;
+//		int filter = (iData[i] >> 4) & 0x0F;
+//		u_char flag = iData[i + 1];
+//
+//		if (filter >= 5) filter = 0;
+//
+//		if (flag & LoopStart)
+//			loopStrt = k;
+//
+//		for (int j = 2; j < 16; j++)
+//		{
+//			u_char byte = iData[i + j];
+//
+//			for (int n = 0; n < 2; n++)
+//			{
+//				int8_t nibble = (n == 0) ? (byte & 0x0F) : (byte >> 4);
+//				if (nibble & 0x08) nibble |= 0xF0;
+//
+//				double sample = (double)((int)nibble << (12 - (shift > 12 ? 12 : shift)));
+//				if (shift > 12)
+//					sample /= (double)(1 << (shift - 12));
+//
+//				double output = sample + s_1 * K0[filter] + s_2 * K1[filter];
+//				s_2 = s_1;
+//				s_1 = output;
+//
+//				int result = (int)output;
+//				if (result > 32767) result = 32767;
+//				if (result < -32768) result = -32768;
+//				oData[k++] = (short)result;
+//			}
+//		}
+//
+//		if (breakOnEnd && (flag & LoopEnd))
+//		{
+//			if (flag & Repeat)
+//			{
+//				*loopStart = loopStrt;
+//				*loopLength = k - loopStrt;
+//			}
+//			break;
+//		}
+//	}
+//	return k;
+//}
 
 static void UpdateVoiceSample(SPUALVoice* voice)
 {

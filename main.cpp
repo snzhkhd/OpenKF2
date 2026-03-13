@@ -64,8 +64,11 @@ uint8_t rdram[2 * 1024 * 1024] = { 0 };   // 2 MB Основной RAM
 uint8_t g_pad1_buf[34]; 
 uint8_t g_pad2_buf[34];
 
+
+
 int main(int argc, char* argv[] )
 {
+
 
     char appName[] = "King's Field II";
     recomp_context ctx = { 0 };
@@ -110,7 +113,7 @@ int main(int argc, char* argv[] )
 
    // SpuInit();
 
-    KFCD_Init("King's Field2.bin");
+    KFCD_Init("King's Field II.bin");
 
     //InitGeom();
     
