@@ -25,6 +25,14 @@
 
 #define MAX_CONTROLLERS 2		// TODO: multi-tap (2 ports * 5 taps (1st is Direct))
 
+
+
+extern int g_mouseYawOffset;
+extern int g_mousePitchOffset;
+extern const float SENSITIVITY;
+
+extern bool bMouseEnable;
+
 typedef struct PADRAW
 {
 	unsigned char status; // size=0, offset=0

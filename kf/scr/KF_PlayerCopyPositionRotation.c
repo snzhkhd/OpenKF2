@@ -1,9 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
+
 void KF_PlayerCopyPositionRotation(uint8_t* rdram, recomp_context* ctx) 
 {
-    //printf("GatherCameraContext\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -66,7 +66,7 @@ void KF_PlayerCopyPositionRotation(uint8_t* rdram, recomp_context* ctx)
     // jr          $ra
     // sh          $v0, 0x4($a1)
     MEM_H(0X4, ctx->r5) = ctx->r2;
+
     return;
-    // sh          $v0, 0x4($a1)
-    MEM_H(0X4, ctx->r5) = ctx->r2;
+    
 ;}

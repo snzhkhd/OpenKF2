@@ -1,5 +1,8 @@
 # King's Field 2 — PS1→PC Port:
 
+Keyboard\Mouse or gamepad control.
+
+
 ### Dependencies
 - OpenAL-soft (1.21.x or newer)
 - SDL2 (2.0.16 or newer)
@@ -23,7 +26,6 @@ cd vcpkg
 .\vcpkg.exe integrate install
 ```
 ## Unresolved issues
-- Save\Load
 - The EXE is loaded separately from the .bin
 - Minor problems with the menu rendering and maybe something else.
 

@@ -6,7 +6,7 @@
 
 void _SaveProcess(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("[SAVE] called with a1=%d\n", ctx->r4);
+    //printf("[SAVE] called with a1=%d\n", ctx->r4);
 
     int a1 = (int)ctx->r4;
 
@@ -33,7 +33,7 @@ void _SaveProcess(uint8_t* rdram, recomp_context* ctx)
         while (occupied.count(freeSlot)) freeSlot++;
 
         ctx->r4 = freeSlot;
-        printf("[SAVE] NEW → slot %d\n", freeSlot);
+        //printf("[SAVE] NEW → slot %d\n", freeSlot);
     }
 
 

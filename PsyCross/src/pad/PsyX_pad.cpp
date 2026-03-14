@@ -1,4 +1,4 @@
-#include "psx/libpad.h"
+﻿#include "psx/libpad.h"
 #include "psx/libetc.h"
 
 #include "../PsyX_main.h"
@@ -6,11 +6,17 @@
 #include "PsyX/PsyX_public.h"
 
 #include <string.h>
+#include "_context.h"
 
-//extern "C"
-//{
-//
-//}
+int g_mouseAccumX = 0;
+int g_mouseAccumY = 0;
+int g_mouseYawOffset = 0;
+int g_mousePitchOffset = 0;
+const float SENSITIVITY = 4.0f;
+bool bMouseEnable = false;
+
+
+
 extern int g_padCommEnable;
 
 typedef struct
@@ -367,65 +373,94 @@ void PsyX_Pad_UpdateGameControllerInput(SDL_GameController* cont, LPPADRAW pad)
 	pad->analog[3] = (leftY / 256) + 128;
 }
 
+
+
+// Глобальные для мыши
+static int16_t g_mouseYaw = 0;    // абсолютный угол
+static int16_t g_mousePitch = 0;
+static bool g_mouseInitialized = false;
+
 u_short PsyX_Pad_UpdateKeyboardInput()
 {
 	u_short ret = 0xFFFF;
-
-	//Not initialised yet
 	if (g_sdlKeyboardState == NULL)
 		return ret;
-
 	SDL_PumpEvents();
 
-	const PsyXKeyboardMapping& mapping = g_cfg_keyboardMapping;
+	// WASD движение
+	if (g_sdlKeyboardState[SDL_SCANCODE_W] || g_sdlKeyboardState[SDL_SCANCODE_UP] )        ret &= ~0x10;   // Up
+	if (g_sdlKeyboardState[SDL_SCANCODE_S] || g_sdlKeyboardState[SDL_SCANCODE_DOWN])         ret &= ~0x40;   // Down
 
-	if (g_sdlKeyboardState[mapping.kc_square])//Square
-		ret &= ~0x8000;
+	if (g_sdlKeyboardState[SDL_SCANCODE_A] || g_sdlKeyboardState[SDL_SCANCODE_LEFT] )         ret &= ~0x400;  // L1	
+	if (g_sdlKeyboardState[SDL_SCANCODE_D] || g_sdlKeyboardState[SDL_SCANCODE_RIGHT])         ret &= ~0x800;  // R1	
 
-	if (g_sdlKeyboardState[mapping.kc_circle])//Circle
-		ret &= ~0x2000;
 
-	if (g_sdlKeyboardState[mapping.kc_triangle])//Triangle
-		ret &= ~0x1000;
+	// Кнопки
+	if (g_sdlKeyboardState[SDL_SCANCODE_SPACE] 
+		|| g_sdlKeyboardState[SDL_SCANCODE_LSHIFT] 
+		|| g_sdlKeyboardState[SDL_SCANCODE_E] 
+		|| g_sdlKeyboardState[SDL_SCANCODE_F] )     ret &= ~0x2000; // Cross		
 
-	if (g_sdlKeyboardState[mapping.kc_cross])//Cross
-		ret &= ~0x4000;
 
-	if (g_sdlKeyboardState[mapping.kc_l1])//L1
-		ret &= ~0x400;
+	if (g_sdlKeyboardState[SDL_SCANCODE_Q] )         ret &= ~0x1000; // Triangle
 
-	if (g_sdlKeyboardState[mapping.kc_l2])//L2
-		ret &= ~0x100;
+	if (g_sdlKeyboardState[SDL_SCANCODE_RETURN])    ret &= ~0x8;    // Start  Enter
 
-	if (g_sdlKeyboardState[mapping.kc_l3])//L3
-		ret &= ~0x2;
+	if (g_sdlKeyboardState[SDL_SCANCODE_TAB])       ret &= ~0x1;    // Select
 
-	if (g_sdlKeyboardState[mapping.kc_r1])//R1
-		ret &= ~0x800;
+	// L2/R2
+	if (g_sdlKeyboardState[SDL_SCANCODE_1])         ret &= ~0x100;  // L2
+	if (g_sdlKeyboardState[SDL_SCANCODE_3])         ret &= ~0x200;  // R2
 
-	if (g_sdlKeyboardState[mapping.kc_r2])//R2
-		ret &= ~0x200;
+	static bool g_prevF1 = false;
 
-	if (g_sdlKeyboardState[mapping.kc_r3])//R3
-		ret &= ~0x4;
+	bool f1Now = g_sdlKeyboardState[SDL_SCANCODE_F1] ||
+		g_sdlKeyboardState[SDL_SCANCODE_ESCAPE];
+	if (f1Now && !g_prevF1) 
+	{
+		SDL_bool mode = SDL_GetRelativeMouseMode();
+		SDL_SetRelativeMouseMode(mode ? SDL_FALSE : SDL_TRUE);
+		printf("Mouse %s\n", mode ? "Released" : "Captured");
 
-	if (g_sdlKeyboardState[mapping.kc_dpad_up])//UP
-		ret &= ~0x10;
 
-	if (g_sdlKeyboardState[mapping.kc_dpad_down])//DOWN
-		ret &= ~0x40;
+		bMouseEnable = !mode;
+	}
+	g_prevF1 = f1Now;
 
-	if (g_sdlKeyboardState[mapping.kc_dpad_left])//LEFT
-		ret &= ~0x80;
+	
+	// Мышь
+	int mouseX, mouseY;
+	uint32_t mouseBtn = SDL_GetRelativeMouseState(&mouseX, &mouseY);
+	
+	// LMB = Cross
+	if (mouseBtn & SDL_BUTTON(1)) ret &= ~0x4000;
+	// RMB = Square
+	if (mouseBtn & SDL_BUTTON(3)) ret &= ~0x8000;	//Magic
 
-	if (g_sdlKeyboardState[mapping.kc_dpad_right])//RIGHT
-		ret &= ~0x20;
 
-	if (g_sdlKeyboardState[mapping.kc_select])//SELECT
-		ret &= ~0x1;
+	if (bMouseEnable)
+	{
+		const float SENSITIVITY = 1.5f;
 
-	if (g_sdlKeyboardState[mapping.kc_start])//START
-		ret &= ~0x8;
+		if (!g_mouseInitialized) {
+			// Считываем текущий yaw при первом включении
+			g_mouseYaw = (int16_t)MEM_HU(0, 0x8019B5BE);
+			g_mousePitch = (int16_t)MEM_HU(0, 0x8019B5BC);
+			g_mouseInitialized = true;
+		}
+
+		g_mouseYaw -= (int16_t)(mouseX * SENSITIVITY);
+		g_mousePitch += (int16_t)(mouseY * SENSITIVITY);
+		if (g_mousePitch > 800) g_mousePitch = 800;
+		if (g_mousePitch < -800) g_mousePitch = -800;
+
+		// Пишем в БАЗОВЫЙ компонент — PlayerUpdate сам пересчитает финальный
+		MEM_H(0, 0x8019B5BE) = (uint16_t)g_mouseYaw;   // base yaw
+		MEM_H(0, 0x8019B5BC) = (uint16_t)g_mousePitch;  // base pitch
+
+	}
+
+
 
 	return ret;
 }
