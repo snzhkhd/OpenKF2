@@ -1,6 +1,31 @@
 # King's Field 2 — PS1→PC Port:
 
-Keyboard\Mouse or gamepad control.
+## Keyboard & Mouse Controls
+
+The game supports both gamepad and keyboard/mouse input. Press **F1** to toggle mouse capture on/off.
+
+| Key | Action |
+|-----|--------|
+| W / ↑ | Move Forward |
+| S / ↓ | Move Backward |
+| A / ← | Turn Left |
+| D / → | Turn Right |
+| Space / Shift / E / F | Action / Confirm |
+| Q / Escape | Open Menu / Cancel |
+| Enter | Start |
+| Tab | Select |
+| F1 | Toggle Mouse Capture |
+
+**Mouse Controls** (when captured):
+
+| Input | Action |
+|-------|--------|
+| Mouse X | Look Left / Right |
+| Mouse Y | Look Up / Down |
+| Left Click | Attack |
+| Right Click | Cast Magic |
+
+> When mouse is captured, the game switches from tank controls to modern mouse-look. WASD keys still control movement relative to the camera direction.
 
 
 ### Dependencies
@@ -26,9 +51,8 @@ cd vcpkg
 .\vcpkg.exe integrate install
 ```
 ## Unresolved issues
-- The EXE is loaded separately from the .bin
 - Minor problems with the menu rendering and maybe something else.
-
+- sound of water..perhaps there are no others either
 ## General Architecture
 
 **Technology Stack**:

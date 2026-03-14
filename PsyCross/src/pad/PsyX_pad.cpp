@@ -409,10 +409,6 @@ u_short PsyX_Pad_UpdateKeyboardInput()
 
 	if (g_sdlKeyboardState[SDL_SCANCODE_TAB])       ret &= ~0x1;    // Select
 
-	// L2/R2
-	if (g_sdlKeyboardState[SDL_SCANCODE_1])         ret &= ~0x100;  // L2
-	if (g_sdlKeyboardState[SDL_SCANCODE_3])         ret &= ~0x200;  // R2
-
 	static bool g_prevF1 = false;
 
 	bool f1Now = g_sdlKeyboardState[SDL_SCANCODE_F1] ;
