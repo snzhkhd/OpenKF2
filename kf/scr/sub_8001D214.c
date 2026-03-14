@@ -331,7 +331,7 @@ L_8001D390:
     // jal         0x800255E0
     // nop
 
-    sub_800255E0(rdram, ctx);
+    _LoadSaveProcess(rdram, ctx);
     goto after_12;
     // nop
 

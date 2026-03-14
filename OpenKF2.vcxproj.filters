@@ -2370,7 +2370,7 @@
     <ClCompile Include="kf\scr\sub_800255B0.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_800255E0.c">
+    <ClCompile Include="kf\scr\_LoadSaveProcess.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_800260BC.c">
@@ -2652,7 +2652,7 @@
     <ClCompile Include="kf\scr\sub_80025064.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
-    <ClCompile Include="kf\scr\sub_80025700.c">
+    <ClCompile Include="kf\scr\_SaveProcess.c">
       <Filter>Исходные файлы\kf_scr</Filter>
     </ClCompile>
     <ClCompile Include="kf\scr\sub_80026314.c">

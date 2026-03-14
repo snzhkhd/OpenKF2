@@ -679,8 +679,8 @@
     <ClCompile Include="kf\scr\sub_80025064.c" />
     <ClCompile Include="kf\scr\sub_8002536C.c" />
     <ClCompile Include="kf\scr\sub_800255B0.c" />
-    <ClCompile Include="kf\scr\sub_800255E0.c" />
-    <ClCompile Include="kf\scr\sub_80025700.c" />
+    <ClCompile Include="kf\scr\_LoadSaveProcess.c" />
+    <ClCompile Include="kf\scr\_SaveProcess.c" />
     <ClCompile Include="kf\scr\sub_80025C3C.c" />
     <ClCompile Include="kf\scr\sub_80025D40.c" />
     <ClCompile Include="kf\scr\sub_80025D64.c" />

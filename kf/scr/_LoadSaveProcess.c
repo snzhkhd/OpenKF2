@@ -1,7 +1,11 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_800255E0(uint8_t* rdram, recomp_context* ctx) {
+void _LoadSaveProcess(uint8_t* rdram, recomp_context* ctx) 
+{
+  //  ctx->r4 += 1;
+  //  printf("[LoadSave] slot remapped to %d\n", ctx->r4);
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

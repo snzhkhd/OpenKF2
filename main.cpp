@@ -64,7 +64,13 @@ uint8_t rdram[2 * 1024 * 1024] = { 0 };   // 2 MB Основной RAM
 uint8_t g_pad1_buf[34]; 
 uint8_t g_pad2_buf[34];
 
+//mem card
+std::string g_redirectFrom = "";  // оригинальный путь
+std::string g_redirectTo = "";    // перенаправленный путь
 
+const char* MC_SAVE_DIR = "memcard/";
+FILE* g_mcFiles[16] = {};
+int g_mcNextFd = 1;
 
 int main(int argc, char* argv[] )
 {
@@ -111,12 +117,7 @@ int main(int argc, char* argv[] )
     ResetGraph(0);
    
 
-   // SpuInit();
-
     KFCD_Init("King's Field II.bin");
-
-    //InitGeom();
-    
 
    PsyX_BeginScene();
 

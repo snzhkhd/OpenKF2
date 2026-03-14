@@ -1,14 +1,53 @@
-#include "recomp.h"
+﻿#include "recomp.h"
 #include "disable_warnings.h"
+#include <filesystem>
+
+extern std::string g_redirectFrom;  // оригинальный путь
+extern std::string g_redirectTo;    // перенаправленный путь
 
 void MemCard_ScanForSaves(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("MemCard_ScanForSaves bypassed\n");
-    // a1 = &g_KF_SaveCount � ����� �� ���������
-    uint32_t count_ptr = ctx->r5;
-    WRITE_W(count_ptr, 1);  // g_KF_SaveCount = 1, ����� ����� �� while
-    ctx->r2 = 0; 
+    g_redirectFrom.clear();
+    g_redirectTo.clear();
 
+    EnsureMcDir();
+    uint8_t* a1 = (uint8_t*)GET_PTR(ctx->r4);
+    uint32_t* a2 = (uint32_t*)GET_PTR(ctx->r5);
+
+    memset(a1, 0, 600);
+    *a2 = 0;
+
+    uint32_t totalSize = 0;
+    int count = 0;
+    std::string prefix = "BESCES-00510";
+    std::vector<std::pair<std::string, uint32_t>> saves;
+
+    if (std::filesystem::exists(MC_SAVE_DIR)) {
+        for (auto& entry : std::filesystem::directory_iterator(MC_SAVE_DIR)) {
+            if (!entry.is_regular_file()) continue;
+            std::string fname = entry.path().filename().string();
+            if (fname.find("TEMP") != std::string::npos) continue;
+            if (fname.find(prefix) != 0) continue;
+            saves.push_back({ fname, (uint32_t)entry.file_size() });
+        }
+    }
+    std::sort(saves.begin(), saves.end());
+
+    for (int i = 0; i < (int)saves.size() && i < 15; i++) {
+        uint8_t* slot = a1 + i * 40;
+        // Без ремапа — имя как есть
+        strncpy((char*)slot, saves[i].first.c_str(), 20);
+        *(uint32_t*)(slot + 24) = saves[i].second;
+        totalSize += saves[i].second;
+        count++;
+      //  printf("[MC] entry[%d]: '%s' size=%d\n", i, saves[i].first.c_str(), saves[i].second);
+    }
+
+    *a2 = count;
+  //  printf("[MC] ScanForSaves → %d saves\n", count);
+    ctx->r2 = (totalSize > 106496) ? 1 : 0;
+
+//
 //    uint64_t hi = 0, lo = 0, result = 0;
 //    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
 //    int c1cs = 0; 
@@ -307,8 +346,8 @@ void MemCard_ScanForSaves(uint8_t* rdram, recomp_context* ctx)
 //    ctx->r29 = ADD32(ctx->r29, 0X288);
 //    // jr          $ra
 //    // nop
-
-    return;
-    // nop
+//
+//    return;
+//    // nop
 
 ;}

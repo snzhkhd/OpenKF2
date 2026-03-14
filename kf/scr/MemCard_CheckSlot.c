@@ -1,10 +1,28 @@
-#include "recomp.h"
+﻿#include "recomp.h"
 #include "disable_warnings.h"
+#include <filesystem>
+
+
 
 void MemCard_CheckSlot(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("MemCard_CheckSlot bypassed\n");
+    EnsureMcDir();
+  //  printf("[MC] CheckSlot → 0 (OK)\n");
     ctx->r2 = 0;
+    //// Проверяем есть ли папка и можно ли писать
+    //std::string testPath = std::string(MC_SAVE_DIR) + "BESCES-00510TEMP";
+    //FILE* f = fopen(testPath.c_str(), "wb");
+    //if (f) {
+    //    fclose(f);
+    //    std::filesystem::remove(testPath);
+    //    printf("[MC] CheckSlot → card OK\n");
+    //    ctx->r2 = 0; // 0 = карта готова
+    //}
+    //else {
+    //    printf("[MC] CheckSlot → no card\n");
+    //    ctx->r2 = 2; // 2 = нет карты (из оригинала: return 2*(v3==-1))
+    //}
+
 //    uint64_t hi = 0, lo = 0, result = 0;
 //    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
 //    int c1cs = 0; 
@@ -160,8 +178,8 @@ void MemCard_CheckSlot(uint8_t* rdram, recomp_context* ctx)
 //    ctx->r29 = ADD32(ctx->r29, 0X38);
 //    // jr          $ra
 //    // nop
-
-    return;
-    // nop
+//
+//    return;
+//    // nop
 
 ;}

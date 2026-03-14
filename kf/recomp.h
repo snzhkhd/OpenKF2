@@ -8,6 +8,8 @@
 #include "psx/libcd.h" 
 #include "scr/funcs.h"
 
+
+
 inline uint32_t g_spu_transfer_addr = 0;
 inline uint32_t g_spu_total_size = 0;
 inline uint32_t g_spu_transferred = 0;
@@ -27,6 +29,19 @@ extern uint32_t g_CdSyncCbAddr;
 extern bool g_vsync_pending;
 
 extern struct recomp_context* g_ctx;
+
+
+/////////////////////////////////////////////////////
+// Мемкарта — простая файловая эмуляция
+extern const char* MC_SAVE_DIR;
+extern FILE* g_mcFiles[16];
+extern int g_mcNextFd;
+
+
+
+
+void EnsureMcDir();
+/////////////////////////////////////////////////////
 
 
 #define LOOKUP_FUNC(fvram) lookup_recomp_func(fvram)

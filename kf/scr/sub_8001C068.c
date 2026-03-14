@@ -459,7 +459,7 @@ L_8001C28C:
     // jal         0x800255E0
     // nop
 
-    sub_800255E0(rdram, ctx);
+    _LoadSaveProcess(rdram, ctx);
     goto after_18;
     // nop
 

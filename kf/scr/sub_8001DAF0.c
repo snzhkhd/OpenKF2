@@ -260,7 +260,7 @@ L_8001DC00:
     // jal         0x80025700
     // addu        $a0, $s2, $zero
     ctx->r4 = ADD32(ctx->r18, 0);
-    sub_80025700(rdram, ctx);
+    _SaveProcess(rdram, ctx);
     goto after_13;
     // addu        $a0, $s2, $zero
     ctx->r4 = ADD32(ctx->r18, 0);

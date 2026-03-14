@@ -5,12 +5,13 @@
 #include <thread>
 #include <chrono>
 #include <queue>
+#include <cstring>
 #include <filesystem>
 //#include "psx/libcd.h" 
 #include "psx/libetc.h"
 #include "psx/libapi.h"
 #include "psx/gtereg.h"
-#include <string>
+
 #include <unordered_map>
 
 
@@ -33,6 +34,39 @@ static uint32_t g_interp_target = 0;
 
 //stream data
 extern std::unordered_map<uint32_t, uint32_t> g_stream_file_sizes;
+
+
+struct DirEntry {
+    char name[20];
+    uint32_t attr;
+    uint32_t size;
+    uint32_t next;  // для nextfile
+    // 40 байт всего
+};
+static std::vector<std::string> g_dirEntries;
+static int g_dirIndex = 0;
+
+extern std::string g_redirectFrom;  // оригинальный путь
+extern std::string g_redirectTo;    // перенаправленный путь
+
+// bu00:BESCES-00510SAVE1 → memcard/BESCES-00510SAVE1
+std::string McPathToLocal(const char* ps1path) 
+{
+    const char* name = ps1path;
+    if (strncmp(name, "bu00:", 5) == 0 || strncmp(name, "bu10:", 5) == 0)
+        name += 5;
+    std::string result = name;
+    // Убираем пробелы в конце
+    while (!result.empty() && (result.back() == ' ' || result.back() == '\0'))
+        result.pop_back();
+    return std::string(MC_SAVE_DIR) + result;
+}
+
+void EnsureMcDir() 
+{
+    std::filesystem::create_directories(MC_SAVE_DIR);
+}
+
 
 
 void mips_interpret(uint8_t* rdram, recomp_context* ctx, uint32_t start_pc);
@@ -103,7 +137,12 @@ void ps1_bios_dispatcher_A(uint8_t* rdram, recomp_context* ctx)
     uint32_t func_id = ctx->r9; // $t1
 
     //(Memory & Strings)
-    switch (func_id) {
+    switch (func_id) 
+    {
+        case 0x10: // FlushCache
+            ctx->r2 = 0;
+            return;
+
         case 0x15: // strlen (char *src)
             //printf("strlen\n");
             ctx->r2 = strlen((const char*)GET_PTR(ctx->r4));
@@ -284,6 +323,206 @@ void ps1_bios_dispatcher_B(uint8_t* rdram, recomp_context* ctx)
             //ctx->r2 = 0xFFFF; // Нажат START (для теста) или просто 0xFFFF  0xFFFB
             return;
         }
+        //mem card
+        case 0x32: // open(filename, mode)
+        {
+            const char* filename = (const char*)GET_PTR(ctx->r4);
+            uint32_t mode = ctx->r5;
+            EnsureMcDir();
+            std::string path = McPathToLocal(filename);
+
+            const char* fmode = "rb";
+            if (mode & 0x200) fmode = "wb";
+            else if (mode & 0x02) fmode = "r+b";
+
+            FILE* f = fopen(path.c_str(), fmode);
+            if (!f && (mode & 0x200))
+                f = fopen(path.c_str(), "wb");
+
+            if (f) {
+                int fd = g_mcNextFd++;
+                if (g_mcNextFd >= 16) g_mcNextFd = 1;
+                g_mcFiles[fd] = f;
+              /*  printf("[MC] open '%s' → '%s' fd=%d mode=%X\n",
+                    filename, path.c_str(), fd, mode);*/
+                ctx->r2 = fd;
+            }
+            else {
+                printf("[MC] open FAIL '%s'\n", filename);
+                ctx->r2 = (uint32_t)-1;
+            }
+            return;
+        }
+
+        case 0x33: // lseek(fd, offset, seektype)
+        {
+            int fd = ctx->r4;
+            int offset = (int)ctx->r5;
+            int whence = ctx->r6;
+            if (fd > 0 && fd < 16 && g_mcFiles[fd]) {
+                int w = (whence == 0) ? SEEK_SET : (whence == 1) ? SEEK_CUR : SEEK_END;
+                fseek(g_mcFiles[fd], offset, w);
+                ctx->r2 = (uint32_t)ftell(g_mcFiles[fd]);
+            }
+            else {
+                ctx->r2 = (uint32_t)-1;
+            }
+            return;
+        }
+
+        case 0x34: // read(fd, dst, length)
+        {
+            int fd = ctx->r4;
+            uint8_t* dst = (uint8_t*)GET_PTR(ctx->r5);
+            uint32_t len = ctx->r6;
+            if (fd > 0 && fd < 16 && g_mcFiles[fd]) {
+                size_t read = fread(dst, 1, len, g_mcFiles[fd]);
+                /*printf("[MC] read fd=%d len=%d got=%zu\n", fd, len, read);*/
+                ctx->r2 = (uint32_t)read;
+            }
+            else {
+                ctx->r2 = (uint32_t)-1;
+            }
+            return;
+        }
+        case 0x35: // write(fd, src, length)
+        {
+            int fd = ctx->r4;
+            uint8_t* src = (uint8_t*)GET_PTR(ctx->r5);
+            uint32_t len = ctx->r6;
+            if (fd > 0 && fd < 16 && g_mcFiles[fd]) {
+                size_t written = fwrite(src, 1, len, g_mcFiles[fd]);
+                fflush(g_mcFiles[fd]);
+                /*printf("[MC] write fd=%d len=%d wrote=%zu\n", fd, len, written);*/
+                ctx->r2 = (uint32_t)written;
+            }
+            else {
+                printf("[MC] write FAIL fd=%d\n", fd);
+                ctx->r2 = (uint32_t)-1;
+            }
+            return;
+        }
+
+        case 0x36: // close(fd)
+        {
+            int fd = ctx->r4;
+            if (fd > 0 && fd < 16 && g_mcFiles[fd]) {
+                fclose(g_mcFiles[fd]);
+                g_mcFiles[fd] = nullptr;
+               /* printf("[MC] close fd=%d\n", fd);*/
+            }
+            ctx->r2 = 0;
+            return;
+        }
+
+        case 0x37: // write(fd, src, length)
+        {
+            int fd = ctx->r4;
+            uint8_t* src = (uint8_t*)GET_PTR(ctx->r5);
+            uint32_t len = ctx->r6;
+            if (fd > 0 && fd < 16 && g_mcFiles[fd]) {
+                size_t written = fwrite(src, 1, len, g_mcFiles[fd]);
+                fflush(g_mcFiles[fd]);
+                /*printf("[MC] write fd=%d len=%d wrote=%zu\n", fd, len, written);*/
+                ctx->r2 = (uint32_t)written;
+            }
+            else {
+                ctx->r2 = (uint32_t)-1;
+            }
+            return;
+        }
+        case 0x41: // erase(filename)
+        {
+            const char* filename = (const char*)GET_PTR(ctx->r4);
+            std::string path = McPathToLocal(filename);
+            /*printf("[MC] erase '%s'\n", filename);*/
+            try {
+                if (std::filesystem::exists(path))
+                    std::filesystem::remove(path);
+                ctx->r2 = 0;
+            }
+            catch (...) {
+                ctx->r2 = 0;
+            }
+            return;
+        }
+        case 0x42: // firstfile(pattern, direntry)
+        {
+            const char* pattern = (const char*)GET_PTR(ctx->r4);
+            uint8_t* direntry = (uint8_t*)GET_PTR(ctx->r5);
+            EnsureMcDir();
+
+            g_dirEntries.clear();
+            g_dirIndex = 0;
+
+            if (std::filesystem::exists(MC_SAVE_DIR)) {
+                for (auto& entry : std::filesystem::directory_iterator(MC_SAVE_DIR)) {
+                    if (!entry.is_regular_file()) continue;
+                    std::string fname = entry.path().filename().string();
+                    if (fname.find("TEMP") != std::string::npos) continue;
+                    if (fname.find("BESCES") == 0) {
+                        g_dirEntries.push_back(fname);
+                    }
+                }
+            }
+            // Сортируем по имени
+            std::sort(g_dirEntries.begin(), g_dirEntries.end());
+
+            if (g_dirEntries.empty()) {
+                ctx->r2 = 0;
+                return;
+            }
+
+            // PS1 direntry format: 40 bytes
+            // 0-19:  filename (без "bu00:")
+            // 20-23: attr
+            // 24-27: size (в байтах)
+            // 28-31: next ptr (не используется)
+            memset(direntry, 0, 40);
+            // БЕЗ "bu00:"!
+            strncpy((char*)direntry, g_dirEntries[0].c_str(), 20);
+
+            auto fsize = std::filesystem::file_size(
+                std::string(MC_SAVE_DIR) + g_dirEntries[0]);
+            *(uint32_t*)(direntry + 24) = (uint32_t)fsize;
+
+            g_dirIndex = 1;
+           /* printf("[MC] firstfile '%s' → '%s' (%d files)\n",
+                pattern, g_dirEntries[0].c_str(), (int)g_dirEntries.size());*/
+
+            ctx->r2 = ctx->r5;
+            return;
+        }
+
+        case 0x43: // nextfile(direntry)
+        {
+            uint8_t* direntry = (uint8_t*)GET_PTR(ctx->r4);
+
+            if (g_dirIndex >= (int)g_dirEntries.size()) {
+                ctx->r2 = 0;
+                return;
+            }
+
+            memset(direntry, 0, 40);
+            strncpy((char*)direntry, g_dirEntries[g_dirIndex].c_str(), 20);
+
+            auto fsize = std::filesystem::file_size(
+                std::string(MC_SAVE_DIR) + g_dirEntries[g_dirIndex]);
+            *(uint32_t*)(direntry + 24) = (uint32_t)fsize;
+
+            //printf("[MC] nextfile → '%s'\n", g_dirEntries[g_dirIndex].c_str());
+            g_dirIndex++;
+            ctx->r2 = ctx->r4;
+            return;
+        }
+
+        case 0x47: // card_info(port)
+        {
+            printf("[MC] card_info port=%d\n", ctx->r4);
+            ctx->r2 = 2; // 2 = карта вставлена и готова
+            return;
+        }
+
     default:
         break;
     }

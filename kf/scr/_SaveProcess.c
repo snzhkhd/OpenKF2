@@ -1,7 +1,42 @@
-#include "recomp.h"
+﻿#include "recomp.h"
 #include "disable_warnings.h"
+#include <filesystem>
+#include <set>
+#include <string>
 
-void sub_80025700(uint8_t* rdram, recomp_context* ctx) {
+void _SaveProcess(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("[SAVE] called with a1=%d\n", ctx->r4);
+
+    int a1 = (int)ctx->r4;
+
+    if (a1 == 255) {
+        // NEW: найти первый свободный слот
+        EnsureMcDir();
+        std::string prefix = "BESCES-00510";
+        std::set<int> occupied;
+
+        if (std::filesystem::exists(MC_SAVE_DIR)) {
+            for (auto& entry : std::filesystem::directory_iterator(MC_SAVE_DIR)) {
+                if (!entry.is_regular_file()) continue;
+                std::string fname = entry.path().filename().string();
+                if (fname.find(prefix) != 0) continue;
+                if (entry.file_size() == 0) continue;
+                std::string numStr = fname.substr(prefix.size());
+                int num = atoi(numStr.c_str());
+                if (num > 0) occupied.insert(num);
+            }
+        }
+
+        // Найти первый свободный 1-based
+        int freeSlot = 1;
+        while (occupied.count(freeSlot)) freeSlot++;
+
+        ctx->r4 = freeSlot;
+        printf("[SAVE] NEW → slot %d\n", freeSlot);
+    }
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

@@ -368,3 +368,4 @@ FodyWeavers.xsd
 *.tga
 *.raw
 x64/
+memcard/
