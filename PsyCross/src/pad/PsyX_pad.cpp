@@ -380,6 +380,19 @@ static int16_t g_mouseYaw = 0;    // абсолютный угол
 static int16_t g_mousePitch = 0;
 static bool g_mouseInitialized = false;
 
+
+void CapturMouse()
+{
+	SDL_SetRelativeMouseMode(SDL_TRUE);
+	bMouseEnable = true;
+}
+void ReleaseMouse()
+{
+	SDL_SetRelativeMouseMode(SDL_FALSE);
+	bMouseEnable = false;
+}
+
+
 u_short PsyX_Pad_UpdateKeyboardInput()
 {
 	u_short ret = 0xFFFF;

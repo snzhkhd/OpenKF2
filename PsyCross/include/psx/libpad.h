@@ -45,6 +45,9 @@ typedef struct PADRAW
 extern "C" {
 #endif
 
+void CapturMouse();
+void ReleaseMouse();
+
 extern void PadInitDirect(unsigned char* pad1, unsigned char* pad2);
 extern void PadInitMtap(unsigned char* unk00, unsigned char* unk01);
 extern void PadInitGun(unsigned char* unk00, int unk01);

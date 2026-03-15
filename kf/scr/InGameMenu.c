@@ -1,7 +1,23 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libpad.h"
 
-void InGameMenu(uint8_t* rdram, recomp_context* ctx) {
+static bool  bMouseEnableOld = false;
+
+void InGameMenu(uint8_t* rdram, recomp_context* ctx) 
+{
+    if (bMouseEnable)
+    {
+        ReleaseMouse();
+
+        bMouseEnableOld = true;
+    }
+    else
+        bMouseEnableOld = false;
+    
+
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -542,6 +558,13 @@ L_80019970:
     ctx->r29 = ADD32(ctx->r29, 0X40);
     // jr          $ra
     // nop
+
+    if (bMouseEnableOld)
+    {
+        CapturMouse();
+
+        bMouseEnableOld = false;
+    }
 
     return;
     // nop
