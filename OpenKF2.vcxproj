@@ -1137,6 +1137,7 @@
     <ClCompile Include="recomp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CrashHandler.h" />
     <ClInclude Include="gte.h" />
     <ClInclude Include="kf\recomp.h" />
     <ClInclude Include="kf\scr\disable_warnings.h" />

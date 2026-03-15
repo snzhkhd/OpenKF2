@@ -24,6 +24,7 @@ extern "C"
 
 
 }
+#include "CrashHandler.h"
 
 #include <SDL2/SDL.h>
 
@@ -48,7 +49,7 @@ int g_mcNextFd = 1;
 
 int main(int argc, char* argv[] )
 {
-
+    InstallCrashHandler();
 
     char appName[] = "King's Field II";
     recomp_context ctx = { 0 };

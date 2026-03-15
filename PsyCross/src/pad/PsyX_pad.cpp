@@ -456,7 +456,11 @@ u_short PsyX_Pad_UpdateKeyboardInput()
 
 	}
 
-
+	//if (g_sdlKeyboardState[SDL_SCANCODE_F12]) {
+	//	printf("Testing crash handler...\n");
+	//	int* crash = nullptr;
+	//	*crash = 42; // SIGSEGV / Access Violation
+	//}
 
 	return ret;
 }

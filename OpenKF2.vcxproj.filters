@@ -3182,6 +3182,9 @@
     <ClInclude Include="resource1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="CrashHandler.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="kf\scr\recomp_overlays.inl">
