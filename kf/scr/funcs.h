@@ -26,6 +26,7 @@ void sub_80014DB0(uint8_t* rdram, recomp_context* ctx);
 void sub_80014ED4(uint8_t* rdram, recomp_context* ctx);
 void sub_80014FAC(uint8_t* rdram, recomp_context* ctx);
 void RotateMatrixCardinal(uint8_t* rdram, recomp_context* ctx);
+void sub_80015220(uint8_t* rdram, recomp_context* ctx);
 void sub_80015304(uint8_t* rdram, recomp_context* ctx);
 void sub_80015378(uint8_t* rdram, recomp_context* ctx);
 void sub_800153EC(uint8_t* rdram, recomp_context* ctx);

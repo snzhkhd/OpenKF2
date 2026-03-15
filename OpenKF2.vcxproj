@@ -617,6 +617,7 @@
     <ClCompile Include="kf\scr\sub_80014DB0.c" />
     <ClCompile Include="kf\scr\sub_80014ED4.c" />
     <ClCompile Include="kf\scr\sub_80014FAC.c" />
+    <ClCompile Include="kf\scr\sub_80015220.cpp" />
     <ClCompile Include="kf\scr\sub_80015304.c" />
     <ClCompile Include="kf\scr\sub_80015378.c" />
     <ClCompile Include="kf\scr\sub_800153EC.c" />

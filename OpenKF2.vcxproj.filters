@@ -3030,6 +3030,9 @@
     <ClCompile Include="gte.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="kf\scr\sub_80015220.cpp">
+      <Filter>Исходные файлы\kf_scr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kf_cd.h">

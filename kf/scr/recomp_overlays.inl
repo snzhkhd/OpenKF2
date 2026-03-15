@@ -33,6 +33,7 @@ static FuncEntry section_1_text_funcs[] = {
     { .func = sub_80014ED4, .offset = 0x00004ed4 },
     { .func = sub_80014FAC, .offset = 0x00004fac },
     { .func = RotateMatrixCardinal, .offset = 0x00004ffc },
+    { .func = sub_80015220, .offset = 0x00005220 }, //80015220
     { .func = sub_80015304, .offset = 0x00005304 },
     { .func = sub_80015378, .offset = 0x00005378 },
     { .func = sub_800153EC, .offset = 0x000053ec },
