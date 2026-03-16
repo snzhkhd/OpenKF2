@@ -386,11 +386,13 @@ void CapturMouse()
 {
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 	bMouseEnable = true;
+	SDL_ShowCursor(0);
 }
 void ReleaseMouse()
 {
 	SDL_SetRelativeMouseMode(SDL_FALSE);
 	bMouseEnable = false;
+	SDL_ShowCursor(1);
 }
 
 bool IsKeyPressed(int key)

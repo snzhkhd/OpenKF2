@@ -657,7 +657,7 @@ void PsyX_Initialise(char* appName, int width, int height, int fullscreen)
 	atexit(PsyX_Shutdown);
 
 	// disable cursor visibility
-	SDL_ShowCursor(0);
+	//SDL_ShowCursor(0);
 }
 
 void PsyX_GetScreenSize(int* screenWidth, int* screenHeight)
@@ -800,6 +800,30 @@ char PsyX_BeginScene()
 
 	GR_BeginScene();
 
+	// Aspect ratio correction
+	{
+		int windowW, windowH;
+		SDL_GetWindowSize(g_window, &windowW, &windowH);
+
+		const float targetAspect = 4.0f / 3.0f;
+		float windowAspect = (float)windowW / (float)windowH;
+
+		int vpX, vpY, vpW, vpH;
+		if (windowAspect > targetAspect) {
+			vpH = windowH;
+			vpW = (int)(windowH * targetAspect);
+			vpX = (windowW - vpW) / 2;
+			vpY = 0;
+		}
+		else {
+			vpW = windowW;
+			vpH = (int)(windowW / targetAspect);
+			vpX = 0;
+			vpY = (windowH - vpH) / 2;
+		}
+		GR_SetViewPort(vpX, vpY, vpW, vpH);
+	}
+
 	if (activeDrawEnv.isbg)
 	{
 		const RECT16 clipenv = activeDrawEnv.clip;
@@ -837,6 +861,10 @@ void PsyX_EndScene()
 
 	GR_StoreFrameBuffer(activeDispEnv.disp.x, activeDispEnv.disp.y, activeDispEnv.disp.w, activeDispEnv.disp.h);
 
+	// Чёрные полосы
+	int windowW, windowH;
+	SDL_GetWindowSize(g_window, &windowW, &windowH);
+	GR_SetViewPort(0, 0, windowW, windowH);
 
 	GR_SwapWindow();
 }

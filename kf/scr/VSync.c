@@ -11,7 +11,7 @@
 
 
 static auto g_lastFrameTime = std::chrono::steady_clock::now();
-const double FRAME_INTERVAL = 1.0 / 24.0; 
+const double FRAME_INTERVAL = 1.0 / 20.0; 
 
 static auto g_lastSeqTime = std::chrono::steady_clock::now();
 static double g_seqAccumulator = 0.0;
