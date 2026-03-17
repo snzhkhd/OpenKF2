@@ -593,9 +593,11 @@ L_80019970:
     }
 
 
-    //WRITE_H(0x8019B58D, 1);
-    //WRITE_H(0x8019B58E, 1);
+   /* WRITE_H(0x8019B58D, 1);
+    WRITE_H(0x8019B58E, 1);*/
 
+    //rdram[0x19B58D] = 1;
+    //rdram[0x19B58E] = 1;
 
     return;
     // nop

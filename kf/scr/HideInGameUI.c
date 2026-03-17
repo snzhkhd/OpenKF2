@@ -3,9 +3,23 @@
 #include "psx/libpad.h"
 #include "PsyX/PsyX_render.h"
 
+
+extern bool g_forceSaveNextFrame;
+
+
 void HideInGameUI(uint8_t* rdram, recomp_context* ctx) 
 {
 
+    //rdram[0x19B58D] = 0;
+    //rdram[0x19B58E] = 0;
+    //
+    //uint8_t isbg = rdram[0x190178];
+
+    //uint8_t hpmp = rdram[0x19B58D];
+    //uint8_t compas = rdram[0x19B58E];
+
+
+    //printf("after GpuUpdate isbg = %d,  hpmp= %d,  compas=%d\n", isbg, hpmp, compas);
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
@@ -42,14 +56,15 @@ void HideInGameUI(uint8_t* rdram, recomp_context* ctx)
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
 
+   
 
-
-    //WRITE_H(0x8019B58D, 0);
-    //WRITE_H(0x8019B58E, 0);
-
+    g_forceSaveNextFrame = true;
     KF_GpuUpdate(rdram, ctx);
 
-  
+    g_forceSaveNextFrame = false;
+
+    
+    
     goto after_0;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
@@ -85,9 +100,6 @@ after_0:
     ctx->r29 = ADD32(ctx->r29, 0X20);
     // jr          $ra
     // nop
-
-   
-
 
     return;
     // nop

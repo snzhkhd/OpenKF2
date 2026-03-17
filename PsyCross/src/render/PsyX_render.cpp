@@ -1556,7 +1556,9 @@ void GR_SetOffscreenState(const RECT16* offscreenRect, int enable)
 static GLuint g_savedFBO = 0;
 static GLuint g_savedFBOTex = 0;
 static int g_savedFBOW = 0, g_savedFBOH = 0;
-static bool g_hasSavedFrame = false;
+
+bool g_hasSavedFrame = false;
+bool g_forceSaveNextFrame = false;
 
 void GR_ResetPrevFrame()
 {
@@ -1568,12 +1570,12 @@ void GR_ResetPrevFrame()
 
 void GR_SaveFrameToFBO()
 {
-	//if (g_hasSavedFrame)	return;
+	
 	extern uint8_t rdram[];
 	uint8_t isbg = rdram[0x190178];
-	if (!isbg)	return;
 
-
+	//// Сохраняем если: обычный кадр (isbg) ИЛИ принудительно
+	if (!isbg && !g_forceSaveNextFrame) return;
 
 	int w = g_windowWidth;
 	int h = g_windowHeight;
@@ -1582,7 +1584,6 @@ void GR_SaveFrameToFBO()
 		glGenFramebuffers(1, &g_savedFBO);
 		glGenTextures(1, &g_savedFBOTex);
 	}
-
 	if (w != g_savedFBOW || h != g_savedFBOH) {
 		glBindTexture(GL_TEXTURE_2D, g_savedFBOTex);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
@@ -1598,7 +1599,6 @@ void GR_SaveFrameToFBO()
 		g_savedFBOH = h;
 	}
 
-	// Blit backbuffer → наш FBO
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, g_savedFBO);
 	glBlitFramebuffer(0, 0, w, h, 0, 0, w, h, GL_COLOR_BUFFER_BIT, GL_NEAREST);
@@ -1610,7 +1610,7 @@ void GR_SaveFrameToFBO()
 
 void GR_RestoreSavedFrame()
 {
-	if (!g_hasSavedFrame) return;
+//	if (!g_hasSavedFrame) return;
 
 	// Blit наш FBO → backbuffer
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, g_savedFBO);

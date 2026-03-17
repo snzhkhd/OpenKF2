@@ -4,6 +4,8 @@
 
 The game supports both gamepad and keyboard/mouse input. Press **F1** to toggle mouse capture on/off.
 
+Press **F3** to toggle widescreen..
+
 | Key | Action |
 |-----|--------|
 | W / ↑ | Move Forward |

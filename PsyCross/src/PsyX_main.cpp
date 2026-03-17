@@ -770,6 +770,7 @@ void UpdateWidescreenScale()
 	g_widescreenScale = windowAspect / originalAspect;
 }
 
+extern bool g_hasSavedFrame;
 char PsyX_BeginScene()
 {
 	/// fix me
@@ -778,14 +779,15 @@ char PsyX_BeginScene()
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	if (!isbg) {
+	if (!isbg && g_hasSavedFrame)
+	{
 		GR_RestoreSavedFrame();
-		//	glClear(GL_DEPTH_BUFFER_BIT);
+
 	}
-	else
+	/*else
 	{
 		GR_ResetPrevFrame();
-	}
+	}*/
 
 	
 	PsyX_Sys_DoPollEvent();
@@ -865,7 +867,7 @@ char PsyX_BeginScene()
 	}
 	//
 
-	if (activeDrawEnv.isbg)
+	if (activeDrawEnv.isbg )
 	{
 		const RECT16 clipenv = activeDrawEnv.clip;
 		const u_char r = activeDrawEnv.r0;
@@ -876,7 +878,6 @@ char PsyX_BeginScene()
 		//GR_ClearVRAM(clipenv.x, clipenv.y, clipenv.w, clipenv.h, r, g, b);
 		GR_Clear(clipenv.x, clipenv.y, clipenv.w, clipenv.h, r, g, b);
 
-		printf("clear isbg\n");
 	}
 
 	begin_scene_flag = 1;
@@ -905,11 +906,10 @@ void PsyX_EndScene()
 	GR_StoreFrameBuffer(activeDispEnv.disp.x, activeDispEnv.disp.y, activeDispEnv.disp.w, activeDispEnv.disp.h);
 
 	// Чёрные полосы
-	/*int windowW, windowH;
+	int windowW, windowH;
 	SDL_GetWindowSize(g_window, &windowW, &windowH);
-	GR_SetViewPort(0, 0, windowW, windowH);*/
+	GR_SetViewPort(0, 0, windowW, windowH);
 
-	// Сохраняем каждый кадр
 	GR_SaveFrameToFBO();
 
 	GR_SwapWindow();

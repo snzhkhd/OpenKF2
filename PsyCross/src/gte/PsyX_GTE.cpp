@@ -393,12 +393,12 @@ int GTE_RotTransPers(int idx, int lm)
 	C2_SZ2 = C2_SZ3;
 	C2_SZ3 = Lm_D(m_mac3, 1);
 
-	/*h_over_sz3 = Lm_E(gte_divide(C2_H, C2_SZ3));
-	C2_SXY0 = C2_SXY1;
-	C2_SXY1 = C2_SXY2;
-	
-	C2_SX2 = Lm_G1(F((long long)C2_OFX + ((long long)C2_IR1 * h_over_sz3)) >> 16);
-	C2_SY2 = Lm_G2(F((long long)C2_OFY + ((long long)C2_IR2 * h_over_sz3)) >> 16);*/
+	//h_over_sz3 = Lm_E(gte_divide(C2_H, C2_SZ3));
+	//C2_SXY0 = C2_SXY1;
+	//C2_SXY1 = C2_SXY2;
+	//
+	//C2_SX2 = Lm_G1(F((long long)C2_OFX + ((long long)C2_IR1 * h_over_sz3)) >> 16);
+	//C2_SY2 = Lm_G2(F((long long)C2_OFY + ((long long)C2_IR2 * h_over_sz3)) >> 16);
 
 
 	// Widescreen: уменьшаем H для более широкого FOV
@@ -459,7 +459,7 @@ int GTE_RotTransPers(int idx, int lm)
 	PGXP_EmitCacheData(&vdata);
 #endif
 
-//	return h_over_sz3;
+	//return h_over_sz3;
 }
 
 int GTE_operator(int op)
